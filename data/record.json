@@ -4,12 +4,12 @@
       "no": 1,
       "price": 126300,
       "price_date": "2026-09-08",
-      "return_pct": -0.16,
+      "return_pct": 0.0,
       "status": "보유 중",
       "closed": false,
       "bench_entry": 6954.52001953125,
       "bench_return_pct": 0.0,
-      "alpha_pp": -0.16
+      "alpha_pp": 0.0
     }
   },
   "benchmark": {
@@ -17,5 +17,5 @@
     "date": "2026-09-08",
     "close": 6954.52001953125
   },
-  "updated_at": "2026-09-08 19:43 KST"
+  "updated_at": "2026-09-08 19:47 KST"
 }
