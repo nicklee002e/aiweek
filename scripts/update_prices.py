@@ -23,22 +23,32 @@ BENCHMARK = "^KS11"  # 코스피 지수
 # ---------------------------------------------------------------- 시세 수집
 # 교체 지점: yfinance 가 막히면 이 함수 하나만 바꾸면 된다.
 # 대안 — 한국투자증권 KIS Developers 오픈API (앱키 필요, 공식)
-def fetch_closes(tickers):
-    """{ticker: (date_str, close)} 반환. 실패한 종목은 키를 넣지 않는다."""
+def fetch_series(tickers, period="6mo"):
+    """{ticker: {날짜문자열: 종가}} 반환. 실패한 종목은 키를 넣지 않는다."""
     import yfinance as yf
 
     out = {}
     for t in tickers:
         try:
-            hist = yf.Ticker(t).history(period="10d")
+            hist = yf.Ticker(t).history(period=period)
             if hist.empty:
                 print(f"  [warn] {t}: 데이터 없음", file=sys.stderr)
                 continue
-            last = hist.iloc[-1]
-            out[t] = (str(hist.index[-1].date()), float(last["Close"]))
+            out[t] = {str(d.date()): float(c) for d, c in hist["Close"].items()}
         except Exception as e:
             print(f"  [warn] {t}: {e}", file=sys.stderr)
     return out
+
+
+def close_on_or_before(series, date_str):
+    """기준일 종가. 그날이 휴장이면 직전 거래일 종가를 쓴다."""
+    days = sorted(d for d in series if d <= date_str)
+    return (days[-1], series[days[-1]]) if days else (None, None)
+
+
+def latest(series):
+    d = max(series)
+    return d, series[d]
 
 
 # ---------------------------------------------------------------- 판정
@@ -72,30 +82,34 @@ def main():
 
     tickers = sorted({p["ticker"] for p in open_picks} | {BENCHMARK})
     print(f"조회: {', '.join(tickers)}")
-    closes = fetch_closes(tickers)
+    series = fetch_series(tickers)
 
-    if BENCHMARK not in closes:
+    if BENCHMARK not in series:
         print("[error] 벤치마크 조회 실패 — 이번 회차는 갱신하지 않는다", file=sys.stderr)
         return 1
 
-    bench_date, bench_close = closes[BENCHMARK]
+    bench_date, bench_close = latest(series[BENCHMARK])
     record["benchmark"] = {"ticker": BENCHMARK, "date": bench_date, "close": bench_close}
 
     changed = 0
     for p in open_picks:
         key = str(p["no"])
-        if p["ticker"] not in closes:
+        if p["ticker"] not in series:
             continue
-        date_str, price = closes[p["ticker"]]
+        date_str, price = latest(series[p["ticker"]])
         status, closed = judge(p, price)
         entry = p["entry"]
         ret = (price / entry - 1) * 100
 
         prev = entries.get(key, {})
-        # 벤치마크 기준값은 최초 1회만 기록하고 이후 고정한다
+        # 벤치마크 기준값은 픽의 기준일(금요일) 종가로 고정한다.
+        # 크론이 하루 걸러도 기준점이 흔들리지 않아야 비교가 공정하다.
         bench_entry = prev.get("bench_entry")
         if bench_entry is None:
-            bench_entry = bench_close
+            basis = p.get("basis_date", p["date"])
+            bd, bc = close_on_or_before(series[BENCHMARK], basis)
+            bench_entry = bc if bc is not None else bench_close
+            print(f"    벤치마크 기준일 {bd or '(없음)'} 종가 {bench_entry:,.2f}")
         bench_ret = (bench_close / bench_entry - 1) * 100
 
         entries[key] = {

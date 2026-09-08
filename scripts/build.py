@@ -99,6 +99,11 @@ tr.now td{color:var(--muted)}
 
 .empty{color:var(--muted);font-size:14.5px;padding:18px;border:1px dashed var(--line);
   border-radius:8px;text-align:center}
+.notice{font-size:13.5px;line-height:1.65;color:var(--muted);background:var(--bg);
+  border-left:3px solid var(--accent);border-radius:0 6px 6px 0;padding:11px 14px;margin:0 0 18px}
+.schedule{font-size:13.5px;color:var(--muted);margin:14px 0 0;padding-top:12px;
+  border-top:1px solid var(--line)}
+.schedule strong{color:var(--accent)}
 
 ol.rules{padding-left:20px;margin:0}
 ol.rules li{margin-bottom:9px}
@@ -126,10 +131,10 @@ INTRO = """
 """
 
 RULES = [
-    ("매주 한 종목.", "게재일 종가를 진입가로 기록합니다."),
-    ("목표는 미리 공개합니다.", "1차·2차 익절가와 손절가를 게재 시점에 밝히고, 이후에는 바꾸지 않습니다."),
+    ("매주 한 종목, 월요일 오전 8시.", "직전 금요일 종가를 기준가로 삼고, 월요일 아침에 공개합니다."),
+    ("매수 조건과 목표를 미리 공개합니다.", "매수 시점, 1차·2차 익절가, 손절가를 공개 시점에 모두 밝히고 이후에는 바꾸지 않습니다."),
     ("판정은 종가 기준입니다.", "손절가를 종가로 밑돌면 그 자리에서 손실을 확정해 기록합니다. 장중에 잠깐 스친 가격은 세지 않습니다."),
-    ("성적은 매일 갱신됩니다.", "코스피 같은 기간 수익률과 나란히 놓습니다."),
+    ("성적은 매일 갱신됩니다.", "기준가 대비 수익률을 코스피 같은 기간 수익률과 나란히 놓습니다."),
     ("모든 회차는 영구 보존합니다.", "삭제도 수정도 하지 않습니다."),
 ]
 
@@ -158,7 +163,9 @@ def render_pick(p, rec):
         f'<span class="pick-name">{p["name"]}</span>',
         f'<span class="pick-code">{p["code"]}</span>',
         "</div>",
-        f'<div class="pick-date">게재 {p["date"]} · 진입가 {won(entry)}원</div>',
+        f'<div class="pick-date">기준일 {p.get("basis_date", p["date"])} 종가 {won(entry)}원'
+        f' · 공개 {p["date"]}</div>',
+        (f'<div class="notice">{p["note"]}</div>' if p.get("note") else ""),
         f'<p class="lede">{p["lede"]}</p>',
         '<div class="tbl-scroll"><table><thead><tr>',
         "<th>구분</th><th>가격</th><th>진입가 대비</th><th>적용 PER</th>",
@@ -189,6 +196,10 @@ def render_pick(p, rec):
 
     html.append(f'<div class="block"><h3>매수 이유</h3><p>{p["buy"]}</p></div>')
     html.append(f'<div class="block"><h3>위험 요소</h3><p>{p["risk"]}</p></div>')
+    if p.get("buy_rule"):
+        html.append(
+            f'<div class="block"><h3>매수 시점</h3><p>{p["buy_rule"]}</p></div>'
+        )
 
     html.append('<div class="targets">')
     for cls, lb, val in [
@@ -317,6 +328,7 @@ def main():
   <h2 class="sec">실험의 규칙</h2>
   <p style="margin:0 0 14px">미리 정해 두고 시작합니다. 실험이 실험이려면 규칙이 결과보다 먼저 있어야 하니까요.</p>
   <ol class="rules">{rules_html}</ol>
+  <p class="schedule">발행 일정 — 매주 <strong>금요일 종가</strong>를 기준으로 분석하고, 다음 <strong>월요일 오전 8시</strong>에 공개합니다. 성적은 그날부터 평일 장 마감 후 매일 갱신됩니다.</p>
 </section>
 
 <section>
