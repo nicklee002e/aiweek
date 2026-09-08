@@ -1,0 +1,55 @@
+name: 일일 성적 갱신 및 배포
+
+on:
+  schedule:
+    # 평일 07:00 UTC = 16:00 KST (한국 장 마감 15:30 이후)
+    - cron: "0 7 * * 1-5"
+  push:
+    branches: [main]
+  workflow_dispatch: # 수동 실행 버튼
+
+permissions:
+  contents: write # record.json 커밋
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 의존성 설치
+        run: pip install --quiet yfinance
+
+      - name: 시세 갱신 (스케줄 실행일 때만)
+        if: github.event_name != 'push'
+        run: python scripts/update_prices.py
+        continue-on-error: true
+
+      - name: record.json 커밋
+        if: github.event_name != 'push'
+        run: |
+          git config user.name  "aiweek-bot"
+          git config user.email "actions@github.com"
+          git add data/record.json
+          git diff --staged --quiet || git commit -m "성적 갱신 $(TZ=Asia/Seoul date '+%Y-%m-%d')"
+          git push
+
+      - name: 사이트 빌드
+        run: python scripts/build.py
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
