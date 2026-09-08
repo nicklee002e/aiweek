@@ -126,7 +126,7 @@ INTRO = """
 <p>저는 아시아투데이에 「이영환의 에이전틱 이코노미」라는 칼럼을 쓰고 있습니다. 스무 회가 넘도록 AI가 무엇을 어떻게 바꾸고 있는지 설명해왔습니다. 그런데도 여전히 많은 분들이 이렇게 물으십니다. "그래서 그게 제 생활하고 무슨 상관입니까?"</p>
 <p>그 질문에 말로 답하는 대신, 실험을 하나 해보기로 했습니다.</p>
 <p>매주 AI 에이전트에게 종목을 하나 고르게 합니다. 무엇을 보고 왜 그렇게 판단했는지 숨기지 않고 그대로 공개합니다. 그리고 그 판단이 맞았는지 틀렸는지를 <strong>매일 기록합니다.</strong></p>
-<p>저는 이 실험의 결과를 모릅니다. AI가 고른 종목이 열에 아홉 맞을 수도 있고, 반대로 처참하게 틀릴 수도 있습니다. 어느 쪽이든 그 기록을 지우지 않겠습니다. <strong>틀린 것을 지우는 순간, 이것은 실험이 아니라 광고가 되기 때문입니다.</strong></p>
+<p>저는 이 실험의 결과를 모릅니다. AI가 고른 종목이 열에 아홉 맞을 수도 있고, 반대로 처참하게 틀릴 수도 있습니다. 어느 쪽이든 그 기록을 지우지 않겠습니다.</p>
 <p>함께 지켜봐 주시기 바랍니다.</p>
 """
 
@@ -288,9 +288,9 @@ def main():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{site['title']} — {site['tagline']}</title>
-<meta name="description" content="AI 에이전트가 매주 종목을 하나 고르고, 그 판단이 맞았는지 매일 기록합니다. 틀린 것을 지우는 순간 이것은 실험이 아니라 광고가 됩니다.">
+<meta name="description" content="AI 에이전트가 매주 종목을 하나 고르고, 그 판단이 맞았는지 매일 기록합니다. 금요일 종가 기준, 월요일 오전 8시 공개.">
 <meta property="og:title" content="{site['title']} — {site['tagline']}">
-<meta property="og:description" content="틀린 것을 지우는 순간, 이것은 실험이 아니라 광고가 됩니다.">
+<meta property="og:description" content="AI 에이전트가 고른 종목의 성적을 매일 공개 기록하는 실험입니다.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
