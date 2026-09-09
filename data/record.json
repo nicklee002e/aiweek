@@ -2,20 +2,20 @@
   "entries": {
     "1": {
       "no": 1,
-      "price": 126300,
-      "price_date": "2026-09-08",
-      "return_pct": -0.39,
+      "price": 126100,
+      "price_date": "2026-09-09",
+      "return_pct": -0.55,
       "status": "보유 중",
       "closed": false,
       "bench_entry": 6687.2099609375,
-      "bench_return_pct": 4.0,
-      "alpha_pp": -4.39
+      "bench_return_pct": 5.45,
+      "alpha_pp": -6.0
     }
   },
   "benchmark": {
     "ticker": "^KS11",
-    "date": "2026-09-08",
-    "close": 6954.52001953125
+    "date": "2026-09-09",
+    "close": 7051.64013671875
   },
-  "updated_at": "2026-09-08 19:58 KST"
+  "updated_at": "2026-09-09 21:12 KST"
 }
