@@ -2,8 +2,10 @@ name: 일일 성적 갱신 및 배포
 
 on:
   schedule:
-    # 평일 07:00 UTC = 16:00 KST (한국 장 마감 15:30 이후)
+    # 평일 07:00 UTC = 16:00 KST (한국 장 마감 15:30 이후) — 성적 갱신
     - cron: "0 7 * * 1-5"
+    # 일 23:00 UTC = 월 08:00 KST — 새 회차 공개
+    - cron: "0 23 * * 0"
   push:
     branches: [main]
   workflow_dispatch: # 수동 실행 버튼
@@ -33,7 +35,7 @@ jobs:
       - name: 시세 갱신 (스케줄 실행일 때만)
         if: github.event_name != 'push'
         run: python scripts/update_prices.py
-        continue-on-error: true
+        continue-on-error: true # 시세 실패해도 기존 record 로 배포는 계속
 
       - name: record.json 커밋
         if: github.event_name != 'push'
