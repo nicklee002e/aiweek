@@ -263,8 +263,16 @@ def render_record(picks, entries):
 
 def main():
     picks_doc = json.load(open(os.path.join(ROOT, "data", "picks.json"), encoding="utf-8"))
-    picks = sorted(picks_doc["picks"], key=lambda p: p["no"], reverse=True)
+    all_picks = sorted(picks_doc["picks"], key=lambda p: p["no"], reverse=True)
     site = picks_doc["site"]
+
+    # 공개일이 오지 않은 회차는 아직 내보내지 않는다.
+    # 파일에는 미리 들어가 있으므로, 커밋 시각이 '공개 전에 써 두었다'는 증거가 된다.
+    today = datetime.now(KST).strftime("%Y-%m-%d")
+    picks = [p for p in all_picks if p["date"] <= today]
+    upcoming = [p for p in all_picks if p["date"] > today]
+    if not picks:
+        raise SystemExit("공개된 회차가 없습니다 — picks.json 의 date 를 확인하십시오.")
 
     rec_path = os.path.join(ROOT, "data", "record.json")
     record = json.load(open(rec_path, encoding="utf-8")) if os.path.exists(rec_path) else {}
@@ -282,6 +290,12 @@ def main():
         else '<div class="empty">아직 지난 회차가 없습니다.</div>'
     )
     stamp = record.get("updated_at") or datetime.now(KST).strftime("%Y-%m-%d %H:%M KST")
+    next_html = (
+        f'<p class="schedule">다음 회차(제{upcoming[-1]["no"]}회)는 '
+        f'<strong>{upcoming[-1]["date"]} 월요일 오전 8시</strong>에 공개됩니다.</p>'
+        if upcoming
+        else ""
+    )
 
     html = f"""<!doctype html>
 <html lang="ko"><head>
@@ -315,6 +329,7 @@ def main():
   <p class="eyebrow">This Week</p>
   <h2 class="sec">이번 주의 종목</h2>
   {render_pick(latest, entries.get(str(latest['no']), {}))}
+  {next_html}
 </section>
 
 <section>

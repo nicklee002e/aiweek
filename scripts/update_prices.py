@@ -65,7 +65,12 @@ def judge(pick, price):
 
 
 def main():
-    picks = json.load(open(PICKS, encoding="utf-8"))["picks"]
+    today = datetime.now(KST).strftime("%Y-%m-%d")
+    # 공개 전 회차는 추적하지 않는다 (사이트에도 아직 안 나간다)
+    picks = [p for p in json.load(open(PICKS, encoding="utf-8"))["picks"] if p["date"] <= today]
+    if not picks:
+        print("공개된 회차가 없습니다 — 갱신할 것이 없음")
+        return 0
 
     record = {"entries": {}}
     if os.path.exists(RECORD):
