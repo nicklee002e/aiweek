@@ -101,6 +101,17 @@ tr.now td{color:var(--muted)}
   border-radius:8px;text-align:center}
 .notice{font-size:13.5px;line-height:1.65;color:var(--muted);background:var(--bg);
   border-left:3px solid var(--accent);border-radius:0 6px 6px 0;padding:11px 14px;margin:0 0 18px}
+.preface{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:0 10px 10px 0;padding:18px 20px;margin:0 0 20px;font-size:15.5px;line-height:1.75}
+.preface b{display:block;font-family:"Noto Serif KR",Georgia,serif;font-size:14px;
+  color:var(--accent);margin-bottom:7px;letter-spacing:.02em}
+.preface a{font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.prev-nav{font-size:13.5px;color:var(--muted);margin:22px 0 0;padding-top:14px;
+  border-top:1px solid var(--line);line-height:2}
+.prev-nav .lb{font-weight:700;letter-spacing:.06em;font-size:11.5px;text-transform:uppercase;
+  margin-right:8px}
+.prev-nav a{text-decoration:underline;text-underline-offset:3px;color:var(--ink)}
+.prev-nav .sep{opacity:.4;margin:0 7px}
 .schedule{font-size:13.5px;color:var(--muted);margin:14px 0 0;padding-top:12px;
   border-top:1px solid var(--line)}
 .schedule strong{color:var(--accent)}
@@ -157,7 +168,7 @@ def render_pick(p, rec):
         ("AI 산출 적정주가", v["ai_fair"], "hl"),
     ]
     html = [
-        '<div class="card">',
+        f'<div class="card" id="r{p["no"]}">',
         '<div class="pick-head">',
         f'<span class="pick-no">제{p["no"]}회</span>',
         f'<span class="pick-name">{p["name"]}</span>',
@@ -224,6 +235,52 @@ def render_pick(p, rec):
     return "".join(html)
 
 
+def perf_phrase(p, rec):
+    """지난 회차를 링크와 현재 성적으로 한 구절에 담는다."""
+    link = f'<a href="#r{p["no"]}">제{p["no"]}회 {p["name"]}</a>'
+    if not rec:
+        return f"{link}은 아직 집계 전입니다."
+    r, a = rec["return_pct"], rec["alpha_pp"]
+    return (
+        f'{link}은 지금 <span class="{tone(r)}">{pct(r)}</span>, '
+        f'코스피 대비 <span class="{tone(a)}">{a:+.1f}%p</span>입니다.'
+    )
+
+
+def render_preface(text, past, entries):
+    if not text:
+        return ""
+    if "{{prev}}" in text:
+        prev = (
+            perf_phrase(past[0], entries.get(str(past[0]["no"]), {}))
+            if past
+            else ""
+        )
+        text = text.replace("{{prev}}", prev)
+    return f'<div class="preface"><b>필자의 말</b>{text}</div>'
+
+
+def render_prev_nav(past, entries):
+    if not past:
+        return ""
+    items = []
+    for p in past:
+        rec = entries.get(str(p["no"]), {})
+        tail = ""
+        if rec:
+            r = rec["return_pct"]
+            tail = f' <span class="{tone(r)}">{pct(r)}</span>'
+        items.append(
+            f'<a href="#r{p["no"]}">제{p["no"]}회 {p["name"]}</a>'
+            f'<span style="opacity:.6"> · {p["date"]}</span>{tail}'
+        )
+    return (
+        '<p class="prev-nav"><span class="lb">지난 회차</span>'
+        + '<span class="sep">|</span>'.join(items)
+        + "</p>"
+    )
+
+
 def render_record(picks, entries):
     if not entries:
         return (
@@ -237,7 +294,7 @@ def render_record(picks, entries):
             continue
         cls = STATUS_CLASS.get(r["status"], "hold")
         rows.append(
-            f'<tr><td>제{p["no"]}회</td><td>{p["name"]}</td>'
+            f'<tr><td><a href="#r{p["no"]}">제{p["no"]}회</a></td><td>{p["name"]}</td>'
             f'<td>{won(p["entry"])}</td><td>{won(r["price"])}</td>'
             f'<td class="{tone(r["return_pct"])}">{pct(r["return_pct"])}</td>'
             f'<td class="{tone(r["alpha_pp"])}">{r["alpha_pp"]:+.1f}%p</td>'
@@ -328,7 +385,9 @@ def main():
 <section>
   <p class="eyebrow">This Week</p>
   <h2 class="sec">이번 주의 종목</h2>
+  {render_preface(latest.get('preface'), past, entries)}
   {render_pick(latest, entries.get(str(latest['no']), {}))}
+  {render_prev_nav(past, entries)}
   {next_html}
 </section>
 
