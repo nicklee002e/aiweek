@@ -2,14 +2,25 @@
   "entries": {
     "1": {
       "no": 1,
-      "price": 124100,
-      "price_date": "2026-09-11",
-      "return_pct": -2.13,
+      "price": 123400,
+      "price_date": "2026-09-14",
+      "return_pct": -2.68,
       "status": "보유 중",
       "closed": false,
       "bench_entry": 6687.2099609375,
       "bench_return_pct": 3.33,
-      "alpha_pp": -5.46
+      "alpha_pp": -6.01
+    },
+    "2": {
+      "no": 2,
+      "price": 367500,
+      "price_date": "2026-09-14",
+      "return_pct": -3.92,
+      "status": "보유 중",
+      "closed": false,
+      "bench_entry": 6909.91015625,
+      "bench_return_pct": 0.0,
+      "alpha_pp": -3.92
     }
   },
   "benchmark": {
@@ -17,5 +28,5 @@
     "date": "2026-09-11",
     "close": 6909.91015625
   },
-  "updated_at": "2026-09-11 21:04 KST"
+  "updated_at": "2026-09-14 09:30 KST"
 }
