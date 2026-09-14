@@ -112,6 +112,16 @@ tr.now td{color:var(--muted)}
   margin-right:8px}
 .prev-nav a{text-decoration:underline;text-underline-offset:3px;color:var(--ink)}
 .prev-nav .sep{opacity:.4;margin:0 7px}
+.arch{list-style:none;padding:0;margin:0}
+.arch li{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;
+  padding:14px 0;border-bottom:1px solid var(--line)}
+.arch li:first-child{border-top:1px solid var(--line)}
+.arch .t{font-family:"Noto Serif KR",Georgia,serif;font-size:17px;font-weight:700;
+  text-decoration:underline;text-underline-offset:3px}
+.arch .d{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.arch .r{margin-left:auto;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.arch .num{font-weight:700;font-variant-numeric:tabular-nums}
+
 .schedule{font-size:13.5px;color:var(--muted);margin:14px 0 0;padding-top:12px;
   border-top:1px solid var(--line)}
 .schedule strong{color:var(--accent)}
@@ -235,9 +245,16 @@ def render_pick(p, rec):
     return "".join(html)
 
 
+
+
+def url_for(no):
+    """회차별 독립 페이지 주소."""
+    return f"/r/{no}/"
+
+
 def perf_phrase(p, rec):
     """지난 회차를 링크와 현재 성적으로 한 구절에 담는다."""
-    link = f'<a href="#r{p["no"]}">제{p["no"]}회 {p["name"]}</a>'
+    link = f'<a href="{url_for(p["no"])}">제{p["no"]}회 {p["name"]}</a>'
     if not rec:
         return f"{link}은 아직 집계 전입니다."
     r, a = rec["return_pct"], rec["alpha_pp"]
@@ -251,34 +268,60 @@ def render_preface(text, past, entries):
     if not text:
         return ""
     if "{{prev}}" in text:
-        prev = (
-            perf_phrase(past[0], entries.get(str(past[0]["no"]), {}))
-            if past
-            else ""
-        )
+        prev = perf_phrase(past[0], entries.get(str(past[0]["no"]), {})) if past else ""
         text = text.replace("{{prev}}", prev)
     return f'<div class="preface"><b>필자의 말</b>{text}</div>'
 
 
-def render_prev_nav(past, entries):
+def render_prev_nav(past, entries, limit=3):
     if not past:
         return ""
     items = []
-    for p in past:
+    for p in past[:limit]:
         rec = entries.get(str(p["no"]), {})
         tail = ""
         if rec:
             r = rec["return_pct"]
             tail = f' <span class="{tone(r)}">{pct(r)}</span>'
         items.append(
-            f'<a href="#r{p["no"]}">제{p["no"]}회 {p["name"]}</a>'
+            f'<a href="{url_for(p["no"])}">제{p["no"]}회 {p["name"]}</a>'
             f'<span style="opacity:.6"> · {p["date"]}</span>{tail}'
         )
+    if len(past) > limit:
+        items.append('<a href="/archive/">전체 보기</a>')
     return (
         '<p class="prev-nav"><span class="lb">지난 회차</span>'
         + '<span class="sep">|</span>'.join(items)
         + "</p>"
     )
+
+
+def render_archive(past, entries, limit=None):
+    """지난 회차는 요약 줄 + 독립 페이지 링크로만 싣는다 (본문은 각 페이지에)."""
+    if not past:
+        return '<div class="empty">아직 지난 회차가 없습니다.</div>'
+    shown = past[:limit] if limit else past
+    items = []
+    for p in shown:
+        rec = entries.get(str(p["no"]), {})
+        right = ""
+        if rec:
+            cls = STATUS_CLASS.get(rec["status"], "hold")
+            right = (
+                f'<span class="{tone(rec["return_pct"])} num">{pct(rec["return_pct"])}</span>'
+                f'<span class="badge {cls}">{rec["status"]}</span>'
+            )
+        items.append(
+            f'<li><a class="t" href="{url_for(p["no"])}">제{p["no"]}회 · {p["name"]}</a>'
+            f'<span class="d">{p["date"]} 공개 · 기준가 {won(p["entry"])}원</span>'
+            f'<span class="r">{right}</span></li>'
+        )
+    more = ""
+    if limit and len(past) > limit:
+        more = (
+            f'<p class="schedule"><a href="/archive/">지난 회차 전체 {len(past)}건 보기 →</a></p>'
+        )
+    return f'<ul class="arch">{"".join(items)}</ul>{more}'
 
 
 def render_record(picks, entries):
@@ -294,7 +337,7 @@ def render_record(picks, entries):
             continue
         cls = STATUS_CLASS.get(r["status"], "hold")
         rows.append(
-            f'<tr><td><a href="#r{p["no"]}">제{p["no"]}회</a></td><td>{p["name"]}</td>'
+            f'<tr><td><a href="{url_for(p["no"])}">제{p["no"]}회</a></td><td>{p["name"]}</td>'
             f'<td>{won(p["entry"])}</td><td>{won(r["price"])}</td>'
             f'<td class="{tone(r["return_pct"])}">{pct(r["return_pct"])}</td>'
             f'<td class="{tone(r["alpha_pp"])}">{r["alpha_pp"]:+.1f}%p</td>'
@@ -312,10 +355,107 @@ def render_record(picks, entries):
     return (
         summary
         + '<div class="tbl-scroll"><table><thead><tr>'
-        "<th>회차</th><th>종목</th><th>진입가</th><th>현재가</th>"
+        "<th>회차</th><th>종목</th><th>기준가</th><th>현재가</th>"
         "<th>수익률</th><th>코스피 대비</th><th>상태</th>"
         "</tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>"
     )
+
+
+FONTS = (
+    '<link rel="preconnect" href="https://fonts.googleapis.com">'
+    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+    '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700'
+    '&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">'
+)
+
+
+def shell(site, *, title, desc, canonical, stamp, sub, body, home=False):
+    brand = (
+        f'<h1 class="brand">{site["title"]}</h1>'
+        if home
+        else f'<a href="/" class="brand" style="text-decoration:none">{site["title"]}</a>'
+    )
+    return f"""<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{title}</title>
+<meta name="description" content="{desc}">
+<link rel="canonical" href="https://{site['domain']}{canonical}">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="https://{site['domain']}{canonical}">
+<meta property="og:type" content="{'website' if home else 'article'}">
+{FONTS}
+<style>{CSS}</style>
+</head><body>
+
+<header class="hero"><div class="wrap hero-in">
+  {brand}
+  <p class="tagline">{site['tagline']}</p>
+  <div class="stamp">{sub}</div>
+</div></header>
+
+<div class="wrap">
+{body}
+</div>
+
+<footer><div class="wrap">
+  <p>{DISCLAIMER}</p>
+  <p>© {datetime.now(KST).year} {site['author']} · <a href="/">{site['domain']}</a></p>
+</div></footer>
+
+</body></html>
+"""
+
+
+def write(path, html):
+    full = os.path.join(OUT, path)
+    os.makedirs(os.path.dirname(full), exist_ok=True)
+    with open(full, "w", encoding="utf-8") as f:
+        f.write(html)
+    return len(html)
+
+
+def build_round_page(site, p, rec, newer, older, stamp, is_latest):
+    """회차 하나를 독립 URL(/r/N/)로 만든다."""
+    nav = []
+    if newer:
+        nav.append(f'<a href="{url_for(newer["no"])}">← 제{newer["no"]}회 {newer["name"]}</a>')
+    nav.append('<a href="/">전체 목록</a>')
+    if older:
+        nav.append(f'<a href="{url_for(older["no"])}">제{older["no"]}회 {older["name"]} →</a>')
+
+    badge = ""
+    if rec:
+        cls = STATUS_CLASS.get(rec["status"], "hold")
+        badge = (
+            f'<p class="schedule">공개 이후 성적 — '
+            f'<span class="{tone(rec["return_pct"])}"><b>{pct(rec["return_pct"])}</b></span> '
+            f'(코스피 대비 <span class="{tone(rec["alpha_pp"])}">{rec["alpha_pp"]:+.1f}%p</span>) '
+            f'<span class="badge {cls}">{rec["status"]}</span> · {rec["price_date"]} 종가 기준</p>'
+        )
+
+    body = f"""
+<section>
+  <p class="eyebrow">{'This Week' if is_latest else 'Archive'}</p>
+  <h2 class="sec">제{p['no']}회 · {p['name']}</h2>
+  {render_pick(p, rec)}
+  {badge}
+  <p class="prev-nav"><span class="lb">회차 이동</span>{'<span class="sep">|</span>'.join(nav)}</p>
+</section>
+"""
+    desc = p["lede"][:150].replace('"', "'")
+    html = shell(
+        site,
+        title=f"제{p['no']}회 {p['name']} — {site['title']}",
+        desc=desc,
+        canonical=url_for(p["no"]),
+        stamp=stamp,
+        sub=f"제{p['no']}회 · 기준일 {p.get('basis_date', p['date'])} 종가 · {p['date']} 공개",
+        body=body,
+    )
+    return write(f"r/{p['no']}/index.html", html)
 
 
 def main():
@@ -337,16 +477,9 @@ def main():
 
     latest = picks[0]
     past = picks[1:]
-
-    rules_html = "".join(
-        f"<li><strong>{a}</strong> {b}</li>" for a, b in RULES
-    )
-    past_html = (
-        "".join(render_pick(p, entries.get(str(p["no"]), {})) for p in past)
-        if past
-        else '<div class="empty">아직 지난 회차가 없습니다.</div>'
-    )
     stamp = record.get("updated_at") or datetime.now(KST).strftime("%Y-%m-%d %H:%M KST")
+
+    rules_html = "".join(f"<li><strong>{a}</strong> {b}</li>" for a, b in RULES)
     next_html = (
         f'<p class="schedule">다음 회차(제{upcoming[-1]["no"]}회)는 '
         f'<strong>{upcoming[-1]["date"]} 월요일 오전 8시</strong>에 공개됩니다.</p>'
@@ -354,29 +487,7 @@ def main():
         else ""
     )
 
-    html = f"""<!doctype html>
-<html lang="ko"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{site['title']} — {site['tagline']}</title>
-<meta name="description" content="AI 에이전트가 매주 종목을 하나 고르고, 그 판단이 맞았는지 매일 기록합니다. 금요일 종가 기준, 월요일 오전 8시 공개.">
-<meta property="og:title" content="{site['title']} — {site['tagline']}">
-<meta property="og:description" content="AI 에이전트가 고른 종목의 성적을 매일 공개 기록하는 실험입니다.">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
-<style>{CSS}</style>
-</head><body>
-
-<header class="hero"><div class="wrap hero-in">
-  <h1 class="brand">{site['title']}</h1>
-  <p class="tagline">{site['tagline']}</p>
-  <div class="stamp">마지막 갱신 {stamp} · 글 {site['author']}</div>
-</div></header>
-
-<div class="wrap">
-
+    body = f"""
 <section class="intro">
   <p class="eyebrow">이 페이지에 대하여</p>
   {INTRO}
@@ -408,25 +519,60 @@ def main():
 <section>
   <p class="eyebrow">Archive</p>
   <h2 class="sec">지난 회차</h2>
-  {past_html}
+  {render_archive(past, entries, limit=6)}
 </section>
-
-</div>
-
-<footer><div class="wrap">
-  <p>{DISCLAIMER}</p>
-  <p>© {datetime.now(KST).year} {site['author']} · {site['domain']}</p>
-</div></footer>
-
-</body></html>
 """
 
-    os.makedirs(OUT, exist_ok=True)
-    with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as f:
-        f.write(html)
+    home = shell(
+        site,
+        title=f"{site['title']} — {site['tagline']}",
+        desc="AI 에이전트가 매주 종목을 하나 고르고, 그 판단이 맞았는지 매일 기록합니다. 금요일 종가 기준, 월요일 오전 8시 공개.",
+        canonical="/",
+        stamp=stamp,
+        sub=f"마지막 갱신 {stamp} · 글 {site['author']}",
+        body=body,
+        home=True,
+    )
+    n = write("index.html", home)
+
+    pages = 0
+    for i, p in enumerate(picks):
+        newer = picks[i - 1] if i > 0 else None
+        older = picks[i + 1] if i + 1 < len(picks) else None
+        build_round_page(
+            site, p, entries.get(str(p["no"]), {}), newer, older, stamp, is_latest=(i == 0)
+        )
+        pages += 1
+
+    # 전체 아카이브 — 랜딩 페이지가 길어지지 않도록 목록은 여기로 뺀다
+    arch_body = f"""
+<section>
+  <p class="eyebrow">Archive</p>
+  <h2 class="sec">지난 회차 전체</h2>
+  <p style="margin:0 0 18px;color:var(--muted);font-size:14.5px">
+    공개된 {len(picks)}개 회차입니다. 삭제도 수정도 하지 않습니다.</p>
+  {render_archive(picks, entries)}
+  <p class="prev-nav"><span class="lb">이동</span><a href="/">이번 주의 종목</a></p>
+</section>
+"""
+    write(
+        "archive/index.html",
+        shell(
+            site,
+            title=f"지난 회차 전체 — {site['title']}",
+            desc=f"AI Week이 지금까지 고른 {len(picks)}개 종목과 각 회차의 성적.",
+            canonical="/archive/",
+            stamp=stamp,
+            sub=f"지난 회차 전체 {len(picks)}건 · 마지막 갱신 {stamp}",
+            body=arch_body,
+        ),
+    )
+
     with open(os.path.join(OUT, "CNAME"), "w") as f:
         f.write(site["domain"] + "\n")
-    print(f"빌드 완료 → site/index.html ({len(html):,} bytes)")
+    print(f"빌드 완료 → index.html ({n:,} bytes) + 회차 페이지 {pages}개 + /archive/")
+    for p in picks:
+        print(f"   {url_for(p['no'])}  제{p['no']}회 {p['name']}")
 
 
 if __name__ == "__main__":
