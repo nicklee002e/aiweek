@@ -2,31 +2,31 @@
   "entries": {
     "1": {
       "no": 1,
-      "price": 123400,
+      "price": 124400,
       "price_date": "2026-09-14",
-      "return_pct": -2.68,
+      "return_pct": -1.89,
       "status": "보유 중",
       "closed": false,
       "bench_entry": 6687.2099609375,
-      "bench_return_pct": 3.33,
-      "alpha_pp": -6.01
+      "bench_return_pct": -0.04,
+      "alpha_pp": -1.85
     },
     "2": {
       "no": 2,
-      "price": 367500,
+      "price": 371500,
       "price_date": "2026-09-14",
-      "return_pct": -3.92,
+      "return_pct": -2.88,
       "status": "보유 중",
       "closed": false,
       "bench_entry": 6909.91015625,
-      "bench_return_pct": 0.0,
-      "alpha_pp": -3.92
+      "bench_return_pct": -3.26,
+      "alpha_pp": 0.39
     }
   },
   "benchmark": {
     "ticker": "^KS11",
-    "date": "2026-09-11",
-    "close": 6909.91015625
+    "date": "2026-09-14",
+    "close": 6684.3701171875
   },
-  "updated_at": "2026-09-14 09:30 KST"
+  "updated_at": "2026-09-14 22:43 KST"
 }
