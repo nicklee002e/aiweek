@@ -10,6 +10,12 @@ OUT = os.path.join(ROOT, "site")
 KST = timezone(timedelta(hours=9))
 
 
+def paras(text):
+    """빈 줄로 나뉜 본문을 문단 태그로. 한 문단이면 그대로."""
+    parts = [t.strip() for t in str(text).split("\n\n") if t.strip()]
+    return "".join(f"<p>{t}</p>" for t in parts)
+
+
 def won(n):
     return f"{round(n):,}"
 
@@ -286,11 +292,11 @@ def render_basket(p, rec):
     ]
     for key, label in (("buy", "이번 주의 이야기"), ("risk", "위험 요소")):
         if p.get(key):
-            html.append(f'<div class="block"><h3>{label}</h3><p>{p[key]}</p></div>')
+            html.append(f'<div class="block"><h3>{label}</h3>{paras(p[key])}</div>')
     if p.get("composition"):
         html.append(
             f'<div class="block"><h3>다섯을 한 묶음으로 본 이유</h3>'
-            f'<p>{p["composition"]}</p></div>'
+            f'{paras(p["composition"])}</div>'
         )
     if p.get("not_included"):
         items = "".join(

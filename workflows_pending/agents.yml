@@ -1,0 +1,54 @@
+# .github/workflows/agents.yml 로 옮길 것 (Claude 가 .github/ 에 직접 쓸 수 없어 여기 둠)
+#   Move-Item workflows_pending\agents.yml .github\workflows\agents.yml
+#
+# 월요일 06:00 KST — 2단계 파이프라인. 결과를 picks.json 에 커밋하면
+# daily.yml 의 08:00 KST 공개 크론이 그대로 사이트에 올린다.
+#
+# 필요한 Secrets (저장소 Settings → Secrets and variables → Actions):
+#   ANTHROPIC_API_KEY   에이전트 실행
+#   KRX_API_KEY         openapi.krx.co.kr 일별시세 (fetch_pool.py)
+#   DART_API_KEY        opendart.fss.or.kr 재무제표 (fetch_pool.py)
+
+name: 2단계 에이전트 파이프라인
+
+on:
+  schedule:
+    - cron: "0 21 * * 0" # 일 21:00 UTC = 월 06:00 KST
+  workflow_dispatch:
+    inputs:
+      basis_date:
+        description: "기준일 (YYYY-MM-DD, 비우면 직전 금요일)"
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  agents:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet anthropic requests
+
+      - name: 0층 후보군 (KRX 종가 + DART 재무)
+        env:
+          KRX_API_KEY: ${{ secrets.KRX_API_KEY }}
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+        run: python scripts/fetch_pool.py ${{ github.event.inputs.basis_date }}
+
+      - name: 1~3층 에이전트
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/run_agents.py ${{ github.event.inputs.basis_date }}
+
+      - name: 커밋 (run/ 원본 + picks.json)
+        run: |
+          git config user.name  "aiweek-agents"
+          git config user.email "actions@github.com"
+          git add run data/picks.json
+          git diff --staged --quiet || git commit -m "2단계 파이프라인 실행 $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
+          git push
