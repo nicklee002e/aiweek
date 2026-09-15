@@ -2,31 +2,113 @@
   "entries": {
     "1": {
       "no": 1,
-      "price": 124400,
-      "price_date": "2026-09-14",
-      "return_pct": -1.89,
-      "status": "보유 중",
-      "closed": false,
+      "phase": 1,
+      "price_date": "2026-09-15",
+      "basket_return_pct": -4.26,
       "bench_entry": 6687.2099609375,
-      "bench_return_pct": -0.04,
-      "alpha_pp": -1.85
+      "bench_return_pct": -0.9,
+      "alpha_pp": -3.36,
+      "closed": false,
+      "holdings": {
+        "064350": {
+          "name": "현대로템",
+          "price": 121400,
+          "price_date": "2026-09-15",
+          "return_pct": -4.26,
+          "status": "보유 중",
+          "closed": false
+        }
+      },
+      "price": 121400,
+      "return_pct": -4.26,
+      "status": "보유 중"
     },
     "2": {
       "no": 2,
-      "price": 371500,
-      "price_date": "2026-09-14",
-      "return_pct": -2.88,
-      "status": "보유 중",
-      "closed": false,
+      "phase": 1,
+      "price_date": "2026-09-15",
+      "basket_return_pct": -4.05,
       "bench_entry": 6909.91015625,
-      "bench_return_pct": -3.26,
-      "alpha_pp": 0.39
+      "bench_return_pct": -4.09,
+      "alpha_pp": 0.04,
+      "closed": false,
+      "holdings": {
+        "005380": {
+          "name": "현대차",
+          "price": 367000,
+          "price_date": "2026-09-15",
+          "return_pct": -4.05,
+          "status": "보유 중",
+          "closed": false
+        }
+      },
+      "price": 367000,
+      "return_pct": -4.05,
+      "status": "보유 중"
+    },
+    "3": {
+      "no": 3,
+      "phase": 2,
+      "price_date": "2026-09-15",
+      "basket_return_pct": -2.64,
+      "bench_entry": 6684.3701171875,
+      "bench_return_pct": -0.85,
+      "alpha_pp": -1.79,
+      "closed": false,
+      "holdings": {
+        "009150": {
+          "name": "삼성전기",
+          "price": 1317000,
+          "price_date": "2026-09-15",
+          "return_pct": -1.5,
+          "status": "보유 중",
+          "closed": false,
+          "agreement": 2
+        },
+        "055550": {
+          "name": "신한지주",
+          "price": 112200,
+          "price_date": "2026-09-15",
+          "return_pct": -2.09,
+          "status": "보유 중",
+          "closed": false,
+          "agreement": 6
+        },
+        "105560": {
+          "name": "KB금융",
+          "price": 175800,
+          "price_date": "2026-09-15",
+          "return_pct": -3.19,
+          "status": "보유 중",
+          "closed": false,
+          "agreement": 6
+        },
+        "012450": {
+          "name": "한화에어로스페이스",
+          "price": 1063000,
+          "price_date": "2026-09-15",
+          "return_pct": -6.51,
+          "status": "손절",
+          "closed": true,
+          "agreement": 6,
+          "closed_on": "2026-09-15"
+        },
+        "010950": {
+          "name": "S-Oil",
+          "price": 148700,
+          "price_date": "2026-09-15",
+          "return_pct": 0.07,
+          "status": "보유 중",
+          "closed": false,
+          "agreement": 4
+        }
+      }
     }
   },
   "benchmark": {
     "ticker": "^KS11",
-    "date": "2026-09-14",
-    "close": 6684.3701171875
+    "date": "2026-09-15",
+    "close": 6627.259765625
   },
-  "updated_at": "2026-09-14 22:43 KST"
+  "updated_at": "2026-09-15 21:30 KST"
 }
