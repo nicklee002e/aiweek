@@ -64,6 +64,25 @@ def judge(pick, price):
     return "보유 중", False
 
 
+def holdings_of(p):
+    """1단계(단일 종목)와 2단계(5종목 바스켓)를 같은 모양으로 읽는다.
+
+    제1~2회는 게재 후 수정 금지 원칙에 따라 옛 형식 그대로 두고,
+    여기서만 리스트로 감싸 처리한다.
+    """
+    if "holdings" in p:
+        return p["holdings"]
+    return [
+        {
+            "name": p["name"],
+            "code": p["code"],
+            "ticker": p["ticker"],
+            "entry": p["entry"],
+            "targets": p["targets"],
+        }
+    ]
+
+
 def main():
     today = datetime.now(KST).strftime("%Y-%m-%d")
     # 공개 전 회차는 추적하지 않는다 (사이트에도 아직 안 나간다)
@@ -85,7 +104,9 @@ def main():
     if not open_picks:
         print("확정되지 않은 회차 없음 — 지수만 갱신")
 
-    tickers = sorted({p["ticker"] for p in open_picks} | {BENCHMARK})
+    tickers = sorted(
+        {h["ticker"] for p in open_picks for h in holdings_of(p)} | {BENCHMARK}
+    )
     print(f"조회: {', '.join(tickers)}")
     series = fetch_series(tickers)
 
@@ -99,14 +120,9 @@ def main():
     changed = 0
     for p in open_picks:
         key = str(p["no"])
-        if p["ticker"] not in series:
-            continue
-        date_str, price = latest(series[p["ticker"]])
-        status, closed = judge(p, price)
-        entry = p["entry"]
-        ret = (price / entry - 1) * 100
-
+        phase = p.get("phase", 1)
         prev = entries.get(key, {})
+
         # 벤치마크 기준값은 픽의 기준일(금요일) 종가로 고정한다.
         # 크론이 하루 걸러도 기준점이 흔들리지 않아야 비교가 공정하다.
         bench_entry = prev.get("bench_entry")
@@ -117,22 +133,70 @@ def main():
             print(f"    벤치마크 기준일 {bd or '(없음)'} 종가 {bench_entry:,.2f}")
         bench_ret = (bench_close / bench_entry - 1) * 100
 
-        entries[key] = {
+        prev_h = prev.get("holdings", {})
+        hold_rec, rets, date_str = {}, [], prev.get("price_date")
+        for h in holdings_of(p):
+            code = h["code"]
+            old = prev_h.get(code, {})
+            # 이미 확정된 종목은 다시 계산하지 않는다 (확정 수익률 고정)
+            if old.get("closed"):
+                hold_rec[code] = old
+                rets.append(old["return_pct"])
+                continue
+            if h["ticker"] not in series:
+                if old:
+                    hold_rec[code] = old
+                    rets.append(old["return_pct"])
+                continue
+            date_str, price = latest(series[h["ticker"]])
+            status, closed = judge(h, price)
+            ret = (price / h["entry"] - 1) * 100
+            rec = {
+                "name": h["name"],
+                "price": round(price),
+                "price_date": date_str,
+                "return_pct": round(ret, 2),
+                "status": status,
+                "closed": closed,
+            }
+            if h.get("agreement"):
+                rec["agreement"] = h["agreement"]
+            if closed and not old.get("closed"):
+                rec["closed_on"] = date_str
+                print(f"  ** 제{p['no']}회 {h['name']} → {status} 확정 ({ret:+.2f}%)")
+            hold_rec[code] = rec
+            rets.append(round(ret, 2))
+
+        if not rets:
+            continue
+        basket = sum(rets) / len(rets)          # 동일비중 단순평균
+        all_closed = all(r.get("closed") for r in hold_rec.values())
+
+        e = {
             "no": p["no"],
-            "price": round(price),
+            "phase": phase,
             "price_date": date_str,
-            "return_pct": round(ret, 2),
-            "status": status,
-            "closed": closed,
+            "basket_return_pct": round(basket, 2),
             "bench_entry": bench_entry,
             "bench_return_pct": round(bench_ret, 2),
-            "alpha_pp": round(ret - bench_ret, 2),
+            "alpha_pp": round(basket - bench_ret, 2),
+            "closed": all_closed,
+            "holdings": hold_rec,
         }
-        if closed and not prev.get("closed"):
-            entries[key]["closed_on"] = date_str
-            print(f"  ** 제{p['no']}회 {p['name']} → {status} 확정 ({ret:+.2f}%)")
+        if phase == 1:
+            # 1단계는 종목이 하나뿐이라 옛 필드도 함께 남긴다 (기존 표시 호환)
+            only = next(iter(hold_rec.values()))
+            e.update(
+                price=only["price"],
+                return_pct=only["return_pct"],
+                status=only["status"],
+            )
+            if only.get("closed_on"):
+                e["closed_on"] = only["closed_on"]
+        entries[key] = e
         changed += 1
-        print(f"  제{p['no']}회 {p['name']}: {price:,.0f}원 {ret:+.2f}% [{status}]")
+        tag = f"바스켓 {len(rets)}종목" if phase == 2 else hold_rec[next(iter(hold_rec))]["name"]
+        print(f"  제{p['no']}회 [{phase}단계] {tag}: {basket:+.2f}% (코스피 대비 {basket-bench_ret:+.2f}%p)")
 
     record["updated_at"] = datetime.now(KST).strftime("%Y-%m-%d %H:%M KST")
     with open(RECORD, "w", encoding="utf-8") as f:

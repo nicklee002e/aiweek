@@ -25,6 +25,37 @@ def tone(v):
 
 STATUS_CLASS = {"손절": "bad", "1차 익절": "good", "2차 익절": "good", "보유 중": "hold"}
 
+PHASE_LABEL = {1: "1단계 · 단일 종목", 2: "2단계 · 멀티에이전트 5종목"}
+
+
+def phase_of(p):
+    return p.get("phase", 1)
+
+
+def holdings_of(p):
+    """1단계(단일 종목)와 2단계(바스켓)를 같은 모양으로 읽는다.
+    제1~2회는 게재 후 수정 금지 원칙에 따라 옛 형식 그대로 둔다."""
+    if "holdings" in p:
+        return p["holdings"]
+    return [
+        {
+            "name": p["name"],
+            "code": p["code"],
+            "ticker": p["ticker"],
+            "entry": p["entry"],
+            "targets": p["targets"],
+        }
+    ]
+
+
+def round_return(rec):
+    """회차 단위 수익률 — 1단계는 종목 수익률, 2단계는 바스켓 평균."""
+    if not rec:
+        return None
+    if "basket_return_pct" in rec:
+        return rec["basket_return_pct"]
+    return rec.get("return_pct")
+
 CSS = """
 :root{
   --bg:#fbfaf8; --panel:#fff; --ink:#1a1a1a; --muted:#6b6660; --line:#e2ddd6;
@@ -122,6 +153,26 @@ tr.now td{color:var(--muted)}
 .arch .r{margin-left:auto;display:flex;align-items:center;gap:8px;white-space:nowrap}
 .arch .num{font-weight:700;font-variant-numeric:tabular-nums}
 
+.agree{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 7px;border-radius:3px;
+  border:1px solid var(--line);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.agree.a4{color:var(--good);border-color:currentColor}
+.agree.a3{color:var(--ink)}
+.agree.a2{color:var(--muted)}
+.vw{display:block;margin-top:3px;font-size:12.5px;line-height:1.55;color:var(--muted)}
+.vw i{font-style:normal;font-weight:700;color:var(--accent);margin-right:5px;font-size:11px;
+  letter-spacing:.03em}
+.vw.dis i{color:var(--down)}
+.hold-tbl td:first-child{font-weight:700}
+.hold-tbl .why{font-weight:400;white-space:normal;display:block;margin-top:4px;max-width:40ch}
+.rejected{list-style:none;padding:0;margin:0}
+.rejected li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.rejected b{font-weight:700;margin-right:6px}
+.rejected .rs{color:var(--muted)}
+.phase-h{font-size:16px;margin:26px 0 10px;color:var(--accent);letter-spacing:.01em}
+.phase-h:first-child{margin-top:0}
+.phase-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;
+  padding:2px 8px;border-radius:3px;border:1px solid var(--line);color:var(--muted);margin-left:8px}
+
 .schedule{font-size:13.5px;color:var(--muted);margin:14px 0 0;padding-top:12px;
   border-top:1px solid var(--line)}
 .schedule strong{color:var(--accent)}
@@ -168,7 +219,101 @@ DISCLAIMER = (
 )
 
 
+VIEW_ORDER = ("가치", "수급", "실적", "위험")
+
+
+def views_html(h):
+    """네 관점의 소견을 묵살 없이 모두 싣는다. 반대 의견도 함께."""
+    v = h.get("views") or {}
+    if not v:
+        return f'<span class="why">{h.get("why","")}</span>'
+    keys = [k for k in VIEW_ORDER if k in v] + [k for k in v if k not in VIEW_ORDER]
+    rows = "".join(f'<span class="vw"><i>{k}</i> {v[k]}</span>' for k in keys)
+    dis = (
+        f'<span class="vw dis"><i>이견</i> {h["dissent"]}</span>' if h.get("dissent") else ""
+    )
+    return f'<span class="why">{rows}{dis}</span>'
+
+
+def render_basket(p, rec):
+    """2단계 — 5종목 동일비중 바스켓."""
+    hs = holdings_of(p)
+    hrec = (rec or {}).get("holdings", {})
+    rows = []
+    for h in hs:
+        r = hrec.get(h["code"], {})
+        t = h["targets"]
+        cur = (
+            f'<td>{won(r["price"])}</td>'
+            f'<td class="{tone(r["return_pct"])}">{pct(r["return_pct"])}</td>'
+            f'<td><span class="badge {STATUS_CLASS.get(r["status"],"hold")}">{r["status"]}</span></td>'
+            if r else '<td>—</td><td>—</td><td><span class="badge hold">대기</span></td>'
+        )
+        ag = h.get("agreement")
+        ag_html = (
+            f'<span class="agree a{ag}">{ag}/4</span>' if ag else '<span class="agree">—</span>'
+        )
+        rows.append(
+            f'<tr><td>{h["name"]}{views_html(h)}</td>'
+            f'<td>{ag_html}</td>'
+            f'<td>{won(h["entry"])}</td>'
+            f'<td>{won(t["t1"])} / {won(t["t2"])}</td><td>{won(t["stop"])}</td>{cur}</tr>'
+        )
+    br = round_return(rec)
+    summary = ""
+    if br is not None:
+        summary = (
+            f'<p class="schedule">바스켓(동일비중 {len(hs)}종목) '
+            f'<span class="{tone(br)}"><b>{pct(br)}</b></span> · '
+            f'코스피 대비 <span class="{tone(rec["alpha_pp"])}">{rec["alpha_pp"]:+.1f}%p</span> · '
+            f'{rec.get("price_date","")} 종가 기준</p>'
+        )
+    html = [
+        f'<div class="card" id="r{p["no"]}">',
+        '<div class="pick-head">',
+        f'<span class="pick-no">제{p["no"]}회</span>',
+        f'<span class="pick-name">{len(hs)}종목 바스켓</span>',
+        f'<span class="phase-tag">{PHASE_LABEL[2]}</span>',
+        "</div>",
+        f'<div class="pick-date">기준일 {p.get("basis_date", p["date"])} 종가 · 공개 {p["date"]}</div>',
+        (f'<div class="notice">{p["note"]}</div>' if p.get("note") else ""),
+        f'<p class="lede">{p["lede"]}</p>' if p.get("lede") else "",
+        '<div class="tbl-scroll"><table class="hold-tbl"><thead><tr>',
+        "<th>종목</th><th>합의</th><th>기준가</th><th>익절 1·2차</th><th>손절</th>"
+        "<th>현재가</th><th>수익률</th><th>상태</th>",
+        "</tr></thead><tbody>", "".join(rows), "</tbody></table></div>",
+        summary,
+    ]
+    for key, label in (("buy", "이번 주의 이야기"), ("risk", "위험 요소")):
+        if p.get(key):
+            html.append(f'<div class="block"><h3>{label}</h3><p>{p[key]}</p></div>')
+    if p.get("composition"):
+        html.append(
+            f'<div class="block"><h3>다섯을 한 묶음으로 본 이유</h3>'
+            f'<p>{p["composition"]}</p></div>'
+        )
+    if p.get("not_included"):
+        items = "".join(
+            f'<li><b>{x["name"]}</b><span class="rs">{x["reason"]}</span></li>'
+            for x in p["not_included"]
+        )
+        html.append(
+            f'<div class="block"><h3>논의했으나 담지 않은 종목</h3>'
+            f'<ul class="rejected">{items}</ul></div>'
+        )
+    if p.get("sources"):
+        links = " · ".join(
+            f'<a href="{s["url"]}" target="_blank" rel="noopener">{s["label"]}</a>'
+            for s in p["sources"]
+        )
+        html.append(f'<div class="sources">출처 — {links}</div>')
+    html.append("</div>")
+    return "".join(html)
+
+
 def render_pick(p, rec):
+    if phase_of(p) == 2:
+        return render_basket(p, rec)
     v = p["valuation"]
     entry, t = p["entry"], p["targets"]
     now = rec.get("price")
@@ -252,12 +397,19 @@ def url_for(no):
     return f"/r/{no}/"
 
 
+def round_title(p):
+    if phase_of(p) == 2:
+        return f'{len(holdings_of(p))}종목 바스켓'
+    return p["name"]
+
+
 def perf_phrase(p, rec):
     """지난 회차를 링크와 현재 성적으로 한 구절에 담는다."""
-    link = f'<a href="{url_for(p["no"])}">제{p["no"]}회 {p["name"]}</a>'
-    if not rec:
+    link = f'<a href="{url_for(p["no"])}">제{p["no"]}회 {round_title(p)}</a>'
+    r = round_return(rec)
+    if r is None:
         return f"{link}은 아직 집계 전입니다."
-    r, a = rec["return_pct"], rec["alpha_pp"]
+    a = rec["alpha_pp"]
     return (
         f'{link}은 지금 <span class="{tone(r)}">{pct(r)}</span>, '
         f'코스피 대비 <span class="{tone(a)}">{a:+.1f}%p</span>입니다.'
@@ -280,11 +432,11 @@ def render_prev_nav(past, entries, limit=3):
     for p in past[:limit]:
         rec = entries.get(str(p["no"]), {})
         tail = ""
-        if rec:
-            r = rec["return_pct"]
+        r = round_return(rec)
+        if r is not None:
             tail = f' <span class="{tone(r)}">{pct(r)}</span>'
         items.append(
-            f'<a href="{url_for(p["no"])}">제{p["no"]}회 {p["name"]}</a>'
+            f'<a href="{url_for(p["no"])}">제{p["no"]}회 {round_title(p)}</a>'
             f'<span style="opacity:.6"> · {p["date"]}</span>{tail}'
         )
     if len(past) > limit:
@@ -305,15 +457,22 @@ def render_archive(past, entries, limit=None):
     for p in shown:
         rec = entries.get(str(p["no"]), {})
         right = ""
-        if rec:
-            cls = STATUS_CLASS.get(rec["status"], "hold")
+        r = round_return(rec)
+        if r is not None:
+            st = rec.get("status") or ("확정" if rec.get("closed") else "보유 중")
+            cls = STATUS_CLASS.get(st, "hold")
             right = (
-                f'<span class="{tone(rec["return_pct"])} num">{pct(rec["return_pct"])}</span>'
-                f'<span class="badge {cls}">{rec["status"]}</span>'
+                f'<span class="{tone(r)} num">{pct(r)}</span>'
+                f'<span class="badge {cls}">{st}</span>'
             )
+        sub = (
+            f'{p["date"]} 공개 · {len(holdings_of(p))}종목 동일비중'
+            if phase_of(p) == 2
+            else f'{p["date"]} 공개 · 기준가 {won(p["entry"])}원'
+        )
         items.append(
-            f'<li><a class="t" href="{url_for(p["no"])}">제{p["no"]}회 · {p["name"]}</a>'
-            f'<span class="d">{p["date"]} 공개 · 기준가 {won(p["entry"])}원</span>'
+            f'<li><a class="t" href="{url_for(p["no"])}">제{p["no"]}회 · {round_title(p)}</a>'
+            f'<span class="d">{sub}</span>'
             f'<span class="r">{right}</span></li>'
         )
     more = ""
@@ -325,39 +484,104 @@ def render_archive(past, entries, limit=None):
 
 
 def render_record(picks, entries):
-    if not entries:
-        return (
-            '<div class="empty">첫 회차가 막 시작되었습니다. '
-            "평일 장 마감 후 이 자리에 성적이 기록됩니다.</div>"
-        )
-    rows = []
-    for p in picks:
-        r = entries.get(str(p["no"]))
-        if not r:
+    """단계별로 완전히 분리해 집계한다.
+    1단계(단일 종목)와 2단계(5종목 바스켓)는 표본 성격이 달라
+    합산 평균을 만들지 않는다 — 어떤 화면에도 두 단계를 합친 수치는 없다."""
+    blocks = []
+    for ph in (2, 1):
+        rounds = [p for p in picks if phase_of(p) == ph]
+        rows, rets, done = [], [], []
+        for p in rounds:
+            r = entries.get(str(p["no"]))
+            ret = round_return(r)
+            if ret is None:
+                continue
+            st = r.get("status") or ("확정" if r.get("closed") else "보유 중")
+            cls = STATUS_CLASS.get(st, "hold")
+            rets.append(ret)
+            if r.get("closed"):
+                done.append(ret)
+            rows.append(
+                f'<tr><td><a href="{url_for(p["no"])}">제{p["no"]}회</a></td>'
+                f'<td>{round_title(p)}</td>'
+                f'<td>{p["date"]}</td>'
+                f'<td class="{tone(ret)}">{pct(ret)}</td>'
+                f'<td class="{tone(r["alpha_pp"])}">{r["alpha_pp"]:+.1f}%p</td>'
+                f'<td><span class="badge {cls}">{st}</span></td></tr>'
+            )
+        if not rounds:
             continue
-        cls = STATUS_CLASS.get(r["status"], "hold")
-        rows.append(
-            f'<tr><td><a href="{url_for(p["no"])}">제{p["no"]}회</a></td><td>{p["name"]}</td>'
-            f'<td>{won(p["entry"])}</td><td>{won(r["price"])}</td>'
-            f'<td class="{tone(r["return_pct"])}">{pct(r["return_pct"])}</td>'
-            f'<td class="{tone(r["alpha_pp"])}">{r["alpha_pp"]:+.1f}%p</td>'
-            f'<td><span class="badge {cls}">{r["status"]}</span></td></tr>'
+        if not rows:
+            body = ('<div class="empty">아직 집계 전입니다. '
+                    "공개 후 평일 장 마감마다 이 자리에 성적이 기록됩니다.</div>")
+        else:
+            wins = len([x for x in done if x > 0])
+            avg = sum(rets) / len(rets)
+            summary = (
+                f'<p style="font-size:14px;color:var(--muted);margin:0 0 12px">'
+                f"{len(rows)}회차 · 확정 {len(done)}회"
+                + (f" (승 {wins} / 패 {len(done)-wins})" if done else "")
+                + f' · 평균 <span class="{tone(avg)}">{pct(avg)}</span></p>'
+            )
+            unit = "바스켓 수익률" if ph == 2 else "수익률"
+            body = (
+                summary
+                + '<div class="tbl-scroll"><table><thead><tr>'
+                f"<th>회차</th><th>대상</th><th>공개일</th><th>{unit}</th>"
+                "<th>코스피 대비</th><th>상태</th>"
+                "</tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>"
+            )
+        note = (
+            '<p class="schedule">1단계는 제1~2회로 닫힌 코호트입니다. '
+            "표본 성격이 달라 2단계와 합산하지 않습니다.</p>"
+            if ph == 1 and any(phase_of(x) == 2 for x in picks)
+            else ""
         )
-    done = [e for e in entries.values() if e.get("closed")]
-    wins = len([e for e in done if e["return_pct"] > 0])
-    avg = sum(e["return_pct"] for e in entries.values()) / len(entries)
-    summary = (
-        f'<p style="font-size:14px;color:var(--muted);margin:0 0 14px">'
-        f"누적 {len(entries)}회 · 확정 {len(done)}회"
-        + (f" (승 {wins} / 패 {len(done)-wins})" if done else "")
-        + f' · 평균 수익률 <span class="{tone(avg)}">{pct(avg)}</span></p>'
+        blocks.append(f'<h3 class="phase-h">{PHASE_LABEL[ph]}</h3>{body}{note}')
+    return "".join(blocks) or (
+        '<div class="empty">첫 회차가 막 시작되었습니다. '
+        "평일 장 마감 후 이 자리에 성적이 기록됩니다.</div>"
+    )
+
+
+def render_consensus_record(picks, entries):
+    """2단계 한정 — 합의도별 성적.
+
+    에이전트 순위표가 아니다. '여럿이 서로 확인하면 나아지는가'를
+    직접 검증하는 표다. 전원 동의 종목과 의견이 갈린 종목의 성적을
+    나란히 놓고, 교차 검증이 실제로 작동하는지 본다.
+    """
+    agg = {}
+    for p in [x for x in picks if phase_of(x) == 2]:
+        hrec = entries.get(str(p["no"]), {}).get("holdings", {})
+        for h in holdings_of(p):
+            ag = h.get("agreement")
+            r = hrec.get(h["code"])
+            if not r or not ag:
+                continue
+            a = agg.setdefault(ag, {"n": 0, "sum": 0.0, "win": 0})
+            a["n"] += 1
+            a["sum"] += r["return_pct"]
+            if r["return_pct"] > 0:
+                a["win"] += 1
+    if not agg:
+        return ""
+    label = {4: "네 관점 전원 동의", 3: "세 관점 동의", 2: "두 관점 동의", 1: "한 관점만 동의"}
+    rows = "".join(
+        f'<tr><td><span class="agree a{k}">{k}/4</span> {label.get(k, "")}</td>'
+        f'<td>{v["n"]}</td>'
+        f'<td class="{tone(v["sum"]/v["n"])}">{pct(v["sum"]/v["n"])}</td>'
+        f'<td>{v["win"]}/{v["n"]}</td></tr>'
+        for k, v in sorted(agg.items(), reverse=True)
     )
     return (
-        summary
-        + '<div class="tbl-scroll"><table><thead><tr>'
-        "<th>회차</th><th>종목</th><th>기준가</th><th>현재가</th>"
-        "<th>수익률</th><th>코스피 대비</th><th>상태</th>"
-        "</tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>"
+        '<h3 class="phase-h">합의도별 성적 (2단계)</h3>'
+        '<p style="font-size:13.5px;color:var(--muted);margin:0 0 12px">'
+        "네 관점이 모두 동의한 종목과 의견이 갈린 종목 중 어느 쪽이 나았는지 봅니다. "
+        "에이전트의 순위를 매기지는 않습니다.</p>"
+        '<div class="tbl-scroll"><table><thead><tr>'
+        "<th>합의도</th><th>종목 수</th><th>평균 수익률</th><th>플러스</th>"
+        "</tr></thead><tbody>" + rows + "</tbody></table></div>"
     )
 
 
@@ -421,34 +645,36 @@ def build_round_page(site, p, rec, newer, older, stamp, is_latest):
     """회차 하나를 독립 URL(/r/N/)로 만든다."""
     nav = []
     if newer:
-        nav.append(f'<a href="{url_for(newer["no"])}">← 제{newer["no"]}회 {newer["name"]}</a>')
+        nav.append(f'<a href="{url_for(newer["no"])}">← 제{newer["no"]}회 {round_title(newer)}</a>')
     nav.append('<a href="/">전체 목록</a>')
     if older:
-        nav.append(f'<a href="{url_for(older["no"])}">제{older["no"]}회 {older["name"]} →</a>')
+        nav.append(f'<a href="{url_for(older["no"])}">제{older["no"]}회 {round_title(older)} →</a>')
 
     badge = ""
-    if rec:
-        cls = STATUS_CLASS.get(rec["status"], "hold")
+    ret = round_return(rec)
+    if ret is not None and phase_of(p) == 1:
+        st = rec.get("status", "보유 중")
+        cls = STATUS_CLASS.get(st, "hold")
         badge = (
             f'<p class="schedule">공개 이후 성적 — '
-            f'<span class="{tone(rec["return_pct"])}"><b>{pct(rec["return_pct"])}</b></span> '
+            f'<span class="{tone(ret)}"><b>{pct(ret)}</b></span> '
             f'(코스피 대비 <span class="{tone(rec["alpha_pp"])}">{rec["alpha_pp"]:+.1f}%p</span>) '
-            f'<span class="badge {cls}">{rec["status"]}</span> · {rec["price_date"]} 종가 기준</p>'
+            f'<span class="badge {cls}">{st}</span> · {rec.get("price_date","")} 종가 기준</p>'
         )
 
     body = f"""
 <section>
   <p class="eyebrow">{'This Week' if is_latest else 'Archive'}</p>
-  <h2 class="sec">제{p['no']}회 · {p['name']}</h2>
+  <h2 class="sec">제{p['no']}회 · {round_title(p)}</h2>
   {render_pick(p, rec)}
   {badge}
   <p class="prev-nav"><span class="lb">회차 이동</span>{'<span class="sep">|</span>'.join(nav)}</p>
 </section>
 """
-    desc = p["lede"][:150].replace('"', "'")
+    desc = (p.get("lede") or round_title(p))[:150].replace('"', "'")
     html = shell(
         site,
-        title=f"제{p['no']}회 {p['name']} — {site['title']}",
+        title=f"제{p['no']}회 {round_title(p)} — {site['title']}",
         desc=desc,
         canonical=url_for(p["no"]),
         stamp=stamp,
@@ -506,6 +732,7 @@ def main():
   <p class="eyebrow">Track Record</p>
   <h2 class="sec">성적표</h2>
   {render_record(picks, entries)}
+  {render_consensus_record(picks, entries)}
 </section>
 
 <section>
@@ -572,7 +799,7 @@ def main():
         f.write(site["domain"] + "\n")
     print(f"빌드 완료 → index.html ({n:,} bytes) + 회차 페이지 {pages}개 + /archive/")
     for p in picks:
-        print(f"   {url_for(p['no'])}  제{p['no']}회 {p['name']}")
+        print(f"   {url_for(p['no'])}  제{p['no']}회 {round_title(p)}")
 
 
 if __name__ == "__main__":
