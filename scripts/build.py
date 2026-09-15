@@ -31,7 +31,8 @@ def tone(v):
 
 STATUS_CLASS = {"손절": "bad", "1차 익절": "good", "2차 익절": "good", "보유 중": "hold"}
 
-PHASE_LABEL = {1: "1단계 · 단일 종목", 2: "2단계 · 일곱 관점 5종목"}
+PHASE_LABEL = {1: "1단계 · 단일 종목", 2: "2단계 · 7관점 5종목 포트폴리오"}
+PHASE_RECORD = {1: "1단계 단일 종목 성적", 2: "2단계 포트폴리오 성적"}
 N_VIEWS = 7  # 2단계 관점 수 (고정)
 
 
@@ -162,6 +163,11 @@ tr.now td{color:var(--muted)}
 
 .agree{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 7px;border-radius:3px;
   border:1px solid var(--line);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.changed{background:var(--soft,#f4f1ea);border-left:3px solid var(--ink);padding:10px 14px;margin:12px 0;font-size:14px;line-height:1.7}
+.vblock{margin:14px 0 0}.vblock h4{margin:0 0 6px;font-size:15px}
+.views{list-style:none;margin:0;padding:0}.views li{display:flex;gap:10px;padding:4px 0;border-top:1px dashed var(--line,#ddd);font-size:13.5px;line-height:1.6}
+.views li i{flex:0 0 3.2em;font-style:normal;font-weight:700;color:var(--muted)}.views li.dis i{color:var(--bad,#b3261e)}
+.hint{font-size:13px;color:var(--muted);margin:0 0 4px}
 .agree.a7,.agree.a6{color:var(--good);border-color:currentColor}
 .agree.a5,.agree.a4{color:var(--ink)}
 .agree.a3,.agree.a2,.agree.a1{color:var(--muted)}
@@ -204,13 +210,13 @@ footer{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 60px;
 INTRO = """
 <p>저는 아시아투데이에 「이영환의 에이전틱 이코노미」라는 칼럼을 쓰고 있습니다. 스무 회가 넘도록 AI가 무엇을 어떻게 바꾸고 있는지 설명해왔습니다. 그런데도 여전히 많은 분들이 이렇게 물으십니다. "그래서 그게 제 생활하고 무슨 상관입니까?"</p>
 <p>그 질문에 말로 답하는 대신, 실험을 하나 해보기로 했습니다.</p>
-<p>매주 AI 에이전트에게 종목을 하나 고르게 합니다. 무엇을 보고 왜 그렇게 판단했는지 숨기지 않고 그대로 공개합니다. 그리고 그 판단이 맞았는지 틀렸는지를 <strong>매일 기록합니다.</strong></p>
+<p>매주 일곱 AI 에이전트에게 5종목 포트폴리오를 구성하게 합니다. 무엇을 보고 왜 그렇게 판단했는지 숨기지 않고 그대로 공개합니다. 그리고 그 판단이 맞았는지 틀렸는지를 <strong>매일 기록합니다.</strong></p>
 <p>저는 이 실험의 결과를 모릅니다. AI가 고른 종목이 열에 아홉 맞을 수도 있고, 반대로 처참하게 틀릴 수도 있습니다. 어느 쪽이든 그 기록을 지우지 않겠습니다.</p>
 <p>함께 지켜봐 주시기 바랍니다.</p>
 """
 
 RULES = [
-    ("매주 한 종목, 월요일 오전 8시.", "직전 금요일 종가를 기준가로 삼고, 월요일 아침에 공개합니다."),
+    ("매주 7명의 에이전트가 선택한 5종목 포트폴리오, 월요일 오전 8시.", "직전 금요일 종가를 기준가로 삼고, 월요일 6시까지 뉴스를 반영하여 아침에 공개합니다. (제1~2회는 매주 한 종목이었습니다.)"),
     ("매수 조건과 목표를 미리 공개합니다.", "매수 시점, 1차·2차 익절가, 손절가를 공개 시점에 모두 밝히고 이후에는 바꾸지 않습니다."),
     ("판정은 종가 기준입니다.", "손절가를 종가로 밑돌면 그 자리에서 손실을 확정해 기록합니다. 장중에 잠깐 스친 가격은 세지 않습니다."),
     ("성적은 매일 갱신됩니다.", "기준가 대비 수익률을 코스피 같은 기간 수익률과 나란히 놓습니다."),
@@ -230,16 +236,28 @@ VIEW_ORDER = ("가치", "수급", "실적", "위험", "매크로", "산업", "�
 
 
 def views_html(h):
-    """일곱 관점의 소견을 묵살 없이 모두 싣는다. 반대 의견도 함께."""
+    """일곱 관점의 소견을 묵살 없이 모두 싣는다. 반대 의견도 함께. (표 아래 설명난용)"""
     v = h.get("views") or {}
     if not v:
-        return f'<span class="why">{h.get("why","")}</span>'
+        return f'<p>{h.get("why","")}</p>'
     keys = [k for k in VIEW_ORDER if k in v] + [k for k in v if k not in VIEW_ORDER]
-    rows = "".join(f'<span class="vw"><i>{k}</i> {v[k]}</span>' for k in keys)
-    dis = (
-        f'<span class="vw dis"><i>이견</i> {h["dissent"]}</span>' if h.get("dissent") else ""
+    rows = "".join(f'<li><i>{k}</i><span>{v[k]}</span></li>' for k in keys)
+    dis = f'<li class="dis"><i>이견</i><span>{h["dissent"]}</span></li>' if h.get("dissent") else ""
+    return f'<ul class="views">{rows}{dis}</ul>'
+
+
+def render_views_section(hs):
+    """표 아래 — 종목별 일곱 관점의 소견."""
+    blocks = []
+    for h in hs:
+        ag = h.get("agreement")
+        tag = f' <span class="agree a{ag}">{ag}/{N_VIEWS}</span>' if ag else ""
+        blocks.append(f'<div class="vblock"><h4>{h["name"]}{tag}</h4>{views_html(h)}</div>')
+    return (
+        '<div class="block"><h3>종목별 일곱 관점의 소견</h3>'
+        '<p class="hint">일곱 에이전트가 서로의 결과를 보지 않고 각자 조사해 낸 소견입니다. 반대 의견도 지우지 않고 그대로 싣습니다.</p>'
+        + "".join(blocks) + "</div>"
     )
-    return f'<span class="why">{rows}{dis}</span>'
 
 
 def render_basket(p, rec):
@@ -261,7 +279,7 @@ def render_basket(p, rec):
             f'<span class="agree a{ag}">{ag}/{N_VIEWS}</span>' if ag else '<span class="agree">—</span>'
         )
         rows.append(
-            f'<tr><td>{h["name"]}{views_html(h)}</td>'
+            f'<tr><td><b>{h["name"]}</b></td>'
             f'<td>{ag_html}</td>'
             f'<td>{won(h["entry"])}</td>'
             f'<td>{won(t["t1"])} / {won(t["t2"])}</td><td>{won(t["stop"])}</td>{cur}</tr>'
@@ -270,7 +288,7 @@ def render_basket(p, rec):
     summary = ""
     if br is not None:
         summary = (
-            f'<p class="schedule">바스켓(동일비중 {len(hs)}종목) '
+            f'<p class="schedule">포트폴리오(동일비중 {len(hs)}종목) '
             f'<span class="{tone(br)}"><b>{pct(br)}</b></span> · '
             f'코스피 대비 <span class="{tone(rec["alpha_pp"])}">{rec["alpha_pp"]:+.1f}%p</span> · '
             f'{rec.get("price_date","")} 종가 기준</p>'
@@ -279,17 +297,22 @@ def render_basket(p, rec):
         f'<div class="card" id="r{p["no"]}">',
         '<div class="pick-head">',
         f'<span class="pick-no">제{p["no"]}회</span>',
-        f'<span class="pick-name">{len(hs)}종목 바스켓</span>',
+        f'<span class="pick-name">{len(hs)}종목 포트폴리오</span>',
         f'<span class="phase-tag">{PHASE_LABEL[2]}</span>',
         "</div>",
         f'<div class="pick-date">기준일 {p.get("basis_date", p["date"])} 종가 · 공개 {p["date"]}</div>',
         (f'<div class="notice">{p["note"]}</div>' if p.get("note") else ""),
+        '<div class="changed"><b>이번 회차부터 달라진 점</b> 제1~2회는 매주 종목 하나를 골랐습니다. '
+        '이번 회차부터는 종목이 아니라 <b>포트폴리오</b>를 구성합니다. 가치·수급·실적·위험·매크로·산업·기술 '
+        '일곱 에이전트가 같은 후보군을 각자 조사하고, 그 결과를 모아 다섯 종목을 한 묶음으로 짭니다. '
+        '수익률도 종목이 아니라 포트폴리오(동일비중) 기준으로 기록합니다.</div>',
         f'<p class="lede">{p["lede"]}</p>' if p.get("lede") else "",
         '<div class="tbl-scroll"><table class="hold-tbl"><thead><tr>',
         "<th>종목</th><th>합의</th><th>기준가</th><th>익절 1·2차</th><th>손절</th>"
         "<th>현재가</th><th>수익률</th><th>상태</th>",
         "</tr></thead><tbody>", "".join(rows), "</tbody></table></div>",
         summary,
+        render_views_section(hs),
     ]
     for key, label in (("buy", "이번 주의 이야기"), ("risk", "위험 요소")):
         if p.get(key):
@@ -305,7 +328,7 @@ def render_basket(p, rec):
             for x in p["not_included"]
         )
         html.append(
-            f'<div class="block"><h3>논의했으나 담지 않은 종목</h3>'
+            f'<div class="block"><h3>후보에는 들었으나 최종 포트폴리오에 선택되지 않은 종목</h3>'
             f'<ul class="rejected">{items}</ul></div>'
         )
     if p.get("sources"):
@@ -406,7 +429,7 @@ def url_for(no):
 
 def round_title(p):
     if phase_of(p) == 2:
-        return f'{len(holdings_of(p))}종목 바스켓'
+        return f'{len(holdings_of(p))}종목 포트폴리오'
     return p["name"]
 
 
@@ -530,7 +553,7 @@ def render_record(picks, entries):
                 + (f" (승 {wins} / 패 {len(done)-wins})" if done else "")
                 + f' · 평균 <span class="{tone(avg)}">{pct(avg)}</span></p>'
             )
-            unit = "바스켓 수익률" if ph == 2 else "수익률"
+            unit = "포트폴리오 수익률" if ph == 2 else "수익률"
             body = (
                 summary
                 + '<div class="tbl-scroll"><table><thead><tr>'
@@ -544,7 +567,7 @@ def render_record(picks, entries):
             if ph == 1 and any(phase_of(x) == 2 for x in picks)
             else ""
         )
-        blocks.append(f'<h3 class="phase-h">{PHASE_LABEL[ph]}</h3>{body}{note}')
+        blocks.append(f'<h3 class="phase-h">{PHASE_RECORD[ph]}</h3>{body}{note}')
     return "".join(blocks) or (
         '<div class="empty">첫 회차가 막 시작되었습니다. '
         "평일 장 마감 후 이 자리에 성적이 기록됩니다.</div>"
@@ -729,7 +752,7 @@ def main():
 
 <section>
   <p class="eyebrow">This Week</p>
-  <h2 class="sec">이번 주의 종목</h2>
+  <h2 class="sec">{"이번 주의 포트폴리오" if phase_of(latest) == 2 else "이번 주의 종목"}</h2>
   {render_preface(latest.get('preface'), past, entries)}
   {render_pick(latest, entries.get(str(latest['no']), {}))}
   {render_prev_nav(past, entries)}
@@ -748,7 +771,7 @@ def main():
   <h2 class="sec">실험의 규칙</h2>
   <p style="margin:0 0 14px">미리 정해 두고 시작합니다. 실험이 실험이려면 규칙이 결과보다 먼저 있어야 하니까요.</p>
   <ol class="rules">{rules_html}</ol>
-  <p class="schedule">발행 일정 — 매주 <strong>금요일 종가</strong>를 기준으로 분석하고, 다음 <strong>월요일 오전 8시</strong>에 공개합니다. 성적은 그날부터 평일 장 마감 후 매일 갱신됩니다.</p>
+  <p class="schedule">발행 일정 — 매주 <strong>금요일 종가</strong>를 기준가로 삼고, <strong>월요일 6시까지의 뉴스</strong>를 반영해 <strong>월요일 오전 8시</strong>에 공개합니다. 성적은 그날부터 평일 장 마감 후 매일 갱신됩니다.</p>
 </section>
 
 <section>
@@ -761,7 +784,7 @@ def main():
     home = shell(
         site,
         title=f"{site['title']} — {site['tagline']}",
-        desc="AI 에이전트가 매주 종목을 하나 고르고, 그 판단이 맞았는지 매일 기록합니다. 금요일 종가 기준, 월요일 오전 8시 공개.",
+        desc="일곱 AI 에이전트가 매주 5종목 포트폴리오를 구성하고, 그 판단이 맞았는지 매일 기록합니다. 금요일 종가 기준, 월요일 6시까지 뉴스 반영, 오전 8시 공개.",
         canonical="/",
         stamp=stamp,
         sub=f"마지막 갱신 {stamp} · 글 {site['author']}",
@@ -787,7 +810,7 @@ def main():
   <p style="margin:0 0 18px;color:var(--muted);font-size:14.5px">
     공개된 {len(picks)}개 회차입니다. 삭제도 수정도 하지 않습니다.</p>
   {render_archive(picks, entries)}
-  <p class="prev-nav"><span class="lb">이동</span><a href="/">이번 주의 종목</a></p>
+  <p class="prev-nav"><span class="lb">이동</span><a href="/">이번 주의 포트폴리오</a></p>
 </section>
 """
     write(
