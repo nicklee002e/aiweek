@@ -31,7 +31,8 @@ def tone(v):
 
 STATUS_CLASS = {"손절": "bad", "1차 익절": "good", "2차 익절": "good", "보유 중": "hold"}
 
-PHASE_LABEL = {1: "1단계 · 단일 종목", 2: "2단계 · 멀티에이전트 5종목"}
+PHASE_LABEL = {1: "1단계 · 단일 종목", 2: "2단계 · 일곱 관점 5종목"}
+N_VIEWS = 7  # 2단계 관점 수 (고정)
 
 
 def phase_of(p):
@@ -161,9 +162,9 @@ tr.now td{color:var(--muted)}
 
 .agree{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 7px;border-radius:3px;
   border:1px solid var(--line);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
-.agree.a4{color:var(--good);border-color:currentColor}
-.agree.a3{color:var(--ink)}
-.agree.a2{color:var(--muted)}
+.agree.a7,.agree.a6{color:var(--good);border-color:currentColor}
+.agree.a5,.agree.a4{color:var(--ink)}
+.agree.a3,.agree.a2,.agree.a1{color:var(--muted)}
 .vw{display:block;margin-top:3px;font-size:12.5px;line-height:1.55;color:var(--muted)}
 .vw i{font-style:normal;font-weight:700;color:var(--accent);margin-right:5px;font-size:11px;
   letter-spacing:.03em}
@@ -225,11 +226,11 @@ DISCLAIMER = (
 )
 
 
-VIEW_ORDER = ("가치", "수급", "실적", "위험")
+VIEW_ORDER = ("가치", "수급", "실적", "위험", "매크로", "산업", "기술")
 
 
 def views_html(h):
-    """네 관점의 소견을 묵살 없이 모두 싣는다. 반대 의견도 함께."""
+    """일곱 관점의 소견을 묵살 없이 모두 싣는다. 반대 의견도 함께."""
     v = h.get("views") or {}
     if not v:
         return f'<span class="why">{h.get("why","")}</span>'
@@ -257,7 +258,7 @@ def render_basket(p, rec):
         )
         ag = h.get("agreement")
         ag_html = (
-            f'<span class="agree a{ag}">{ag}/4</span>' if ag else '<span class="agree">—</span>'
+            f'<span class="agree a{ag}">{ag}/{N_VIEWS}</span>' if ag else '<span class="agree">—</span>'
         )
         rows.append(
             f'<tr><td>{h["name"]}{views_html(h)}</td>'
@@ -572,9 +573,10 @@ def render_consensus_record(picks, entries):
                 a["win"] += 1
     if not agg:
         return ""
-    label = {4: "네 관점 전원 동의", 3: "세 관점 동의", 2: "두 관점 동의", 1: "한 관점만 동의"}
+    label = {7: "일곱 관점 전원 동의", 6: "여섯 관점 동의", 5: "다섯 관점 동의", 4: "네 관점 동의",
+             3: "세 관점 동의", 2: "두 관점 동의", 1: "한 관점만 동의"}
     rows = "".join(
-        f'<tr><td><span class="agree a{k}">{k}/4</span> {label.get(k, "")}</td>'
+        f'<tr><td><span class="agree a{k}">{k}/{N_VIEWS}</span> {label.get(k, "")}</td>'
         f'<td>{v["n"]}</td>'
         f'<td class="{tone(v["sum"]/v["n"])}">{pct(v["sum"]/v["n"])}</td>'
         f'<td>{v["win"]}/{v["n"]}</td></tr>'
@@ -583,7 +585,7 @@ def render_consensus_record(picks, entries):
     return (
         '<h3 class="phase-h">합의도별 성적 (2단계)</h3>'
         '<p style="font-size:13.5px;color:var(--muted);margin:0 0 12px">'
-        "네 관점이 모두 동의한 종목과 의견이 갈린 종목 중 어느 쪽이 나았는지 봅니다. "
+        "일곱 관점이 모두 동의한 종목과 의견이 갈린 종목 중 어느 쪽이 나았는지 봅니다. "
         "에이전트의 순위를 매기지는 않습니다.</p>"
         '<div class="tbl-scroll"><table><thead><tr>'
         "<th>합의도</th><th>종목 수</th><th>평균 수익률</th><th>플러스</th>"

@@ -3,7 +3,7 @@
 2단계 파이프라인 실행기 — 월요일 06:00 KST에 GitHub Actions가 돌린다.
 
     run/<basis_date>/pool.json  (fetch_pool.py 가 먼저 만든다)
-      → 1층 네 관찰 에이전트 (병렬·격리, 각자 웹 검색)
+      → 1층 일곱 관찰 에이전트 (병렬·격리, 각자 웹 검색)
       → 2층 종합  → 3층 구성
       → picks.json 에 회차 항목 추가 (date = 다음 월요일)
 
@@ -25,9 +25,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AGENTS = os.path.join(ROOT, "agents")
 KST = timezone(timedelta(hours=9))
 MODEL = os.environ.get("AIWEEK_MODEL", "claude-sonnet-4-5")
-OBSERVERS = ["가치", "수급", "실적", "위험"]
+OBSERVERS = ["가치", "수급", "실적", "위험", "매크로", "산업", "기술"]
 FILES = {"가치": "01_가치.md", "수급": "02_수급.md", "실적": "03_실적.md", "위험": "04_위험.md",
-         "종합": "05_종합.md", "구성": "06_구성.md"}
+         "매크로": "05_매크로.md", "산업": "06_산업.md", "기술": "07_기술.md",
+         "종합": "08_종합.md", "구성": "09_구성.md"}
 SEARCH_BUDGET = 40
 
 
@@ -88,7 +89,7 @@ def main():
     print(f"기준일 {basis} · 뉴스 컷오프 {news_cutoff}")
 
     # 1층 — 병렬, 격리
-    with ThreadPoolExecutor(max_workers=4) as ex:
+    with ThreadPoolExecutor(max_workers=7) as ex:
         list(ex.map(lambda n: run_observer(n, pool_text, basis, news_cutoff, outdir), OBSERVERS))
 
     # 2층
