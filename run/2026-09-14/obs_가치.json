@@ -1,0 +1,181 @@
+{
+  "agent": "가치",
+  "basis_date": "2026-09-14",
+  "opinions": [
+    {
+      "code": "005930",
+      "name": "삼성전자",
+      "close": 249000,
+      "close_source": "https://www.ebn.co.kr/news/articleView.html?idxno=1724177",
+      "stance": "보류",
+      "confidence": 0.4,
+      "opinion": "6월 19일 353,000원에서 249,000원, 석 달 새 -29%. 목표가 컨센서스 458,000원과의 괴리가 84%인데 이건 매력이 아니라 시장이 그 목표가를 안 믿는다는 뜻이다. 기준일 PBR·PER를 확보하지 못했고, 지금 이익이 정점인지 바닥인지 판단할 숫자도 없다. 낙폭만으로는 안 산다.",
+      "evidence": [
+        { "fact": "9월 14일 종가 249,000원(-4.05%)", "source": "https://www.ebn.co.kr/news/articleView.html?idxno=1724177", "date": "2026-09-14" },
+        { "fact": "6월 19일 종가 353,000원, 목표주가 컨센서스 약 458,000원(당시 기준)", "source": "https://www.sisajournal-e.com/news/articleView.html?idxno=421859", "date": "2026-06-19" },
+        { "fact": "KB증권, 100조원 배당 전망을 근거로 30만원대 복귀 주장(기사 날짜 미확인)", "source": "https://www.etoday.co.kr/news/view/2616632", "date": null }
+      ],
+      "what_would_change_my_mind": "기준일 기준 PBR이 자기 5년 밴드 하단(1.0~1.2배)까지 내려오면 편입 검토. 반대로 12개월 후행 PER이 한 자릿수인데도 메모리 가격 고점이 확인되면 '정점 PER'로 보고 반대."
+    },
+    {
+      "code": "000660",
+      "name": "SK하이닉스",
+      "close": 1697000,
+      "close_source": "https://www.ebn.co.kr/news/articleView.html?idxno=1724177",
+      "stance": "보류",
+      "confidence": 0.35,
+      "opinion": "하루 -6.35%는 내 관점의 재료가 아니다. 이 회사를 통째로 이 값에 살 때 장부가의 몇 배를 내는지, 후행 이익이 정점인지가 판단 재료인데 기준일 PBR·PER·시가총액을 확보하지 못했다. 메모리는 이익 정점에서 PER이 가장 싸 보이는 업종이라 낮은 PER을 그대로 믿지 않는다.",
+      "evidence": [
+        { "fact": "9월 14일 종가 1,697,000원(-6.35%)", "source": "https://www.ebn.co.kr/news/articleView.html?idxno=1724177", "date": "2026-09-14" },
+        { "fact": "장중 1,714,000원(-5.41%)에서 추가 하락해 마감, 전기전자 업종 -4.75%", "source": "https://www.infostockdaily.co.kr/news/articleView.html?idxno=217951", "date": "2026-09-14" }
+      ],
+      "what_would_change_my_mind": "PBR이 자기 5년 밴드 중앙값 이하로 내려오고 자사주 소각 공시가 나오면 편입 검토. PBR이 4배를 넘는 것이 확인되면 반대로 전환."
+    },
+    {
+      "code": "009150",
+      "name": "삼성전기",
+      "close": 1337000,
+      "close_source": "https://www.ebn.co.kr/news/articleView.html?idxno=1724177",
+      "stance": "보류",
+      "confidence": 0.3,
+      "opinion": "종가 1,337,000원, 하루 -4.50%. 이 값이 싼지 비싼지 말할 PBR·PER·장부가 구성 숫자를 하나도 확보하지 못했다. 숫자 없이 판단하지 않는다.",
+      "evidence": [
+        { "fact": "9월 14일 종가 1,337,000원(-4.50%)", "source": "https://www.ebn.co.kr/news/articleView.html?idxno=1724177", "date": "2026-09-14" },
+        { "fact": "장중 1,338,000원(-4.43%) 기록", "source": "https://www.joongangenews.com/news/articleView.html?idxno=547845", "date": "2026-09-14" }
+      ],
+      "what_would_change_my_mind": "기준일 PBR·후행 PER과 업종 평균을 확보하면 판단. PBR 2배 이하이고 배당·소각이 확인되면 편입 검토, 5배 이상이면 반대."
+    },
+    {
+      "code": "373220",
+      "name": "LG에너지솔루션",
+      "close": 351500,
+      "close_source": "https://www.ebn.co.kr/news/articleView.html?idxno=1724177",
+      "stance": "보류",
+      "confidence": 0.35,
+      "opinion": "종가 351,500원. 이익이 나지 않는 회사는 PER로 볼 수 없고 PBR과 자본 조달 이력으로 봐야 하는데, 기준일 PBR과 최근 3개월 유상증자·차입 공시를 확보하지 못했다. 재료 부족.",
+      "evidence": [
+        { "fact": "9월 14일 종가 351,500원(-2.36%)", "source": "https://www.ebn.co.kr/news/articleView.html?idxno=1724177", "date": "2026-09-14" },
+        { "fact": "전기전자 업종 -4.75%로 시장(-3.26%)보다 크게 하락한 날 상대적으로 덜 빠짐", "source": "https://www.infostockdaily.co.kr/news/articleView.html?idxno=217951", "date": "2026-09-14" }
+      ],
+      "what_would_change_my_mind": "유상증자·전환사채 등 희석성 조달 공시가 최근 1년 내 있었다면 반대. PBR 1.5배 이하이고 신규 조달 없이 흑자 전환이 확인되면 편입 검토."
+    },
+    {
+      "code": "105560",
+      "name": "KB금융",
+      "close": 181600,
+      "close_source": "https://www.ebn.co.kr/news/articleView.html?idxno=1724177",
+      "stance": "반대",
+      "confidence": 0.55,
+      "opinion": "BPS 165,905원 대비 종가 181,600원, PBR 약 1.09배. 2026년 자사주 소각 2.9조원, 총주주환원율 52.4%로 자본 배분은 주주 편이 맞다. 그러나 은행이 장부가 위에서 거래되면 내 기준으로는 싸지 않다. 좋은 회사를 제값에 사는 것은 내 일이 아니다.",
+      "evidence": [
+        { "fact": "9월 14일 종가 181,600원(+2.08%)", "source": "https://www.ebn.co.kr/news/articleView.html?idxno=1724177", "date": "2026-09-14" },
+        { "fact": "1분기 기준 PBR 0.76→0.96배, BPS 165,905원, 2026년 자사주 소각 2.9조원, 2025년 총주주환원율 52.4%", "source": "https://www.fntimes.com/html/view.php?ud=2026050715052677645e6e69892f_18", "date": "2026-05-08" },
+        { "fact": "1,816만주 소각으로 EPS·BPS 5%대 상승 효과", "source": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=693250", "date": null }
+      ],
+      "what_would_change_my_mind": "PBR 0.8배 아래(BPS 165,905원 기준 약 133,000원)로 내려오면 편입 검토. 총주주환원율 50% 약속이 후퇴하는 공시가 나오면 반대 확신 강화."
+    },
+    {
+      "code": "055550",
+      "name": "신한지주",
+      "close": 114600,
+      "close_source": "https://markets.hankyung.com/stock/055550",
+      "stance": "반대",
+      "confidence": 0.45,
+      "opinion": "BPS 124,997원 대비 종가 114,600원, PBR 약 0.92배. KB(1.09배)보다는 싸지만 52주 고점 116,500원 바로 아래이고 자기 밴드(과거 0.5배 안팎)의 꼭대기다. 자사주 7,000억원 조기 매입은 좋으나, 싼 이유가 없다는 건 싸지 않다는 뜻이다.",
+      "evidence": [
+        { "fact": "9월 14일 장마감 114,600원(+1.51%), 52주 최고 116,500원·최저 68,100원", "source": "https://markets.hankyung.com/stock/055550", "date": "2026-09-14" },
+        { "fact": "1분기 기준 PBR 0.52→0.79배, BPS 124,997원, 상반기 자사주 소각 7,000억원, 2025년 총주주환원율 50.2%", "source": "https://www.fntimes.com/html/view.php?ud=2026050715052677645e6e69892f_18", "date": "2026-05-08" },
+        { "fact": "자사주 7,000억원 매입 목표 조기 달성", "source": "https://www.bloter.net/news/articleView.html?idxno=667020", "date": null }
+      ],
+      "what_would_change_my_mind": "PBR 0.7배 아래(약 87,000원)로 내려오면 편입 검토. 하반기 추가 소각 규모가 상반기보다 커지는 공시가 나오면 반대 강도를 낮춘다."
+    },
+    {
+      "code": "032830",
+      "name": "삼성생명",
+      "close": null,
+      "close_source": null,
+      "stance": "보류",
+      "confidence": 0.55,
+      "opinion": "기준일 종가를 숫자로 확인하지 못했다(9월 11일 종가 307,500원, 기준일 -3.09%). 6월 고점 516,500원 대비 40% 넘게 빠졌고 6월 PBR 1.1배가 지금은 0.7배 안팎으로 내려왔을 것이다. 싼 이유는 밸류업 정식 공시 지연과 삼성전자 지분가치 하락 — 앞의 것은 일시적이다. 편입에 가장 가까운 종목이지만 종가와 주주환원 계획이 빠져 있다.",
+      "evidence": [
+        { "fact": "9월 11일 장마감 307,500원, 52주 최고 516,500원·최저 144,000원", "source": "https://markets.hankyung.com/stock/032830", "date": "2026-09-11" },
+        { "fact": "9월 14일 -3.09%, 보험 업종 -1.82%", "source": "https://www.infostockdaily.co.kr/news/articleView.html?idxno=217951", "date": "2026-09-14" },
+        { "fact": "6월 19일 종가 497,000원에서 PBR 1.1배, NAV 할인율 55%→37%, 1분기 삼성전자 지분 매각 이익 1.2조원에도 구체적 주주환원 계획 부재, 밸류업 정식 공시는 내년 3월 주총까지 예정", "source": "https://www.sisajournal-e.com/news/articleView.html?idxno=421859", "date": "2026-06-19" }
+      ],
+      "what_would_change_my_mind": "기준일 종가 확인 후 PBR 0.7배 이하가 맞고, 지분 매각 이익 1.2조원의 배당·소각 배분 계획이 공시되면 편입. 반대로 밸류업 공시가 다시 미뤄지거나 매각 이익이 계열사 투자로 가면 반대."
+    },
+    {
+      "code": "012450",
+      "name": "한화에어로스페이스",
+      "close": 1137000,
+      "close_source": "https://view.asiae.co.kr/article/2026091417540013992",
+      "stance": "보류",
+      "confidence": 0.4,
+      "opinion": "종가 1,137,000원(출처 간 등락률 불일치: +4.81%면 1,133,000원, 인포스탁 +5.18%와 아시아경제 113만7000원이 일치해 후자를 택함). 52주 고점 1,655,000원 대비 -31%. 수주잔고 38조원은 실적 관점의 숫자고 내 숫자는 PBR·PER인데 확보하지 못했다. 낙폭 31%는 출발점이지 결론이 아니다.",
+      "evidence": [
+        { "fact": "전날(9월 14일) 종가 113만7000원, IBK투자증권 목표가 150만원 신규 제시, 지상방산 수주잔고 38.3조원", "source": "https://view.asiae.co.kr/article/2026091417540013992", "date": "2026-09-14" },
+        { "fact": "9월 11일 종가 1,081,000원, 14일 오후 2시 19분 1,135,000원(+5.00%), 2025년 매출 26조6,078억원·영업이익 3조345억원", "source": "https://www.job-post.co.kr/news/articleView.html?idxno=227403", "date": "2026-09-14" },
+        { "fact": "52주 최고 1,655,000원·최저 783,000원", "source": "https://markets.hankyung.com/stock/012450", "date": "2026-09-14" }
+      ],
+      "what_would_change_my_mind": "기준일 PBR이 3배 이하이고 최근 1년 내 유상증자가 없었다면 편입 검토. PBR 5배 이상이거나 유상증자 이력이 확인되면 반대."
+    },
+    {
+      "code": "011200",
+      "name": "HMM",
+      "close": 21250,
+      "close_source": "https://www.hankyung.com/article/202609143603i",
+      "stance": "보류",
+      "confidence": 0.4,
+      "opinion": "종가 21,250원, 52주 밴드 17,910~24,950원의 중간. 운임지수 3600대는 실적 관점의 재료다. 내가 봐야 할 것은 장부가 대비 가격과 영구채 전환에 따른 주식 수 희석인데 둘 다 확보하지 못했다. 해운은 이익 정점에서 PER이 가장 싸 보이는 업종이라 낮은 PER을 믿지 않는다.",
+      "evidence": [
+        { "fact": "9월 14일 종가 21,250원(+1.92%), SCFI 7주 연속 상승 3600대", "source": "https://www.hankyung.com/article/202609143603i", "date": "2026-09-14" },
+        { "fact": "9월 11일 종가 20,850원, 52주 최고 24,950원·최저 17,910원", "source": "https://markets.hankyung.com/stock/011200", "date": "2026-09-11" }
+      ],
+      "what_would_change_my_mind": "PBR 0.6배 이하이고 영구채 전환이 마무리돼 추가 희석이 없는 것이 확인되면 편입. 전환 잔량이 크거나 대주주 매각 조건으로 자사주 소각이 막혀 있으면 반대."
+    },
+    {
+      "code": "010950",
+      "name": "S-Oil",
+      "close": 148600,
+      "close_source": "https://markets.hankyung.com/stock/010950",
+      "stance": "반대",
+      "confidence": 0.65,
+      "opinion": "BPS 86,631원 대비 종가 148,600원, PBR 1.72배. 52주 저점 57,600원에서 2.6배 오른 값이다. 후행 PER 11.3배, 추정 PER 5.7배는 정제마진 정점의 숫자라 싸 보일 때가 가장 위험하다. 배당수익률 0.22%(주당 330원)는 주주에게 돈이 오지 않는다는 뜻. 정유사를 장부가의 1.7배에 사지 않는다.",
+      "evidence": [
+        { "fact": "9월 14일 장마감 148,600원(-0.93%), 52주 최고 177,100원·최저 57,600원", "source": "https://markets.hankyung.com/stock/010950", "date": "2026-09-14" },
+        { "fact": "시가총액 16조6,623억원, PER 11.32배, 추정 PER 5.67배, PBR 1.71배, BPS 86,631원, 주당배당금 330원(0.22%), 목표주가 177,500원", "source": "https://www.joongangenews.com/news/articleView.html?idxno=547939", "date": "2026-09-14" }
+      ],
+      "what_would_change_my_mind": "PBR 1.0배(약 87,000원) 아래로 내려오거나, 배당성향을 30% 이상으로 올리는 공시가 나오면 재검토."
+    },
+    {
+      "code": "207940",
+      "name": "삼성바이오로직스",
+      "close": 1420000,
+      "close_source": "https://www.ebn.co.kr/news/articleView.html?idxno=1724177",
+      "stance": "보류",
+      "confidence": 0.3,
+      "opinion": "종가 1,420,000원, 급락장에서 +0.35%. 기준일 PER·PBR을 확보하지 못해 숫자로 말할 수 없다. 다만 이 회사가 내 관점에서 편입된 적은 없고, 배당이 없는 회사는 자본 배분 기준도 통과하지 못한다.",
+      "evidence": [
+        { "fact": "9월 14일 종가 1,420,000원(+0.35%)", "source": "https://www.ebn.co.kr/news/articleView.html?idxno=1724177", "date": "2026-09-14" },
+        { "fact": "코스피 -3.26%(6,684.37) 하락일에 상승 마감한 시총 상위 종목", "source": "https://www.businesskorea.co.kr/news/articleView.html?idxno=276900", "date": "2026-09-14" }
+      ],
+      "what_would_change_my_mind": "후행 PER 30배 이하가 확인되면 재검토. 50배 이상이면 반대로 전환."
+    },
+    {
+      "code": "005490",
+      "name": "POSCO홀딩스",
+      "close": null,
+      "close_source": null,
+      "stance": "보류",
+      "confidence": 0.5,
+      "opinion": "기준일 종가를 확인하지 못했다(9월 9일 장중 335,000원, 15일 지연 시세 326,000원). 증권사가 철강 부문 타깃 PBR을 0.4배로 낮추고도 목표가 40만원을 유지하며 리튬 가치 10조원을 근거로 '매력적'이라 한다. 52주 고점 542,000원 대비 -40%. 싼 건 맞아 보이는데, 싼 이유(중국 전방산업 침체)가 일시적인지 구조적인지 아직 못 가르겠다.",
+      "evidence": [
+        { "fact": "목표가 48만원→40만원 하향, 철강 부문 타깃 PBR 0.5→0.4배, 리튬 부문 가치 약 10조원, 투자의견 BUY 유지", "source": "https://ket.kr/news/article.html?no=39786", "date": "2026-07-31" },
+        { "fact": "9월 9일 장중 335,000원(+1.98%)", "source": "https://www.joongangenews.com/news/articleView.html?idxno=546791", "date": "2026-09-09" },
+        { "fact": "52주 최고 542,000원·최저 258,500원, 컨센서스 등급 2.00(보유)", "source": "https://markets.hankyung.com/stock/005490", "date": "2026-09-15" }
+      ],
+      "what_would_change_my_mind": "기준일 종가 확인 후 PBR 0.4배 이하가 맞고, 자사주 소각 계획이 진행 중(공시로 확인)이면 편입. 철강 부문 적자 전환이나 리튬 부문 추가 증자·차입이 확인되면 반대."
+    }
+  ],
+  "pool_note": "급락일 시황에 오른 이름들이라 내 관점의 숫자(PBR·PER·자본배분)가 갖춰진 종목이 적었다. 예산 40회 중 대부분을 종가 확인에 썼고, 삼성생명·POSCO홀딩스는 종가를 못 찾았다. 장부가 대비 명백히 비싼 것은 S-Oil(1.7배)이고, 은행 둘은 좋은 회사지만 이미 장부가 근처다. 내 관점에서 편입에 가장 가까운 것은 삼성생명과 POSCO홀딩스인데 둘 다 종가와 자본배분 확인이 빠져 보류로 남겼다."
+}

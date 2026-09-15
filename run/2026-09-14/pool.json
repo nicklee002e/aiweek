@@ -1,0 +1,23 @@
+{
+  "basis_date": "2026-09-14",
+  "rule_version": "2026-09-15",
+  "_note": "시험 실행. 기준일 마감 시황 기사에 이름이 오른 종목(상승·하락 모두) + 정유·해운 등 당일 업종 기사 언급 종목 + 저PBR 업종(철강) 시총 상위. 진행 중 회차 보유 종목 제외.",
+  "pool": [
+    { "code": "005930", "name": "삼성전자", "ticker": "005930.KS", "sector": "전기전자", "why_in_pool": "마감 시황 다수 언급(하락 -4.05%)" },
+    { "code": "000660", "name": "SK하이닉스", "ticker": "000660.KS", "sector": "전기전자", "why_in_pool": "마감 시황 다수 언급(하락 -6.35%)" },
+    { "code": "009150", "name": "삼성전기", "ticker": "009150.KS", "sector": "전기전자", "why_in_pool": "마감 시황 언급(하락 -4.50%)" },
+    { "code": "373220", "name": "LG에너지솔루션", "ticker": "373220.KS", "sector": "전기전자", "why_in_pool": "마감 시황 언급(하락 -2.36%)" },
+    { "code": "105560", "name": "KB금융", "ticker": "105560.KS", "sector": "금융", "why_in_pool": "마감 시황 언급(상승 +2.08%)" },
+    { "code": "055550", "name": "신한지주", "ticker": "055550.KS", "sector": "금융", "why_in_pool": "마감 시황 언급(상승 +1.51%)" },
+    { "code": "032830", "name": "삼성생명", "ticker": "032830.KS", "sector": "보험", "why_in_pool": "마감 시황 언급(하락 -3.09%)" },
+    { "code": "012450", "name": "한화에어로스페이스", "ticker": "012450.KS", "sector": "기계·방산", "why_in_pool": "마감 시황 언급(상승 +4.81%)" },
+    { "code": "011200", "name": "HMM", "ticker": "011200.KS", "sector": "운수창고", "why_in_pool": "운수창고 업종 상승 기사 언급(+1.92%)" },
+    { "code": "010950", "name": "S-Oil", "ticker": "010950.KS", "sector": "정유", "why_in_pool": "유가·정제마진 기사 다수 언급" },
+    { "code": "207940", "name": "삼성바이오로직스", "ticker": "207940.KS", "sector": "의약품", "why_in_pool": "마감 시황 언급(상승 +0.35%)" },
+    { "code": "005490", "name": "POSCO홀딩스", "ticker": "005490.KS", "sector": "철강", "why_in_pool": "저PBR 업종 시총 상위" }
+  ],
+  "excluded": [
+    { "code": "005380", "name": "현대차", "reason": "제2회 보유 중" },
+    { "code": "064350", "name": "현대로템", "reason": "제1회 보유 중" }
+  ]
+}
