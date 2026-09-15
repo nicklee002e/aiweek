@@ -163,7 +163,8 @@ tr.now td{color:var(--muted)}
 
 .agree{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 7px;border-radius:3px;
   border:1px solid var(--line);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
-.changed{background:var(--soft,#f4f1ea);border-left:3px solid var(--ink);padding:10px 14px;margin:12px 0;font-size:14px;line-height:1.7}
+.changed{background:#f4f1ea;color:#111;border-left:3px solid #111;padding:10px 14px;margin:12px 0;font-size:14px;line-height:1.7}
+.changed b{color:#111}
 .vblock{margin:14px 0 0}.vblock h4{margin:0 0 6px;font-size:15px}
 .views{list-style:none;margin:0;padding:0}.views li{display:flex;gap:10px;padding:4px 0;border-top:1px dashed var(--line,#ddd);font-size:13.5px;line-height:1.6}
 .views li i{flex:0 0 3.2em;font-style:normal;font-weight:700;color:var(--muted)}.views li.dis i{color:var(--bad,#b3261e)}
@@ -210,8 +211,9 @@ footer{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 60px;
 INTRO = """
 <p>저는 아시아투데이에 「이영환의 에이전틱 이코노미」라는 칼럼을 쓰고 있습니다. 스무 회가 넘도록 AI가 무엇을 어떻게 바꾸고 있는지 설명해왔습니다. 그런데도 여전히 많은 분들이 이렇게 물으십니다. "그래서 그게 제 생활하고 무슨 상관입니까?"</p>
 <p>그 질문에 말로 답하는 대신, 실험을 하나 해보기로 했습니다.</p>
-<p>매주 일곱 AI 에이전트에게 5종목 포트폴리오를 구성하게 합니다. 무엇을 보고 왜 그렇게 판단했는지 숨기지 않고 그대로 공개합니다. 그리고 그 판단이 맞았는지 틀렸는지를 <strong>매일 기록합니다.</strong></p>
-<p>저는 이 실험의 결과를 모릅니다. AI가 고른 종목이 열에 아홉 맞을 수도 있고, 반대로 처참하게 틀릴 수도 있습니다. 어느 쪽이든 그 기록을 지우지 않겠습니다.</p>
+<p>첫 2주는 한 종목만 선택을 해서 올렸는데 이 학과의 전문가께서 직접 전화를 주시고 1종목을 선택하는 대신 포트폴리오 구성을 하라고 조언해주셨습니다. 그 조언에 따라 세번째 주부터 매주 일곱 명의 AI 에이전트에게 협력하여 5종목을 골라 포트폴리오를 구성하게 합니다.</p>
+<p>이 사이트에서는 무엇을 보고 왜 그렇게 판단했는지 숨기지 않고 그대로 공개합니다. 그리고 그 판단이 맞았는지 틀렸는지를 <strong>매일 기록합니다.</strong></p>
+<p>저는 이 실험의 결과를 모릅니다. AI 에이전트들이 협력하여 고른 포트폴리오의 종목들이 열에 아홉 맞을 수도 있고, 반대로 처참하게 틀릴 수도 있습니다. 어느 쪽이든 그 기록을 지우지 않겠습니다.</p>
 <p>함께 지켜봐 주시기 바랍니다.</p>
 """
 
