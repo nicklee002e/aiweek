@@ -53,36 +53,36 @@
     "3": {
       "no": 3,
       "phase": 2,
-      "price_date": "2026-09-17",
-      "basket_return_pct": -1.41,
+      "price_date": "2026-09-18",
+      "basket_return_pct": -1.94,
       "bench_entry": 6684.3701171875,
-      "bench_return_pct": 0.46,
-      "alpha_pp": -1.88,
+      "bench_return_pct": 3.14,
+      "alpha_pp": -5.08,
       "closed": false,
       "holdings": {
         "009150": {
           "name": "삼성전기",
-          "price": 1330000,
-          "price_date": "2026-09-17",
-          "return_pct": -0.52,
+          "price": 1388000,
+          "price_date": "2026-09-18",
+          "return_pct": 3.81,
           "status": "보유 중",
           "closed": false,
           "agreement": 2
         },
         "055550": {
           "name": "신한지주",
-          "price": 113300,
-          "price_date": "2026-09-17",
-          "return_pct": -1.13,
+          "price": 110100,
+          "price_date": "2026-09-18",
+          "return_pct": -3.93,
           "status": "보유 중",
           "closed": false,
           "agreement": 6
         },
         "105560": {
           "name": "KB금융",
-          "price": 179200,
-          "price_date": "2026-09-17",
-          "return_pct": -1.32,
+          "price": 174900,
+          "price_date": "2026-09-18",
+          "return_pct": -3.69,
           "status": "보유 중",
           "closed": false,
           "agreement": 6
@@ -99,9 +99,9 @@
         },
         "010950": {
           "name": "S-Oil",
-          "price": 152200,
-          "price_date": "2026-09-17",
-          "return_pct": 2.42,
+          "price": 149500,
+          "price_date": "2026-09-18",
+          "return_pct": 0.61,
           "status": "보유 중",
           "closed": false,
           "agreement": 4
@@ -111,8 +111,8 @@
   },
   "benchmark": {
     "ticker": "^KS11",
-    "date": "2026-09-17",
-    "close": 6715.41015625
+    "date": "2026-09-18",
+    "close": 6894.22998046875
   },
-  "updated_at": "2026-09-17 21:27 KST"
+  "updated_at": "2026-09-18 21:06 KST"
 }
