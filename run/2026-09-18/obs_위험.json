@@ -1,0 +1,261 @@
+{
+  "agent": "위험",
+  "basis_date": "2026-09-18",
+  "_price_note": "pool.json에 close_krx가 없어 언론·시세사이트 종가를 출처와 함께 썼다. 기준일 이후 가격은 쓰지 않았다. 52주 고저는 investing.com 표시값이며 KRX 공식값과 다를 수 있다. 뉴스는 2026-09-21 06:00 KST까지.",
+  "opinions": [
+    {
+      "code": "005930",
+      "name": "삼성전자",
+      "close": 261000,
+      "close_source": "https://kr.investing.com/news/stock-market-news/article-2099326",
+      "stance": "편입",
+      "confidence": 0.5,
+      "opinion": "노조 파업(5월)은 잠정합의로 끝났고 최근 3개월 부정 뉴스는 세 갈래다 — 미국 '반도체 표적관세' 예고(9/3, 세율·시행일 미정), 미국 D램 담합 집단소송(6월, 초기 단계), 대만계 특허 NPE 소송(9/12, 청구액 미특정). 가장 그럴듯한 최악은 한국산 메모리에 징벌적 관세가 확정되는 것인데 사업이 분산돼 있어 낙폭 -20% 안쪽으로 본다. 52주 저점 81,100원까지는 -69%로 하방은 깊지만 그 경로에 확인된 사건은 없다.",
+      "worst_case": "미 상무부가 한국산 D램·HBM에 미국 내 생산 미충족을 이유로 고율 관세를 확정하고 삼성 텍사스 파운드리 투자는 면제 요건으로 인정되지 않는 경우",
+      "worst_case_drawdown_pct": -20,
+      "evidence": [
+        { "fact": "미 상무장관 '미국서 안 만들면 대가' — D램·HBM·낸드 등 한국산 메모리 표적관세 예고. 한국 웨이퍼를 미국에서 패키징하는 구조로는 면제를 보장받지 못할 가능성", "source": "https://www.etoday.co.kr/news/view/2621680", "date": "2026-09-03" },
+        { "fact": "미국 소비자 14명·PC조립업체 3곳이 삼성전자·SK하이닉스·마이크론을 상대로 캘리포니아 북부연방지법에 D램 감산 담합 집단소송 제기", "source": "https://www.etoday.co.kr/news/view/2598475", "date": "2026-06-30" },
+        { "fact": "대만계 Aydun IP가 갤럭시·가전·모니터 등 대상으로 디스플레이 특허 8건 침해 소송, 3배 배상·영구금지 청구(금액 미특정)", "source": "https://www.g-enews.com/article/Global-Biz/2026/09/202609120751437432fbbec65dfb_1", "date": "2026-09-12" },
+        { "fact": "2026년 노조 총파업은 5/20 잠정합의로 유보, 5/27 찬성 73.7%로 임단협 체결. 추가 쟁의 계획 없음", "source": "https://namu.wiki/w/2026%EB%85%84%20%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90%20%EB%85%B8%EC%A1%B0%20%EC%B4%9D%ED%8C%8C%EC%97%85", "date": "2026-09-10" },
+        { "fact": "주주행동 플랫폼 ACT, 10년 성과급 합의 관련 주주명부 열람 가처분(참여 주주 1만4,721명)", "source": "https://www.hankyung.com/article/202606107218g", "date": "2026-06-10" },
+        { "fact": "9/18 종가 261,000원(+3.37%), 52주 81,100~374,500원", "source": "https://www.investing.com/equities/samsung-electronics-co-ltd", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "표적관세 세율이 확정되고 한국 생산분에 면제가 없는 것으로 공표되면 반대로 바꾼다. 담합 소송이 집단소송 인증(class certification)을 받아도 재검토."
+    },
+    {
+      "code": "000660",
+      "name": "SK하이닉스",
+      "close": 1857000,
+      "close_source": "https://kr.investing.com/news/stock-market-news/article-2099326",
+      "stance": "반대",
+      "confidence": 0.6,
+      "opinion": "삼성전자와 같은 관세·담합소송 위험을 지되, 매출이 메모리 하나에 걸려 있고 HBM은 사실상 한 고객군에 걸려 있어 같은 사건이 터져도 낙폭이 더 크다. 미국 ADR 상장으로 미국 집단소송의 관할·노출도 커졌다. 52주 고점 2,987,000원 대비 이미 -38% 자리라 변동성이 실증됐다. 최악 시나리오(관세 확정 + 담합소송 인증)는 -35%로 본다. 실적이 좋다는 말은 이 낙폭을 줄여주지 않는다. (종가는 언론 간 1,849,000~1,867,000원으로 갈렸고 investing.com 일별시세와 일치하는 1,857,000원을 썼다.)",
+      "worst_case": "한국산 HBM·D램에 미국 관세가 확정되면서 동시에 D램 담합 집단소송이 인증되어 과거 DOJ 유죄 전력이 재부각되는 경우",
+      "worst_case_drawdown_pct": -35,
+      "evidence": [
+        { "fact": "SEC ADR 신고 다음날(6/25) 캘리포니아 북부연방지법에 반독점 집단소송 피소. 회사는 충당부채 미인식", "source": "https://www.greened.kr/news/articleView.html?idxno=344058", "date": "2026-07-02" },
+        { "fact": "미 상무부 메모리 표적관세 예고 — SK하이닉스 인디애나 투자는 HBM 패키징·R&D 위주라 전공정 면제 불확실", "source": "https://www.etoday.co.kr/news/view/2621680", "date": "2026-09-03" },
+        { "fact": "삼성·SK하이닉스는 2000년대 DOJ D램 가격담합으로 유죄 인정·7억3,100만달러 벌금 전력(원고 측 인용)", "source": "https://www.etoday.co.kr/news/view/2598475", "date": "2026-06-30" },
+        { "fact": "9/18 종가 1,857,000원, 52주 333,000~2,987,000원", "source": "https://www.investing.com/equities/sk-hynix-inc-historical-data", "date": "2026-09-18" },
+        { "fact": "2026년 임단협은 타결(9/16 보도) — 파업 위험은 없다", "source": "https://m.news.nate.com/view/20260916n25237", "date": "2026-09-16" }
+      ],
+      "what_would_change_my_mind": "미국 관세에서 한국산 메모리 면제 또는 5% 이하 세율이 확정되거나, 담합 소송이 각하·인증 기각되면 편입에 동의한다."
+    },
+    {
+      "code": "402340",
+      "name": "SK스퀘어",
+      "close": 1079000,
+      "close_source": "https://kr.investing.com/news/stock-market-news/article-2099326",
+      "stance": "반대",
+      "confidence": 0.65,
+      "opinion": "순자산의 대부분이 SK하이닉스 지분(약 20%) 하나이고 주가 상관 98%로 보도된 '할인된 하이닉스'다. 집중 위험 그 자체다. 하이닉스의 최악(-35%)이 오면 지주 할인율까지 함께 벌어져 -40%까지 본다. 52주 저점 194,900원은 현재가의 -82%로 하방이 후보군에서 가장 깊다. 최근 3개월 자사 고유의 소송·증자·블록딜 뉴스는 찾지 못했다 — 위험이 없다는 뜻이 아니라 위험이 전부 밖(하이닉스)에 있다는 뜻이다.",
+      "worst_case": "SK하이닉스에 관세·소송 사건이 터지고 NAV 할인율이 다시 확대되어 하이닉스보다 더 빠지는 경우",
+      "worst_case_drawdown_pct": -40,
+      "evidence": [
+        { "fact": "SK스퀘어는 SK하이닉스 지분 약 20% 보유, 양사 주가 상관관계 98% 수준 — '하이닉스 98% 추종 ETF'", "source": "https://www.investchosun.com/site/data/html_dir/2026/05/14/2026051480043.html", "date": "2026-05-14" },
+        { "fact": "9/18 종가 1,079,000원(+7.04%)", "source": "https://kr.investing.com/news/stock-market-news/article-2099326", "date": "2026-09-18" },
+        { "fact": "52주 194,900~2,189,000원 (investing.com 표시값)", "source": "https://www.investing.com/equities/sk-square", "date": "2026-09-18" },
+        { "fact": "SK하이닉스 미국 반독점 집단소송·메모리 표적관세 예고 (지분가치 경유 위험)", "source": "https://www.greened.kr/news/articleView.html?idxno=344058", "date": "2026-07-02" }
+      ],
+      "what_would_change_my_mind": "하이닉스 관세·소송 위험이 해소되거나, SK스퀘어가 하이닉스 외 자산 비중을 의미 있게(순자산 30% 이상) 늘리는 포트폴리오 재편을 공시하면 편입에 동의한다."
+    },
+    {
+      "code": "009150",
+      "name": "삼성전기",
+      "close": 1388000,
+      "close_source": "https://kr.investing.com/news/stock-market-news/article-2099326",
+      "stance": "보류",
+      "confidence": 0.4,
+      "opinion": "최근 3개월 삼성전기 고유의 파업·소송·규제·증자·리콜 뉴스는 없었다 — 검색해서 없었다. 문제는 집중 위험을 판단할 숫자가 없다는 것이다. 매출이 삼성전자·AI서버 고객 몇 곳에 얼마나 걸려 있는지(최대 고객 비중) 최신 사업보고서 수치를 확인하지 못했고, 52주 188,600~2,417,000원이라는 범위는 현재가가 고점 대비 -43%인 자리로 이 종목이 사건 없이도 반토막 날 수 있음을 보여준다. 최악은 핵심 AI서버 고객 한 곳의 발주 축소로 -30%.",
+      "worst_case": "AI 서버용 MLCC·FC-BGA 핵심 고객 한 곳이 발주를 한 분기 이상 축소하거나 미국 관세가 부품 완제품까지 확대되는 경우",
+      "worst_case_drawdown_pct": -30,
+      "evidence": [
+        { "fact": "9/18 종가 1,388,000원(+4.36%)", "source": "https://kr.investing.com/news/stock-market-news/article-2099326", "date": "2026-09-18" },
+        { "fact": "52주 188,600~2,417,000원, 1년 상승률 +619% (investing.com 표시값)", "source": "https://www.investing.com/equities/samsung-electro-mechanics", "date": "2026-09-18" },
+        { "fact": "회사는 미 관세를 '수요 감소·마진 압박의 간접 리스크'로 인정, 물류 조정으로 직접 영향 회피 방침", "source": "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03001206642141040", "date": "2025-04-29" },
+        { "fact": "미국, 반도체 완제품까지 관세 확대 검토(부품 공급망 압박 경로)", "source": "https://v.daum.net/v/20260903085441799", "date": "2026-09-03" }
+      ],
+      "what_would_change_my_mind": "확인할 것: DART 반기보고서의 주요 고객 매출 비중(최대 고객 30% 미만이면 편입 동의), 미 관세의 부품 포함 여부. 최대 고객 비중이 40%를 넘으면 반대."
+    },
+    {
+      "code": "373220",
+      "name": "LG에너지솔루션",
+      "close": 364000,
+      "close_source": "https://www.investing.com/equities/lg-energy-solution",
+      "stance": "보류",
+      "confidence": 0.4,
+      "opinion": "최근 3개월 새 리콜·소송 피소 뉴스는 찾지 못했다(오히려 EVE 상대 ITC 제소는 원고 측). 그러나 이 회사의 꼬리 위험은 이력이 증명한다 — 볼트 리콜 1.4조원 보상, 코나·ESS 리콜, 그리고 2025년 미국 합작공장 ICE 단속. 여기에 이익이 미국 AMPC 보조금 하나에 걸려 있다는 정책 집중 위험이 있다. 리콜 재발 확률을 판단하려면 최신 품질보증충당부채 추이가 필요한데 확인하지 못했다. 최악은 대형 EV 리콜 재발 -25%.",
+      "worst_case": "주요 완성차 고객 차종에서 배터리 화재로 대규모 리콜이 재발하고 분담금이 조 단위로 잡히는 경우(볼트 전례)",
+      "worst_case_drawdown_pct": -25,
+      "evidence": [
+        { "fact": "GM 볼트 14만대 리콜에 LG 1.4조원 보상, 호주·미국 ESS 리콜 등 반복 리콜 이력", "source": "https://www.kjtimes.com/news/article.html?no=73721", "date": "2022-11-29" },
+        { "fact": "코나·볼트·조에 등 다수 차종 화재, 2025년 현대-LG 미국 합작공장 ICE 단속", "source": "https://namu.wiki/w/LG%EC%97%90%EB%84%88%EC%A7%80%EC%86%94%EB%A3%A8%EC%85%98/%EB%85%BC%EB%9E%80%20%EB%B0%8F%20%EC%82%AC%EA%B1%B4%20%EC%82%AC%EA%B3%A0", "date": "2026-09-20" },
+        { "fact": "'AMPC 빼면 적자' 논쟁 — 이익의 AMPC 의존 구조, EVE 상대 ITC 특허 제소(원고)", "source": "https://www.etoday.co.kr/news/view/2609571", "date": "2026-07-31" },
+        { "fact": "9/18 종가 364,000원(-0.27%), 52주 290,500~527,000원", "source": "https://www.investing.com/equities/lg-energy-solution", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "확인할 것: 반기보고서 품질보증충당부채가 전년 대비 늘지 않았는지, AMPC 관련 미국 정책 변경 논의 유무. 충당부채 안정 + 정책 변경 없음이면 편입 동의. 새 리콜 공시가 나오면 반대."
+    },
+    {
+      "code": "005380",
+      "name": "현대차",
+      "close": 365000,
+      "close_source": "https://kr.investing.com/news/stock-market-news/article-2099326",
+      "stance": "편입",
+      "confidence": 0.55,
+      "opinion": "올해 파업 위험은 소진됐다 — 10년 만의 전면파업으로 5.5만대·2.3조원 차질을 이미 냈고 9/1 임협이 61.55%로 가결됐다. 남은 사건은 둘: 8월 51만대 리콜(엔진 너트·하이브리드 제어기 화재 위험)과 9/14 미 제9순회항소법원이 되살린 보험사 200곳의 이모빌라이저 소송(10억달러 이상). 후자는 시총 84조 대비 2% 남짓이라 최악이라도 -15%. 제2회 손절은 지난 일이고 그 이유(파업)는 이제 작동하지 않는다.",
+      "worst_case": "이모빌라이저 소송이 캘리포니아에서 본안으로 가며 도난 관련 집단소송이 뒤따르고, 8월 리콜의 화재 결함이 추가 차종으로 확대되는 경우",
+      "worst_case_drawdown_pct": -15,
+      "evidence": [
+        { "fact": "현대차 임협 타결(찬성 61.55%), 전면파업으로 생산차질 5만5,200대·매출 차질 2조3,000억원 추산", "source": "https://www.newspim.com/news/view/20260901000023", "date": "2026-09-01" },
+        { "fact": "미 제9순회항소법원, 보험사 약 200곳의 10억달러 이상 이모빌라이저 소송을 1심 뒤집고 재심리 명령(한국 본사도 캘리포니아 관할)", "source": "https://www.atlantajoongang.com/143292", "date": "2026-09-16" },
+        { "fact": "현대차·기아 등 51만2,393대 리콜 — 엔진 너트 결함 연료 누출 23만7,296대, 하이브리드 제어기 화재 위험 16만8,181대", "source": "https://www.fnnews.com/news/202608060836373460", "date": "2026-08-06" },
+        { "fact": "9/18 종가 365,000원(+0.55%), 52주 213,000~783,000원", "source": "https://www.investing.com/equities/hyundai-motor", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "이모빌라이저 소송이 집단소송 인증을 받거나 리콜 대상이 100만대 이상으로 늘면 반대로 바꾼다."
+    },
+    {
+      "code": "000270",
+      "name": "기아",
+      "close": 121900,
+      "close_source": "https://www.investing.com/equities/kia-motors",
+      "stance": "편입",
+      "confidence": 0.6,
+      "opinion": "6년 연속 무파업으로 8/28 타결 — 노조 꼬리 위험은 후보군 완성차 중 가장 낮다. 남은 것은 현대차와 공유하는 이모빌라이저 소송(기아는 2011년부터라 노출 기간이 더 길다)과 8월 리콜(카니발 9.9만대·K8). 최악은 소송 본안 패소 -15%. 52주 저점 100,000원은 -18% 거리.",
+      "worst_case": "이모빌라이저 소송에서 기아의 2011년 이후 판매분이 배상 대상으로 확정되고 리콜이 추가 차종으로 확대되는 경우",
+      "worst_case_drawdown_pct": -15,
+      "evidence": [
+        { "fact": "기아 8/28 잠정합의 가결, 2021년 이후 6년 연속 무파업 타결", "source": "https://www.etoday.co.kr/news/view/2620265", "date": "2026-09-01" },
+        { "fact": "보험사 소송: '기아는 2011년부터, 현대차는 2016년부터' 미국 판매 일부 모델에 이모빌라이저 미탑재 주장, 10억달러 이상 청구, 항소심이 재심리 명령", "source": "https://www.atlantajoongang.com/143292", "date": "2026-09-16" },
+        { "fact": "8월 리콜에 기아 카니발 9만9,889대·K8 9,348대 포함", "source": "https://www.fnnews.com/news/202608060836373460", "date": "2026-08-06" },
+        { "fact": "9/18 종가 121,900원(+0.83%), 52주 100,000~212,500원", "source": "https://www.investing.com/equities/kia-motors", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "이모빌라이저 소송 집단소송 인증, 또는 국내외 리콜이 50만대 이상 추가되면 반대로 바꾼다."
+    },
+    {
+      "code": "207940",
+      "name": "삼성바이오로직스",
+      "close": 1398000,
+      "close_source": "https://markets.hankyung.com/stock/207940",
+      "stance": "반대",
+      "confidence": 0.75,
+      "opinion": "희석이 진행 중이다 — 3.9조원(순 3조) 주주배정+일반공모 유상증자가 8/28 결정돼 승인까지 받았고 배당은 3년 후 재검토다. 여기에 5월 사상 첫 전면파업을 한 노조가 9/17 2차 파업을 위협했고 사측 시한이 9/22(월)이다. 바이오리액터는 몇 시간만 멈춰도 배치가 폐기된다. 증자 청약 기간에 2차 파업이 겹치는 것이 최악이고 -25%로 본다. 두 위험 모두 날짜가 박혀 있다.",
+      "worst_case": "유상증자 청약 기간 중 노조가 2차 전면파업에 들어가 생산 배치 폐기·고객 이탈이 발생하고 발행가 추가 할인이 이어지는 경우",
+      "worst_case_drawdown_pct": -25,
+      "evidence": [
+        { "fact": "3.9조원 규모 주주배정+일반공모 유상증자 — 2.7조 폴리펩타이드 인수, 2,948억 송도 6공장. 배당·주주환원은 3년 후 재검토", "source": "https://www.mt.co.kr/thebio/2026/09/03/2026090312532860249", "date": "2026-09-03" },
+        { "fact": "3조원 유상증자 결정 공시", "source": "https://www.hankyung.com/article/2026082883676", "date": "2026-08-28" },
+        { "fact": "노조, 9/8 사후조정 첫 회의록 무단 공개·2차 파업 위협. 사측 시한 9/22. 5월 전례 없는 전면파업 이력", "source": "https://biz.heraldcorp.com/article/10876885", "date": "2026-09-17" },
+        { "fact": "법원은 바이오 공정 9단계 중 마지막 3단계만 파업 제한 — 앞 단계 파업으로 배치 전량 손실 가능(업계 주장), 항소심 계류", "source": "https://www.seoul.co.kr/news/economy/2026/07/10/20260710030005", "date": "2026-07-10" },
+        { "fact": "9/18 종가 1,398,000원(+0.14%), 52주 982,000~1,987,000원", "source": "https://markets.hankyung.com/stock/207940", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "유상증자 신주 상장이 끝나고, 9/22 시한 이후 노사가 임단협 잠정합의에 이르렀음이 확인되면 편입에 동의한다."
+    },
+    {
+      "code": "068270",
+      "name": "셀트리온",
+      "close": 179400,
+      "close_source": "https://markets.hankyung.com/stock/068270",
+      "stance": "편입",
+      "confidence": 0.5,
+      "opinion": "최근 3개월 파업·소송·규제·증자·리콜 뉴스는 없었다 — 없었다. 확인된 유일한 위험은 미국 정책이다: 회사는 미국 재고 15~21개월로 2026년 말까지는 관세를 방어한다고 했는데, 그 말은 2027년부터는 방어막이 없다는 뜻이다. 미국 약가(MFN)·의약품 관세가 바이오시밀러까지 미치면 -20%. 52주 저점 158,500원은 -12% 거리로 하방이 얕은 편이다. (9/18 등락은 마감 시황과 시세사이트가 엇갈려 -0.50% 표시값을 썼다.)",
+      "worst_case": "2027년 미국 의약품 관세 또는 MFN 약가가 바이오시밀러에 적용돼 미국 처방 확대가 마진 없는 성장이 되는 경우",
+      "worst_case_drawdown_pct": -20,
+      "evidence": [
+        { "fact": "서정진 회장: 미국 재고 15~21개월로 2026년 말까지 관세 영향 방어, 미국 규제·행정 복잡성을 초기에 과소평가했다고 인정", "source": "https://www.hitnews.co.kr/news/articleView.html?idxno=64619", "date": "2025-05-15" },
+        { "fact": "9/18 종가 179,400원(-0.50%), 52주 158,500~251,000원", "source": "https://markets.hankyung.com/stock/068270", "date": "2026-09-18" },
+        { "fact": "최근 헤드라인은 옴리클로·램시마·스테키맙 처방 확대 등이며 소송·규제 관련 부정 기사 없음", "source": "https://markets.hankyung.com/stock/068270", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "미국이 의약품 관세를 확정하며 바이오시밀러를 면제하지 않거나, 미국 매출 비중이 40%를 넘는 것으로 확인되면 반대로 바꾼다."
+    },
+    {
+      "code": "105560",
+      "name": "KB금융",
+      "close": 174900,
+      "close_source": "https://www.investing.com/equities/kb-financial-group-historical-data",
+      "stance": "편입",
+      "confidence": 0.55,
+      "opinion": "9/18 -2.4%는 이유가 확인되지 않았고 '어제 빠졌다'는 위험이 아니다. 확인된 사건은 공정위 담보대출 담합 과징금(4개 은행 합계 2,720억원, 이미 부과)과 10/6~27 국감(ELS 과징금 감액, 가계대출 총량). 규제 꼬리는 살아 있으나 날짜 있는 신규 제재는 없다. 배당이 4년 새 두 배가 되며 자본 여력이 얇아진 점이 최악 시나리오의 재료다 — 당국이 배당·총량을 동시에 조이면 -15%.",
+      "worst_case": "국감 이후 금융당국이 가계대출 총량을 다시 조이고 배당·자사주 소각에 자본 규제(스트레스 완충자본 상향)를 걸어 주주환원 계획이 축소되는 경우",
+      "worst_case_drawdown_pct": -15,
+      "evidence": [
+        { "fact": "공정위, KB국민·신한·하나·우리 4개 은행의 LTV 정보교환 담합에 총 2,720억원 과징금. 국감 10/6~27, ELS 과징금 4조→6,000억 감액 경위 쟁점", "source": "https://daily.hankooki.com/news/articleView.html?idxno=1404820", "date": "2026-09-10" },
+        { "fact": "4대 금융지주 은행 배당 3.48조→7.43조(2021~2025) 두 배, 위험가중자산 +33.4% — 자본 축적 제약", "source": "https://www.g-enews.com/article/Finance/2026/09/202609091439077754e30fcb1ba8_1", "date": "2026-09-09" },
+        { "fact": "당국은 8/13 가계대출 총량 목표를 1.5%→3%로 완화(규제 방향은 현재 완화 쪽)", "source": "https://www.g-enews.com/article/Finance/2026/09/202609181529234470cd0bfacc1c_1", "date": "2026-09-20" },
+        { "fact": "9/18 종가 174,900원(-2.40%), 52주 109,200~194,500원", "source": "https://www.investing.com/equities/kb-financial-group-historical-data", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "국감에서 횡재세·이익공유 법안이 발의되거나 당국이 배당 상한을 명시하면 반대로 바꾼다."
+    },
+    {
+      "code": "055550",
+      "name": "신한지주",
+      "close": 110100,
+      "close_source": "https://www.investing.com/equities/shinhan-financial-group",
+      "stance": "편입",
+      "confidence": 0.55,
+      "opinion": "KB와 같은 규제 꼬리(담합 과징금 부과 완료, 국감 예정)를 공유하며 신한 고유의 소송·증자·제재 뉴스는 최근 3개월 없었다. 52주 고점 116,500원 바로 아래라 사건 시 되돌림 폭은 크지만, 그 사건이 확인된 것은 없다. 최악은 KB와 동일하게 -15%.",
+      "worst_case": "당국이 가계대출 총량과 배당·자본을 동시에 조이는 규제 전환이 국감 직후 나오는 경우",
+      "worst_case_drawdown_pct": -15,
+      "evidence": [
+        { "fact": "공정위 담보대출 담합 과징금 대상 4개 은행에 신한은행 포함(합계 2,720억원)", "source": "https://daily.hankooki.com/news/articleView.html?idxno=1404820", "date": "2026-09-10" },
+        { "fact": "신한은행, 만 39세 이하 주담대 특별한도 5,000억원 추가 배정 — 총량 규제 완화 국면", "source": "https://www.g-enews.com/article/Finance/2026/09/202609181529234470cd0bfacc1c_1", "date": "2026-09-20" },
+        { "fact": "9/18 종가 110,100원(-2.82%), 52주 68,100~116,500원", "source": "https://www.investing.com/equities/shinhan-financial-group", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "횡재세·배당 상한 등 은행 이익 환수 입법이 국감 중 구체화되면 반대로 바꾼다."
+    },
+    {
+      "code": "086790",
+      "name": "하나금융지주",
+      "close": 133100,
+      "close_source": "https://www.investing.com/equities/hana-financial",
+      "stance": "편입",
+      "confidence": 0.5,
+      "opinion": "9/18 낙폭(-3.2%)이 3사 중 가장 컸으나 하나 고유의 사건은 확인되지 않았다. 담합 과징금 대상 4개 은행에 포함되고 국감 쟁점을 공유한다. 52주 저점 84,000원까지 -37%로 KB·신한보다 하방이 깊고, 주주환원 50% 이상 약속이 자본 규제와 충돌할 때 가장 먼저 흔들릴 수 있어 확신은 셋 중 가장 낮게 둔다. 최악 -15%.",
+      "worst_case": "자본 규제 강화로 주주환원 50% 이상 약속을 철회해야 하는 경우",
+      "worst_case_drawdown_pct": -15,
+      "evidence": [
+        { "fact": "공정위 담보대출 담합 과징금 대상 4개 은행에 하나은행 포함(합계 2,720억원)", "source": "https://daily.hankooki.com/news/articleView.html?idxno=1404820", "date": "2026-09-10" },
+        { "fact": "하나금융, 장기 ROE 목표 12%·주주환원 50% 이상 약속. 9/18 종가 133,100원(-3.20%), 52주 84,000~142,500원", "source": "https://www.investing.com/equities/hana-financial", "date": "2026-09-18" },
+        { "fact": "하나은행, 주담대·전세대출 11월 실행분 접수 재개 — 총량 규제 완화 국면", "source": "https://www.g-enews.com/article/Finance/2026/09/202609181529234470cd0bfacc1c_1", "date": "2026-09-20" }
+      ],
+      "what_would_change_my_mind": "당국이 배당 상한이나 추가 자본 완충을 명시하거나 하나 고유의 제재(금감원 검사 결과)가 나오면 반대로 바꾼다."
+    },
+    {
+      "code": "015760",
+      "name": "한국전력",
+      "close": 30750,
+      "close_source": "https://www.investing.com/equities/kepco",
+      "stance": "반대",
+      "confidence": 0.7,
+      "opinion": "규제 당사자가 정부인 회사이고 그 위험이 지금 작동 중이다. 4분기 전기요금 동결이 9/21(월) 발표로 보도됐고(가격은 금요일 종가 기준), 부채 210조원·일 이자 115억원, 도매가(SMP)는 1~8월 +43.8%인데 소매요금은 2년째 묶였다. 삼성·SK가 25조 선납 제안을 거절했다. 52주 저점 30,400원에서 1% 위 — 바닥이 확인된 것이 아니라 바닥을 시험 중이다. 동결이 2027년으로 이어지며 적자 전환·한전채 재발행이면 -25%.",
+      "worst_case": "요금 동결이 2027년 1분기까지 이어지고 SMP 고공행진으로 분기 영업적자 전환, 한전채 대량 발행과 배당 중단이 겹치는 경우",
+      "worst_case_drawdown_pct": -25,
+      "evidence": [
+        { "fact": "4분기 전기요금 동결 가닥, 9/21 발표. 부채 210조원 초과(상반기), 일 이자 약 115억원, SMP 1월 102.84→8월 147.88원/kWh(+43.8%). 삼성전자·SK하이닉스는 25조원 전기요금 선납 제안 거절", "source": "https://biz.heraldcorp.com/article/10872474", "date": "2026-09-18" },
+        { "fact": "국감: 2년째 묶인 전기요금 정상화 시기·방식 쟁점", "source": "https://www.energydaily.co.kr/news/articleView.html?idxno=202898", "date": "2026-09" },
+        { "fact": "역대 흑자에도 부채 급증, 2028년 사채 절벽 경고", "source": "https://www.leadeconomy.co.kr/news/articleView.html?idxno=7108", "date": "2026" },
+        { "fact": "9/18 종가 30,750원(-0.81%), 52주 30,400~69,500원, PBR 0.39", "source": "https://www.investing.com/equities/kepco", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "정부가 요금 인상 시점을 명시하거나(2027년 1분기 인상 확정) 한전채 발행 한도 확대 없이 SMP가 120원/kWh 아래로 안정되면 편입에 동의한다."
+    },
+    {
+      "code": "005490",
+      "name": "POSCO홀딩스",
+      "close": 323000,
+      "close_source": "https://www.investing.com/equities/posco-inc",
+      "stance": "반대",
+      "confidence": 0.6,
+      "opinion": "창사 58년 만의 첫 파업이 진행 중이다 — 9/9~11 1차에 이어 9/16(또는 17) 07시부터 120시간 2차 부분파업, 9/18부터 대상 공장 추가. 회사는 대체근무로 정상 가동이라 하지만 노조 집행부 선거(10/2)로 교섭이 10월 이후로 밀릴 가능성이 크고 현대제철 전례(7개월)가 있다. 사건이 살아 있고 날짜가 있다. 최악은 열연 이상으로 파업이 확대되는 것으로 -15%. 52주 저점 258,500원까지 -20%.",
+      "worst_case": "노조 집행부 선거 이후 강경 집행부가 들어서 파업이 제강·연주 등 핵심 공정으로 확대되고 교섭이 연말까지 장기화되는 경우",
+      "worst_case_drawdown_pct": -15,
+      "evidence": [
+        { "fact": "포스코 노조 2차 부분파업 120시간(포항 2열연·광양 4열연), 1차(9/9~11)보다 참여 증가. 회사: 핵심 공정 70%는 단협상 파업 불가로 정상 가동", "source": "https://www.etoday.co.kr/news/view/2625985", "date": "2026-09-16" },
+        { "fact": "9/18부터 파업 대상 공장 추가·수위 상향. 노조 집행부 선거(10/2)로 협상 10월 이후 연기 가능성, 현대제철(2024.9→2025.4) 장기화 전례", "source": "https://www.etoday.co.kr/news/view/2626827", "date": "2026-09-17" },
+        { "fact": "1968년 창사 이래 첫 파업. 노조 기본급 7.1%·격려금 600% vs 사측 2.0%·350만원", "source": "https://www.businesskorea.co.kr/news/articleView.html?idxno=276419", "date": "2026-09-08" },
+        { "fact": "9/18 종가 323,000원(-1.07%), 52주 258,500~542,000원", "source": "https://www.investing.com/equities/posco-inc", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "임단협 잠정합의가 공식화되거나 노조가 파업을 철회하면 편입에 동의한다. 파업이 열연에 한정된 채 10월 선거 전 교섭이 재개되어도 보류로는 올린다."
+    }
+  ],
+  "pool_note": "후보군 14개 중 6개에 '날짜가 박힌' 사건이 있다 — 삼성바이오로직스(유상증자 진행 + 9/22 파업 시한), 한국전력(9/21 요금 동결 발표), POSCO홀딩스(파업 진행 중), 삼성전자·SK하이닉스·SK스퀘어(미국 메모리 표적관세·담합소송). 반대는 이들 중 다섯이다. 완성차 둘은 파업 위험을 올해 이미 소진해 오히려 꼬리가 짧아졌다. 은행 3사는 같은 규제 꼬리를 공유하므로 셋을 함께 담으면 분산이 아니라 집중이라는 점을 구성 단계가 알아야 한다. 종가는 KRX 미연동 상태라 시세사이트 간 수천 원 차이가 있었고(SK하이닉스 1,849,000~1,867,000원, 한국전력 30,750~31,000원) 가장 많이 일치한 값을 썼다."
+}

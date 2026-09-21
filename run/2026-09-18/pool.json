@@ -1,0 +1,26 @@
+{
+  "basis_date": "2026-09-18",
+  "rule_version": "2026-09-15",
+  "_note": "기준일 9/18(금) 마감 시황 기사에 이름이 오른 종목(상승·하락 모두) + 저PBR 업종 시총 상위. 진행 중 회차 보유 종목 없음(제1·2회 손절 확정). close_krx 미연동 — 1층은 언론·IR 종가를 출처와 함께 씀.",
+  "pool": [
+    { "code": "005930", "name": "삼성전자", "ticker": "005930.KS", "sector": "전기전자", "why_in_pool": "마감 시황 다수 언급(상승 +3.37%)" },
+    { "code": "000660", "name": "SK하이닉스", "ticker": "000660.KS", "sector": "전기전자", "why_in_pool": "마감 시황 다수 언급(상승 +6.42%)" },
+    { "code": "402340", "name": "SK스퀘어", "ticker": "402340.KS", "sector": "금융(지주)", "why_in_pool": "마감 시황 언급(상승 +7.04%)" },
+    { "code": "009150", "name": "삼성전기", "ticker": "009150.KS", "sector": "전기전자", "why_in_pool": "마감 시황 언급(상승 +4.36%)" },
+    { "code": "373220", "name": "LG에너지솔루션", "ticker": "373220.KS", "sector": "전기전자", "why_in_pool": "마감 시황 언급(상승)" },
+    { "code": "005380", "name": "현대차", "ticker": "005380.KS", "sector": "운수장비", "why_in_pool": "마감 시황 언급(상승). 제2회 손절 확정으로 보유 아님" },
+    { "code": "000270", "name": "기아", "ticker": "000270.KS", "sector": "운수장비", "why_in_pool": "마감 시황 언급(상승)" },
+    { "code": "207940", "name": "삼성바이오로직스", "ticker": "207940.KS", "sector": "의약품", "why_in_pool": "마감 시황 언급(상승)" },
+    { "code": "068270", "name": "셀트리온", "ticker": "068270.KS", "sector": "의약품", "why_in_pool": "마감 시황 언급(상승)" },
+    { "code": "105560", "name": "KB금융", "ticker": "105560.KS", "sector": "금융", "why_in_pool": "마감 시황 언급(하락 -2.40%)" },
+    { "code": "055550", "name": "신한지주", "ticker": "055550.KS", "sector": "금융", "why_in_pool": "마감 시황 언급(하락 -2.82%)" },
+    { "code": "086790", "name": "하나금융지주", "ticker": "086790.KS", "sector": "금융", "why_in_pool": "마감 시황 언급(하락 -3.20%)" },
+    { "code": "015760", "name": "한국전력", "ticker": "015760.KS", "sector": "전기가스", "why_in_pool": "하락 업종(전기가스 -1.02%) 대표" },
+    { "code": "005490", "name": "POSCO홀딩스", "ticker": "005490.KS", "sector": "철강", "why_in_pool": "저PBR 업종 시총 상위" }
+  ],
+  "excluded": [],
+  "market_context_sources": [
+    "https://www.businesskorea.co.kr/news/articleView.html?idxno=277336",
+    "https://kr.investing.com/news/stock-market-news/article-2099326"
+  ]
+}

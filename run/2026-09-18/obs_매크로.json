@@ -1,0 +1,268 @@
+{
+  "agent": "매크로",
+  "basis_date": "2026-09-18",
+  "news_cutoff": "2026-09-20",
+  "macro_snapshot": {
+    "금리": "연준 9/16 25bp 인상 → 3.75~4.00% (2023년 7월 이후 첫 인상, 만장일치). 점도표 연말 중앙값 3.8%→4.1%로 상향, 추가 인상 시사. 미 10년물 결정 직후 5% 돌파 후 9/17 4.93%, 9/18 5% 하회로 되돌림. 한은 8/27 3.00% (7·8월 2연속 인상), 의사록 매파(성장 3.3% 상향·근원물가·가계부채·수도권 주택). 국고 3년 4.035%, 10년 4.466% (9/18, 나흘 연속 강세). 일본은행 9/18 25bp 인상. 다음: 10/22 금통위(추가 인상 확률 상승), 10/27~28 FOMC.",
+    "환율": "원·달러 1,383.3원 마감 (9/18, +1.1원, 7거래일 연속 상승 = 원화 약세). 연준 인상·유가 100달러가 달러 강세를 떠받침. 수출·달러매출 업종 순풍, 연료 수입업(한전)·내수 역풍.",
+    "유가": "WTI 10월물 100.30달러(-1.58%), 브렌트 11월물 103.87달러 (9/18). 9/17 사우디 소하르 환적 우회 소식에 -3%대, 9/18 이란 협상 기대·중국의 후티 자제 요청으로 추가 하락했으나 여전히 100달러대 = 극단 구간. 주말(9/19) 후티가 리야드 킹칼리드공항·얀부 석유시설 공격(9년 만의 수도 타격) → 월요일 재반등 위험. 이란 안보수장은 미국에 자산동결 해제·호르무즈 접근을 조건으로 휴전안 제시(혼재 신호).",
+    "정책": "한미 자동차 관세 15% 유지 중이나 한국 대미투자특별법 지연을 이유로 트럼프가 25% 복구 위협. 한은은 가계부채·수도권 집값을 명시적 인상 근거로 제시(대출 규제 지속 신호). 밸류업·배당 분리과세 관련 이번 주 새 재료 확인 못함.",
+    "AI_자본지출": "글로벌 클라우드 capex 2027년 1조 달러 초과 전망(AB), 데이터센터 채권·대출 조달 3,300억 달러+. 컴퓨팅·네트워크·메모리 2027년까지 선예약(BofA). 단 금리 인상이 투자집행 지연 리스크로 명시됨.",
+    "지정학": "이란·후티의 호르무즈+바브엘만데브 이중 초크포인트 압박, 사우디 동서 송유관 피격. 중국이 사우디 요청으로 이란에 후티 통제 요구(중재 진입 여부가 변수). 메카방위동맹(사우디·터키·파키스탄, 8월 결성) 첫 시험대."
+  },
+  "opinions": [
+    {
+      "code": "005930",
+      "name": "삼성전자",
+      "close": 261000,
+      "close_source": "https://www.newspim.com/news/view/20260918000748",
+      "stance": "편입",
+      "confidence": 0.6,
+      "macro_axis": "AI 자본지출",
+      "axis_direction": "순풍",
+      "next_event": "10/27~28 FOMC (추가 인상 시 빅테크 투자집행 지연 리스크 재부각). 마이크론 분기 실적(9월 하순, 날짜 미확인)이 메모리 가격 축의 중간 점검.",
+      "opinion": "메모리 가격을 결정하는 AI 자본지출 축이 2027년까지 선예약 상태로 순풍이고, 원화 약세(1,383원)가 달러 매출을 부풀린다. 연준 인상은 성장주 유동성에 역풍이지만 이 종목의 이익 민감도는 금리보다 capex 축이 훨씬 크다. 종가는 금요일 기준.",
+      "evidence": [
+        { "fact": "글로벌 클라우드 사업자 capex 2027년 1조 달러 초과 전망, 컴퓨팅·네트워크·메모리 2027년까지 선예약", "source": "https://www.g-enews.com/article/Global-Biz/2026/09/202609170928308562fbbec65dfb_1", "date": "2026-09-17" },
+        { "fact": "연준 정책금리 25bp 인상 3.75~4.00%, 점도표 4.1%로 상향(추가 인상 시사)", "source": "https://www.mt.co.kr/stock/2026/09/17/2026091715275333449", "date": "2026-09-17" },
+        { "fact": "원·달러 1,383.3원 마감, 7거래일 연속 상승", "source": "https://m.news.nate.com/view/20260918n28505", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "빅테크가 금리 부담을 이유로 capex 가이던스를 낮추거나, 10월 FOMC가 연속 인상을 예고해 미 10년물이 5%대에 안착하면 축이 꺾인 것으로 본다."
+    },
+    {
+      "code": "000660",
+      "name": "SK하이닉스",
+      "close": 1857000,
+      "close_source": "https://www.newspim.com/news/view/20260918000748",
+      "stance": "편입",
+      "confidence": 0.65,
+      "macro_axis": "AI 자본지출",
+      "axis_direction": "순풍",
+      "next_event": "10/27~28 FOMC. 마이크론 분기 실적(9월 하순)이 HBM·DRAM 가격 축의 선행 지표.",
+      "opinion": "후보군에서 AI 자본지출 축에 가장 직접적으로, 가장 큰 이익 탄력으로 걸린 종목. 축은 순풍이고 환율(원화 약세)까지 같은 방향이다. 금리 인상 주간에도 올랐다는 사실은 이 종목의 주된 축이 금리가 아니라 capex임을 시장이 확인해 준 것이다.",
+      "evidence": [
+        { "fact": "메모리 가격 고공행진이 AI 인프라 수요 지속의 지표, B200 임대료 시간당 5.72달러로 상승세(BofA)", "source": "https://www.g-enews.com/article/Global-Biz/2026/09/202609170928308562fbbec65dfb_1", "date": "2026-09-17" },
+        { "fact": "9/18 코스피 6,894.23(+2.66%), 외국인 8거래일 만의 순매수와 미 장기금리 안정·중동 완화가 상승 배경", "source": "https://www.newspim.com/news/view/20260918000748", "date": "2026-09-18" },
+        { "fact": "미 10년물 4.93%로 하락, 인상 직후 5% 돌파 후 24시간 내 되돌림", "source": "https://www.fnnews.com/news/202609180525275992", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "빅테크 capex 하향 또는 AI 규제 강화로 데이터센터 투자 집행이 미뤄진다는 신호. 미 10년물 5% 재돌파가 고착되면 성장주 할인율 축이 capex 축을 압도할 수 있다."
+    },
+    {
+      "code": "402340",
+      "name": "SK스퀘어",
+      "close": 1072000,
+      "close_source": "https://www.topstarnews.net/news/articleView.html?idxno=16199341",
+      "stance": "편입",
+      "confidence": 0.5,
+      "macro_axis": "AI 자본지출",
+      "axis_direction": "순풍",
+      "next_event": "10/27~28 FOMC. SK하이닉스와 같은 이벤트에 같은 방향으로 걸림.",
+      "opinion": "거시적으로는 SK하이닉스에 대한 간접 노출이므로 축과 방향이 동일하다. 다만 파생 노출이라 축 탄력이 원종목보다 낮고, 금리 상승기에는 지주 형태의 자산에 할인율 부담이 더 붙는다. 종가는 언론 보도 간 등락률 차이(+6.35% vs +7.04%)가 있어 톱스타뉴스 수치를 채택.",
+      "evidence": [
+        { "fact": "9/18 종가 1,072,000원(+6.35%), 주간 100만→107만원", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16199341", "date": "2026-09-18" },
+        { "fact": "클라우드 capex 2027년 1조 달러 전망, 메모리 선예약", "source": "https://www.g-enews.com/article/Global-Biz/2026/09/202609170928308562fbbec65dfb_1", "date": "2026-09-17" },
+        { "fact": "연준 25bp 인상, 유동성 축소는 위험자산에 부담(증권가)", "source": "https://www.mt.co.kr/stock/2026/09/17/2026091715275333449", "date": "2026-09-17" }
+      ],
+      "what_would_change_my_mind": "SK하이닉스와 동일 — capex 축 반전. 추가로 미 장기금리 5% 안착 시 파생 노출부터 먼저 꺾인다."
+    },
+    {
+      "code": "009150",
+      "name": "삼성전기",
+      "close": 1388000,
+      "close_source": "https://www.topstarnews.net/news/articleView.html?idxno=16199329",
+      "stance": "편입",
+      "confidence": 0.5,
+      "macro_axis": "AI 자본지출",
+      "axis_direction": "순풍",
+      "next_event": "10/27~28 FOMC. 부축인 중국 경기(스마트폰 수요)는 이번 주 확인 재료 없음.",
+      "opinion": "서버·AI 가속기용 MLCC와 기판이 AI 자본지출 축에 걸리고, 원화 약세가 달러 매출을 키운다. 축은 순풍. 다만 이익의 다른 절반은 중국·스마트폰 사이클에 걸려 있는데 그쪽은 방향을 말할 재료가 없어 확신을 낮춘다.",
+      "evidence": [
+        { "fact": "9/18 종가 1,388,000원(+4.36%), 주간 최고 종가", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16199329", "date": "2026-09-18" },
+        { "fact": "원·달러 1,383.3원, 달러 강세에 원화 약세 압력 지속", "source": "https://www.job-post.co.kr/news/articleView.html?idxno=228137", "date": "2026-09-18" },
+        { "fact": "컴퓨팅·네트워크·메모리 공급 2027년까지 선예약(BofA)", "source": "https://www.g-enews.com/article/Global-Biz/2026/09/202609170928308562fbbec65dfb_1", "date": "2026-09-17" }
+      ],
+      "what_would_change_my_mind": "빅테크 capex 하향, 또는 원·달러가 1,350원 아래로 급하게 되돌려지면 순풍 두 개가 동시에 약해진다."
+    },
+    {
+      "code": "373220",
+      "name": "LG에너지솔루션",
+      "close": 364000,
+      "close_source": "https://www.investing.com/equities/lg-energy-solution-historical-data",
+      "stance": "보류",
+      "confidence": 0.4,
+      "macro_axis": "정책·규제",
+      "axis_direction": "중립",
+      "next_event": "10/27~28 FOMC (자본집약 성장주 할인율). 미국 EV 보조금·관세 관련 이번 주 새 이벤트 확인 못함.",
+      "opinion": "세 축이 서로 상쇄한다. 미 정책(보조금·관세)은 재료가 없고, 금리 상승은 차입 의존 성장주에 역풍이며, 유가 100달러는 EV 수요에 순풍이다. 이익 민감도가 가장 큰 정책 축의 방향을 말할 근거가 이번 주에는 없다.",
+      "evidence": [
+        { "fact": "9/18 종가 364,000원(-0.27%), 주간 351,500→364,000원", "source": "https://www.investing.com/equities/lg-energy-solution-historical-data", "date": "2026-09-18" },
+        { "fact": "WTI 100.30달러, 브렌트 103.87달러 — 100달러대 유지", "source": "https://www.etoday.co.kr/news/view/2627451", "date": "2026-09-18" },
+        { "fact": "연준 인상, 성장·기술주가 밸류에이션과 유동성 축소 양쪽에서 압박", "source": "https://www.mt.co.kr/stock/2026/09/17/2026091715275333449", "date": "2026-09-17" }
+      ],
+      "what_would_change_my_mind": "미국의 EV 세액공제·관세 방향이 명시적으로 나오면 그쪽으로 배정한다. 유가가 100달러대에서 2~3주 더 버티면 수요 축을 순풍으로 격상."
+    },
+    {
+      "code": "005380",
+      "name": "현대차",
+      "close": 366500,
+      "close_source": "https://www.topstarnews.net/news/articleView.html?idxno=16199326",
+      "stance": "반대",
+      "confidence": 0.45,
+      "macro_axis": "정책·규제",
+      "axis_direction": "역풍",
+      "next_event": "대미투자특별법 처리 지연에 따른 자동차 관세 25% 복구 위협(시한 미확정). 10/27~28 FOMC(미국 할부금리).",
+      "opinion": "관세 축이 15%→25% 복구 위협으로 역풍이고, 연준 인상은 미국 자동차 할부금리를 올려 수요 축까지 역풍이다. 유가 100달러도 내연기관 수요에 부담. 환율(원화 약세)만 순풍인데 이 하나로 세 역풍을 덮지 못한다. 주가가 주간 36만원대에서 소폭 올랐다는 점은 내 축과 어긋나므로 기록해 둔다.",
+      "evidence": [
+        { "fact": "한국산 자동차 관세 15%, 투자특별법 지연을 이유로 25% 복구 위협", "source": "https://dealsite.co.kr/articles/157264", "date": "2026-09-18" },
+        { "fact": "연준 25bp 인상 3.75~4.00%, 2023년 7월 이후 첫 인상", "source": "https://www.fnnews.com/news/202609180525275992", "date": "2026-09-18" },
+        { "fact": "9/18 종가 366,500원(+0.96%), 주간 36만~37만원 박스", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16199326", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "대미투자특별법 통과로 관세 25% 위협이 소멸하거나, 유가가 90달러 아래로 내려오면 역풍 둘이 사라진다."
+    },
+    {
+      "code": "000270",
+      "name": "기아",
+      "close": null,
+      "close_source": "9/18 종가 미확보(검색 예산 소진). 장중 참고: 9/18 09:36 +0.66%, 시가 121,900원 — https://www.anewsa.com/detail.php?number=3200385 ; 직전 9/16 종가 120,900원 — https://www.topstarnews.net/news/articleView.html?idxno=16195982",
+      "stance": "반대",
+      "confidence": 0.45,
+      "macro_axis": "정책·규제",
+      "axis_direction": "역풍",
+      "next_event": "자동차 관세 25% 복구 위협(시한 미확정). 10/27~28 FOMC.",
+      "opinion": "현대차와 같은 축, 같은 방향. 관세 위협·미국 금리 상승·유가 100달러 세 역풍에 환율 순풍 하나. 미국 판매 비중이 커서 할부금리와 관세 축에 대한 이익 민감도는 현대차보다 오히려 크다.",
+      "evidence": [
+        { "fact": "한국산 자동차 관세 15%, 25% 복구 리스크 재부상", "source": "https://dealsite.co.kr/articles/157264", "date": "2026-09-18" },
+        { "fact": "WTI 100.30달러(9/18), 주말 후티의 리야드·얀부 공격으로 재반등 위험", "source": "https://www.seoul.co.kr/news/international/2026/09/20/20260920500072", "date": "2026-09-20" },
+        { "fact": "9/16 종가 120,900원(-0.74%), 9/15 122,300원(-1.53%) 주중 약세", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16195982", "date": "2026-09-16" }
+      ],
+      "what_would_change_my_mind": "현대차와 동일 — 관세 위협 소멸 또는 유가 90달러 하회."
+    },
+    {
+      "code": "207940",
+      "name": "삼성바이오로직스",
+      "close": null,
+      "close_source": "9/18 종가 미확보(검색 예산 소진). 마감 시황(https://www.newspim.com/news/view/20260918000748)에 상승 종목으로만 언급, 종가 숫자 없음.",
+      "stance": "편입",
+      "confidence": 0.5,
+      "macro_axis": "환율",
+      "axis_direction": "순풍",
+      "next_event": "10/22 금통위·10/27~28 FOMC (금리차 → 환율). 미국 바이오 관련 규제 이벤트는 이번 주 확인 못함.",
+      "opinion": "달러 매출 CDMO는 환율 축에 걸려 있고, 원·달러 7거래일 연속 상승으로 순풍이다. 성장주로서 금리 역풍이 있으나 계약 기반 달러 매출의 환율 탄력이 더 크다. 종가 숫자를 확보하지 못했으므로 3층은 이 점을 감안할 것.",
+      "evidence": [
+        { "fact": "원·달러 1,383.3원 마감, 7거래일 연속 상승", "source": "https://m.news.nate.com/view/20260918n28505", "date": "2026-09-18" },
+        { "fact": "연준 인상 이후 달러 강세·원화 약세 압력 지속", "source": "https://www.job-post.co.kr/news/articleView.html?idxno=228137", "date": "2026-09-18" },
+        { "fact": "한은 8/27 3.00% 인상, 10월 추가 인상 가능성 — 한미 금리차 축소는 원화 약세를 제한하는 요인", "source": "https://www.fnnews.com/news/202609151708218311", "date": "2026-09-15" }
+      ],
+      "what_would_change_my_mind": "10/22 한은이 인상하고 연준이 10월 동결로 돌아서 원·달러가 1,350원 아래로 꺾이면 순풍이 사라진다."
+    },
+    {
+      "code": "068270",
+      "name": "셀트리온",
+      "close": null,
+      "close_source": "9/18 종가 미확보(검색 예산 소진). 장중 참고: 9/18 09:28 +0.06%, 시가 181,300원 — https://www.anewsa.com/detail.php?number=3200366",
+      "stance": "편입",
+      "confidence": 0.45,
+      "macro_axis": "환율",
+      "axis_direction": "순풍",
+      "next_event": "10/22 금통위·10/27~28 FOMC (금리차 → 환율).",
+      "opinion": "바이오시밀러 수출 매출이 환율 축에 걸리고 방향은 순풍. 다만 삼성바이오로직스보다 미국·유럽 약가 정책 노출이 커서 환율 하나로 설명되는 비중이 작고, 금리 역풍도 같이 받는다. 종가 미확보.",
+      "evidence": [
+        { "fact": "원·달러 1,383.3원, 7거래일 연속 상승", "source": "https://www.seoulfn.com/news/articleView.html?idxno=638344", "date": "2026-09-18" },
+        { "fact": "연준 25bp 인상, 점도표 4.1%", "source": "https://www.mt.co.kr/stock/2026/09/17/2026091715275333449", "date": "2026-09-17" }
+      ],
+      "what_would_change_my_mind": "원·달러 급락(1,350원 하회) 또는 미국 약가·관세 정책이 바이오시밀러를 직접 겨냥하면 정책 축으로 재배정."
+    },
+    {
+      "code": "105560",
+      "name": "KB금융",
+      "close": 174900,
+      "close_source": "https://www.investing.com/equities/kb-financial-group-historical-data",
+      "stance": "편입",
+      "confidence": 0.55,
+      "macro_axis": "금리",
+      "axis_direction": "순풍",
+      "next_event": "10/22 한은 금통위 — 추가 인상 시 순풍 강화. 10/27~28 FOMC.",
+      "opinion": "한은 2연속 인상에 연준까지 인상으로 돌아선 정책금리 상승 사이클은 은행 마진에 순풍이다. 9/18 주가가 -2.40% 빠진 것은 이벤트 후 시장금리 되돌림(국고 10년 4.5% 하회)에 따른 것으로, 축 방향(정책금리 상승)과 하루 움직임이 어긋난 사례라 기록한다. 부축인 정책(가계부채 규제)은 대출 성장에 역풍.",
+      "evidence": [
+        { "fact": "한은 8/27 기준금리 3.00%, 7·8월 2연속 인상, 10월 추가 인상 가능성", "source": "https://www.fnnews.com/news/202609151708218311", "date": "2026-09-15" },
+        { "fact": "국고 3년 4.035%(-2.8bp), 10년 4.466%(-4.0bp), 나흘 연속 강세", "source": "https://www.etoday.co.kr/news/view/2627405", "date": "2026-09-18" },
+        { "fact": "9/18 종가 174,900원(-2.40%), 주간 181,600→174,900원", "source": "https://www.investing.com/equities/kb-financial-group-historical-data", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "10/22 금통위가 동결하고 인상 사이클 종료를 시사하거나, 가계대출 총량 규제가 강화돼 금리 상승분이 대출 축소로 상쇄되면."
+    },
+    {
+      "code": "055550",
+      "name": "신한지주",
+      "close": 110100,
+      "close_source": "https://ir.gsifn.io/kbfng/v5/ir_comp_item.html?mode=kr&koreng=1&sym2=086790&period=63",
+      "stance": "편입",
+      "confidence": 0.5,
+      "macro_axis": "금리",
+      "axis_direction": "순풍",
+      "next_event": "10/22 한은 금통위. 10/27~28 FOMC.",
+      "opinion": "KB금융과 같은 축·같은 방향. 정책금리 상승은 마진 순풍, 9/18 하락(-2.82%)은 시장금리 되돌림에 따른 하루 역행. 축과 주가의 하루 어긋남을 기록한다.",
+      "evidence": [
+        { "fact": "9/18 종가 110,100원", "source": "https://ir.gsifn.io/kbfng/v5/ir_comp_item.html?mode=kr&koreng=1&sym2=086790&period=63", "date": "2026-09-18" },
+        { "fact": "한은 의사록: '성장이 견조할 때 선제 대응', 근원물가 장기 상회 전망 — 추가 인상 우호", "source": "https://www.fnnews.com/news/202609151708218311", "date": "2026-09-15" },
+        { "fact": "미 10년물 4.93%로 하락, 2년물 4.67%", "source": "https://www.fnnews.com/news/202609180525275992", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "KB금융과 동일 — 10/22 동결·사이클 종료 신호, 또는 대출 규제 강화."
+    },
+    {
+      "code": "086790",
+      "name": "하나금융지주",
+      "close": 133100,
+      "close_source": "https://ir.gsifn.io/kbfng/v5/ir_comp_item.html?mode=kr&koreng=1&sym2=086790&period=63",
+      "stance": "편입",
+      "confidence": 0.45,
+      "macro_axis": "금리",
+      "axis_direction": "순풍",
+      "next_event": "10/22 한은 금통위. 10/27~28 FOMC. 원·달러 1,400원 접근 여부.",
+      "opinion": "금리 축은 KB·신한과 같이 순풍이나, 하나는 외화 자산 비중이 커 원화 약세(1,383원, 7일 연속 상승)가 자본비율에 역풍으로 작용하는 부축을 가진다. 그래서 세 은행 중 확신이 가장 낮다. 9/18 -3.20%로 은행 중 낙폭이 가장 컸다는 점도 환율 부축과 부합.",
+      "evidence": [
+        { "fact": "9/18 종가 133,100원(-3.20%), 주간 140,800→133,100원", "source": "https://ir.gsifn.io/kbfng/v5/ir_comp_item.html?mode=kr&koreng=1&sym2=086790&period=63", "date": "2026-09-18" },
+        { "fact": "원·달러 1,383.3원, 7거래일 연속 상승", "source": "https://m.news.nate.com/view/20260918n28505", "date": "2026-09-18" },
+        { "fact": "한은 3.00%, 10월 추가 인상 가능성", "source": "https://www.fnnews.com/news/202609151708218311", "date": "2026-09-15" }
+      ],
+      "what_would_change_my_mind": "원·달러가 1,400원을 넘어서면 환율 역풍이 금리 순풍을 압도한다고 보고 보류로 내린다. 반대로 1,350원 아래로 안정되면 확신을 올린다."
+    },
+    {
+      "code": "015760",
+      "name": "한국전력",
+      "close": 30750,
+      "close_source": "https://www.topstarnews.net/news/articleView.html?idxno=16198351",
+      "stance": "반대",
+      "confidence": 0.7,
+      "macro_axis": "유가·중동",
+      "axis_direction": "역풍",
+      "next_event": "4분기 연료비조정단가 결정(9월 하순, 10월 적용) — 정부가 전가를 허용하면 정책 축이 유가 축을 일부 상쇄. 이란 휴전 협상 진전 시 유가 급락 가능.",
+      "opinion": "후보군에서 거시 역풍이 가장 뚜렷한 종목. 유가 100달러대(LNG 연동 연료비), 원화 약세(연료 수입 단가), 금리 상승(대규모 부채 이자) 세 축이 모두 역풍이고, 주말 후티의 리야드·얀부 공격으로 유가가 월요일 재반등할 위험까지 있다. 주가도 주간 내내 하락해 축과 일치.",
+      "evidence": [
+        { "fact": "9/18 종가 30,750원(-0.81%), 최근 5거래일 하락 흐름", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16198351", "date": "2026-09-18" },
+        { "fact": "WTI 100.30달러, 브렌트 103.87달러(9/18)", "source": "https://www.etoday.co.kr/news/view/2627451", "date": "2026-09-18" },
+        { "fact": "후티, 9/19 리야드 킹칼리드공항·얀부 석유시설 순항미사일·드론 공격", "source": "https://www.seoul.co.kr/news/international/2026/09/20/20260920500072", "date": "2026-09-20" },
+        { "fact": "국고 3년 4.035%, 10년 4.466% — 정책금리 3.00%로 2연속 인상", "source": "https://www.etoday.co.kr/news/view/2627405", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "이란 휴전안이 수용돼 호르무즈·홍해 위험 프리미엄이 빠지며 브렌트가 85달러 아래로 내려오거나, 정부가 4분기 연료비조정단가로 유가 상승분 전가를 허용하면."
+    },
+    {
+      "code": "005490",
+      "name": "POSCO홀딩스",
+      "close": null,
+      "close_source": "9/18 KRX 종가 미확보(검색 예산 소진). 참고: NYSE ADR(PKX) 9/18 58.21달러(-3.13%) — https://www.investing.com/equities/posco-historical-data ; 직전 확인 종가 9/10 339,000원 — https://www.topstarnews.net/news/articleView.html?idxno=16188952",
+      "stance": "보류",
+      "confidence": 0.35,
+      "macro_axis": "중국 경기",
+      "axis_direction": "중립",
+      "next_event": "중국 9월 PMI(9/30)·국경절 연휴 후 철강 감산·수출 정책. 10/27~28 FOMC.",
+      "opinion": "철강 마진을 결정하는 것은 중국 조강 생산과 수출 물량인데, 이번 주 그 축의 방향을 말해 줄 재료를 확인하지 못했다. 부축은 모두 불리하다 — 유가·원자재 상승(원료탄·에너지 비용), 금리 상승(건설·설비 수요). ADR이 9/18 -3.13%였다는 점은 참고. 종가 미확보.",
+      "evidence": [
+        { "fact": "POSCO ADR(PKX) 9/18 58.21달러(-3.13%)", "source": "https://www.investing.com/equities/posco-historical-data", "date": "2026-09-18" },
+        { "fact": "연준 25bp 인상, 한은 3.00%로 2연속 인상 — 건설·설비 수요 금리 역풍", "source": "https://www.fnnews.com/news/202609180525275992", "date": "2026-09-18" },
+        { "fact": "중국이 사우디 요청으로 이란에 후티 통제 요구 — 중국의 중동 에너지 수입 의존(석유 수입의 절반)이 중국 경기 축의 변수", "source": "https://www.g-enews.com/article/Global-Biz/2026/09/202609180652109403fda4f5ab74_1", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "중국 철강 감산 지시나 수출 억제가 확인되면 순풍으로, 반대로 중국 수출 물량 급증이 확인되면 역풍으로 방향을 정한다."
+    }
+  ],
+  "pool_note": "거시 현황 — [금리] 연준 9/16 25bp 인상(3.75~4.00%, 점도표 4.1%), 한은 3.00%(2연속 인상, 10/22 추가 인상 가능성); 미 10년물 5% 찍고 4.93%로 되돌림, 국고 10년 4.466%. [환율] 1,383.3원, 7일 연속 원화 약세. [유가] WTI 100.3·브렌트 103.9달러 — 100달러대 극단, 주말 후티의 리야드·얀부 공격으로 월요일 재반등 위험. [정책] 자동차 관세 15%→25% 복구 위협, 한은의 가계부채 겨냥 인상. [AI capex] 2027년 1조 달러, 메모리 선예약 — 후보군에서 유일하게 방향이 뚜렷한 순풍 축. 후보군 구조: 반도체 4종(AI capex 순풍)·은행 3종(정책금리 순풍, 단기 시장금리 되돌림)·바이오 2종(환율 순풍) 대 자동차 2종(관세·할부금리·유가 삼중 역풍)·한전(유가·환율·금리 삼중 역풍). 이번 주 가장 큰 거시 교훈: 연준이 인상했는데도 코스피가 반도체로 2.7% 올랐다 — 이 시장의 주축은 금리가 아니라 AI 자본지출이다. 미확보 종가 4건(기아·삼성바이오로직스·셀트리온·POSCO홀딩스)은 close=null로 두고 사유를 close_source에 적었다."
+}

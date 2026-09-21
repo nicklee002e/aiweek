@@ -1,0 +1,251 @@
+{
+  "agent": "산업",
+  "basis_date": "2026-09-18",
+  "news_cutoff": "2026-09-21T06:00:00+09:00",
+  "_price_note": "pool.json에 close_krx 미연동. 종가는 언론·IR 페이지에서 직접 확인했으며 출처 URL을 close_source에 적음. SK하이닉스는 두 기사(1,857,000 / 1,867,000)가 갈렸으나 전일비 +112,000원·+6.42%와 산술이 맞는 1,857,000을 채택.",
+  "opinions": [
+    {
+      "code": "005930",
+      "name": "삼성전자",
+      "close": 261000,
+      "close_source": "https://www.businesskorea.co.kr/news/articleView.html?idxno=277336",
+      "stance": "편입",
+      "confidence": 0.72,
+      "cycle_position": "상승 중",
+      "peer_rank": "반도체 3후보 중 1위",
+      "opinion": "메모리 업종은 상승 중반이다 — 2분기 D램 매출이 전분기 대비 59.5% 뛰었고 3분기 범용 D램 계약가도 13~18% 추가 상승 전망이나 상승폭은 둔화 중. 이 사이클의 길이 근거는 신규 팹 건설 2~3년과 장기공급계약(LTA) 구조이며, 인텔이 '내년 메모리 병목 심화'를 말하는 한 2027년까지 공급 부족이 이어진다고 본다. 업종 안에서 삼성전자는 이기는 쪽이다: 2분기 D램 점유율 38.5%→39.4%로 1위를 굳혔고 HBM 점유율 33%로 SK하이닉스와 격차를 좁혔다. 범용 D램 비중이 커서 현물가 급등의 수혜를 하이닉스보다 크게 받는 구조다. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "2026년 2분기 글로벌 D램 매출 전분기 대비 59.5% 증가. 삼성전자 D램 점유율 39.4%(1분기 38.5%), SK하이닉스 24.9%(1분기 28.8%), 마이크론 23.3%. 삼성 HBM 점유율 33%", "source": "https://www.newspim.com/news/view/20260907001138", "date": "2026-09-07" },
+        { "fact": "3분기 범용 D램 계약가 13~18% 상승 전망 — 2분기 급등 대비 둔화. PC·스마트폰 고객의 가격 저항", "source": "https://www.newspim.com/news/view/20260907001138", "date": "2026-09-07" },
+        { "fact": "장기공급계약에 D램까지 품귀, 메모리 가격 연쇄 급등. 수출물량 줄어도 단가 37%↑, 현물가격이 LTA의 5배", "source": "https://www.sedaily.com/article/20085406", "date": "2026-09-18" },
+        { "fact": "9/18 시장 상승 배경: 젠슨 황 '내년 칩 판매량 2배', 인텔 '내년 메모리 병목 심화' 전망", "source": "https://kr.investing.com/news/stock-market-news/article-2099326", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "4분기 범용 D램 계약가 상승률이 한 자릿수로 꺾이거나 하락 전환하면(정점 신호), 또는 HBM4에서 삼성이 주요 고객 인증에 실패해 HBM 점유율이 다시 20%대로 내려가면."
+    },
+    {
+      "code": "000660",
+      "name": "SK하이닉스",
+      "close": 1857000,
+      "close_source": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=488528",
+      "stance": "편입",
+      "confidence": 0.58,
+      "cycle_position": "상승 중",
+      "peer_rank": "반도체 3후보 중 2위",
+      "opinion": "같은 상승 중반 사이클 위에 있으나 업종 내 자리가 흔들린다. 2분기 D램 점유율이 28.8%→24.9%로 4%p 가까이 빠졌고, HBM 장기계약 구조 때문에 현물가 급등분을 판가에 반영하지 못해 삼성·마이크론보다 ASP 상승이 작았다. 다만 HBM에서는 여전히 1위(삼성 33% 이하의 나머지 대부분)이고, HBM4 전환에서 앞선 쪽이라 공급 부족 사이클(2027년까지, 팹 건설 기간 근거)에서 물량은 확보된다. 업종이 좋아서 편입이지 업종 안에서 점유율을 얻고 있어서가 아니다. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "2분기 SK하이닉스 D램 점유율 24.9%(1분기 28.8%). D램 매출 증가율 37.9%로 삼성(63.4%)·마이크론(65.5%)에 못 미침. HBM 장기계약이 ASP 상승 제한", "source": "https://www.newspim.com/news/view/20260907001138", "date": "2026-09-07" },
+        { "fact": "HBM 선점의 역설 — SK하이닉스, 장기계약에 가격 상승분 반영 제한", "source": "https://www.g-enews.com/article/Industry/2026/08/2026081316044696523084322ec9_1", "date": "2026-08-13" },
+        { "fact": "삼성 D램 1위 굳혔다…마이크론, SK하이닉스와 1%p 차", "source": "https://m.news.nate.com/view/20260804n22600", "date": "2026-08-04" },
+        { "fact": "D램 매출 59% 폭증, 삼성·하이닉스 희비 갈린 HBM4 승부", "source": "https://www.ekoreanews.co.kr/news/articleView.html?idxno=87971", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "3분기 D램 점유율이 더 내려가 마이크론에 2위를 내주면 반대로 돌린다. 반대로 HBM4 신규 계약 단가가 현물가 상승을 반영해 재협상되면 확신을 올린다."
+    },
+    {
+      "code": "402340",
+      "name": "SK스퀘어",
+      "close": 1079000,
+      "close_source": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=488528",
+      "stance": "보류",
+      "confidence": 0.35,
+      "cycle_position": "상승 중",
+      "peer_rank": "반도체 3후보 중 3위",
+      "opinion": "산업 관점에서 SK스퀘어는 자기 업종이 없다 — SK하이닉스 지분을 담은 그릇이라 사이클은 하이닉스와 같고(상승 중), 점유율 변화도 하이닉스의 것이다. 하이닉스가 업종 안에서 점유율을 잃는 국면이라 그 그림자를 한 번 더 희석해 담을 이유를 산업 관점에서는 찾지 못한다. 부족한 재료: 하이닉스 외 자회사(ICT·투자)의 업종 사이클 지표. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "9/18 SK스퀘어 +7.04% — 마감 시황에서 반도체 대장주 급등과 함께 언급(하이닉스 연동 종목으로 분류)", "source": "https://kr.investing.com/news/stock-market-news/article-2099326", "date": "2026-09-18" },
+        { "fact": "SK하이닉스 2분기 D램 점유율 28.8%→24.9% 하락", "source": "https://www.newspim.com/news/view/20260907001138", "date": "2026-09-07" }
+      ],
+      "what_would_change_my_mind": "하이닉스 점유율 하락이 멈추고 HBM4 계약 단가가 올라가면 하이닉스와 같은 편입으로 옮긴다. 다만 산업 관점에서는 언제나 하이닉스 직접 보유가 우선이다."
+    },
+    {
+      "code": "009150",
+      "name": "삼성전기",
+      "close": 1388000,
+      "close_source": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=488528",
+      "stance": "편입",
+      "confidence": 0.66,
+      "cycle_position": "상승 중",
+      "peer_rank": "단독",
+      "opinion": "MLCC 업종은 상승 중반이다 — AI 서버·전장용 고용량 MLCC가 풀가동에도 공급 부족이고, 삼성전기·무라타 모두 수주잔고 비율(북투빌) 1 이상을 유지하며 하반기 가격 인상이 진행 중. 사이클 길이 근거: MLCC 증설은 라인 설치·고객 인증까지 12~18개월이 걸려 2027년 상반기까지는 타이트하다. 경쟁 구도에서 삼성전기는 무라타와 함께 AI 서버 고용량 시장의 2강이고, 중국 업체는 범용에 머물러 이 영역의 점유율을 잠식하지 못하고 있다. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "삼성전기·무라타, AI 서버 MLCC 수주잔고 비율 1 이상 유지…하반기 가격 인상 전망", "source": "https://www.press9.kr/news/articleView.html?idxno=75787", "date": "2026-07-01" },
+        { "fact": "AI 서버용 MLCC 수요 폭발…삼성전기 풀가동에도 공급 부족", "source": "https://m.news.nate.com/view/20260616n28265", "date": "2026-06-16" },
+        { "fact": "삼성전기, 고용량 MLCC로 'AI 전력' 잡는다 (AI 데이터센터 전력 계통용 고용량 MLCC)", "source": "https://m.news.nate.com/view/20260918n29091", "date": "2026-09-18" },
+        { "fact": "AI·전장용 MLCC 값 더 뛴다…삼성전기 '풀가동'에도 수급 부족", "source": "https://www.sisajournal-e.com/news/articleView.html?idxno=419067", "date": "2026-09-01" }
+      ],
+      "what_would_change_my_mind": "무라타·TDK·야게오의 AI 서버용 고용량 MLCC 증설이 가동에 들어가 수주잔고 비율이 1 아래로 내려가면, 또는 하이퍼스케일러 자본지출 가이던스가 꺾이면."
+    },
+    {
+      "code": "373220",
+      "name": "LG에너지솔루션",
+      "close": 364000,
+      "close_source": "https://www.investing.com/equities/lg-energy-solution-historical-data",
+      "stance": "편입",
+      "confidence": 0.5,
+      "cycle_position": "상승 초",
+      "peer_rank": "단독",
+      "opinion": "배터리 업종은 두 사이클이 겹친다. 전기차용은 바닥권에서 하반기 반등을 말하는 단계이고, ESS는 이미 상승 중이다 — 2026년 상반기 글로벌 ESS 출하 71% 급증, LG에너지솔루션 출하는 357% 늘어 점유율을 얻는 쪽이다. 사이클 길이 근거: 전력망 ESS 발주는 2~3년 단위 프로젝트 계약이라 수주가 곧 2027~28년 매출이다. 경쟁 구도의 그늘은 CATL(ESS 점유율 27% 1위)이 나트륨배터리로 유럽까지 오는 것. 전기차 쪽 반등 지표는 아직 확인 못 했으므로 확신은 절반. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "2026년 상반기 글로벌 ESS 배터리 출하 71% 급증, CATL 27% 점유율 선두. LG에너지솔루션 출하량 357% 증가", "source": "https://www.autodaily.co.kr/news/articleView.html?idxno=546402", "date": "2026-08-03" },
+        { "fact": "상반기 글로벌 ESS 시장 71% 급성장…K-배터리 기회", "source": "https://m.news.nate.com/view/20260803n29661", "date": "2026-08-03" },
+        { "fact": "中도 ESS 점유율 늘린다…CATL, 나트륨배터리로 유럽 공략", "source": "https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04516566645484672", "date": "2026-09-01" },
+        { "fact": "LFP·ESS 앞세운 K배터리, 2026년 하반기 'V자 반등' 예고", "source": "https://www.goodkyung.com/news/articleView.html?idxno=285859", "date": "2026-09-01" }
+      ],
+      "what_would_change_my_mind": "3분기 ESS 출하 증가율이 업종 평균 아래로 떨어지거나(점유율 반납), CATL이 미국·유럽 ESS 입찰에서 K배터리를 밀어내는 계약이 확인되면 반대로. 전기차용 가동률이 실제로 반등하면 확신을 올린다."
+    },
+    {
+      "code": "005380",
+      "name": "현대차",
+      "close": 365000,
+      "close_source": "https://kr.investing.com/news/stock-market-news/article-2099326",
+      "stance": "보류",
+      "confidence": 0.45,
+      "cycle_position": "정점",
+      "peer_rank": "자동차 2후보 중 2위",
+      "opinion": "완성차 업종은 수요 사이클로는 정점권이다 — 미국 시장은 판매 기록을 갱신하지만 관세가 붙어 전기차는 '팔수록 손해'라 라인업을 재편하는 단계. 현대차·기아는 미국 점유율 11%를 넘겨 업종 안에서 이기는 쪽이나, 두 회사 중 전기차 라인업(아이오닉·미국 전기차 공장) 노출이 큰 현대차가 관세발 재편의 비용을 더 진다. 사이클 길이 근거: 관세는 정책이라 기간을 말할 수 없고, 하이브리드 전환 투자는 1~2년. 9월 미국 판매·하이브리드 비중 숫자가 확인되지 않아 보류. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "\"팔수록 손해?\" 美 관세에 현대차·기아 전기차 라인업 재편", "source": "https://newsway.co.kr/news/view?ud=2026091715392412837", "date": "2026-09-17" },
+        { "fact": "현대차, 40년 만에 미국서 점유율 11% 돌파 (현대·기아 미국 점유율 역대 최고)", "source": "https://www.dizzotv.com/site/data/html_dir/2026/01/19/2026011980144.html", "date": "2026-01-19" },
+        { "fact": "기아, 8월 미국서 역대 최다 판매 (현대차 언급 없음 — 그룹 내 기아 우위)", "source": "https://www.seoul.co.kr/news/economy/car/2026/09/03/20260903031004", "date": "2026-09-03" }
+      ],
+      "what_would_change_my_mind": "9월 미국 판매에서 현대차가 기아를 앞서는 증가율을 내고 하이브리드 비중이 확대되면 편입으로. 관세 인상이나 미국 판매 증가율 둔화가 확인되면 반대로."
+    },
+    {
+      "code": "000270",
+      "name": "기아",
+      "close": 121900,
+      "close_source": "https://ir.gsifn.io/kia/m_daily.html?koreng=1&fid=E000018773",
+      "stance": "편입",
+      "confidence": 0.55,
+      "cycle_position": "정점",
+      "peer_rank": "자동차 2후보 중 1위",
+      "opinion": "업종은 정점권이지만 기아는 업종 안에서 점유율을 얻고 있다 — 8월 미국 판매 역대 최다, 현대차·기아 합산 미국 점유율 역대 최고. 판단 기준대로 업황과 무관하게 점유율을 얻는 쪽이므로 편입. 두 회사 중 기아를 위에 두는 이유는 미국 판매 기록이 기아 이름으로 나왔고, 관세로 손해 보는 전기차 라인업 노출이 현대차보다 작다는 것. 사이클 길이는 관세 정책 기간에 달려 있어 근거를 댈 수 없고, 그래서 확신은 절반을 조금 넘긴다. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "기아 '질주'…8월 美서 역대 최다 판매", "source": "https://www.seoul.co.kr/news/economy/car/2026/09/03/20260903031004", "date": "2026-09-03" },
+        { "fact": "현대-기아차 미국 점유율 역대 최고", "source": "https://www.globalepic.co.kr/view.php?ud=20260119113050171348439a4874_29", "date": "2026-01-19" },
+        { "fact": "美 관세에 현대차·기아 전기차 라인업 재편 — 전기차 '팔수록 손해'", "source": "https://newsway.co.kr/news/view?ud=2026091715392412837", "date": "2026-09-17" }
+      ],
+      "what_would_change_my_mind": "9월 미국 판매가 전년 대비 감소로 돌아서거나 미국 점유율이 두 달 연속 내려가면 반대로. 관세율이 인하되면 확신을 올린다."
+    },
+    {
+      "code": "207940",
+      "name": "삼성바이오로직스",
+      "close": 1398000,
+      "close_source": "https://www.investing.com/equities/samsung-biologics-co-ltd-historical-data",
+      "stance": "편입",
+      "confidence": 0.6,
+      "cycle_position": "상승 중",
+      "peer_rank": "바이오 2후보 중 1위",
+      "opinion": "CDMO 업종은 상승 중반이다 — 대형 수주가 잇따르고(삼바 '6조 수주', 2026년 첫 CMO 계약 2,796억 공시) 미국 생물보안법으로 중국 CDMO 물량이 한국·서방으로 옮겨오는 구조 변화가 진행 중. 사이클 길이 근거: 바이오 생산공장은 착공~가동에 3~4년, 계약은 다년 장기라 2028년까지 가시성이 있다. 업종 안에서 삼바는 '초격차' 1위이고, 셀트리온이 CDMO에 들어오겠다는 것은 삼바가 만든 시장에 후발로 진입하는 것이라 경쟁 위협은 작다. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "삼성바이오 'CDMO 초격차' vs 셀트리온 '시밀러 질적성장'…거침없는 최대 실적", "source": "https://biz.heraldcorp.com/article/10822380", "date": "2026-09-01" },
+        { "fact": "'6조 수주' 삼성바이오, 2026년 2796억 CMO 첫 계약 공시", "source": "https://www.kpanews.co.kr/news/articleView.html?idxno=530934", "date": "2026-01-15" },
+        { "fact": "CDMO '초격차' 재확인한 삼성바이오로직스…'생물보안법' 반사이익도 기대", "source": "https://m.news.nate.com/view/20260121n35499", "date": "2026-01-21" },
+        { "fact": "\"바이오 CDMO 호황\"…선제 투자로 대형 수주 잇따라", "source": "https://m.news.nate.com/view/20260319n39340", "date": "2026-03-19" }
+      ],
+      "what_would_change_my_mind": "론자·우시가 서방 증설을 가동해 CDMO 단가 경쟁이 시작되거나, 신규 수주 공시가 두 분기 연속 끊기면(가동률 정점 신호) 반대로."
+    },
+    {
+      "code": "068270",
+      "name": "셀트리온",
+      "close": 179400,
+      "close_source": "https://www.investing.com/equities/celltrion-inc-historical-data",
+      "stance": "보류",
+      "confidence": 0.42,
+      "cycle_position": "정점",
+      "peer_rank": "바이오 2후보 중 2위",
+      "opinion": "바이오시밀러 업종은 성숙기다 — 물량은 늘지만 시밀러 간 가격 경쟁으로 단가가 계속 내려가는 구조라, 회사 스스로 '질적 성장'과 '신약·CDMO'로 축을 옮기겠다고 말하는 단계. 시밀러의 사이클은 오리지널 특허 만료 일정으로 정해지므로 신규 품목 출시 후 2~3년이면 다시 가격 침식이 온다. CDMO 진입은 삼바가 이미 지배하는 시장에 후발로 들어가는 것이라 업종 내 상대 위치는 삼바 아래. 부족한 재료: 주요 시밀러 품목별 미국 점유율과 순판가 추이. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "바이오시밀러 다음은… 셀트리온 '신약·CDMO' 공략", "source": "https://www.fnnews.com/news/202609071810067134", "date": "2026-09-07" },
+        { "fact": "삼성바이오 'CDMO 초격차' vs 셀트리온 '시밀러 질적성장'", "source": "https://biz.heraldcorp.com/article/10822380", "date": "2026-09-01" }
+      ],
+      "what_would_change_my_mind": "주력 시밀러의 미국 점유율이 오리지널을 넘어서는 품목이 확인되거나, CDMO 첫 대형 수주가 공시되면 편입으로. 시밀러 순판가 하락률이 두 자릿수로 커지면 반대로."
+    },
+    {
+      "code": "105560",
+      "name": "KB금융",
+      "close": 174900,
+      "close_source": "https://www.investing.com/equities/kb-financial-group-historical-data",
+      "stance": "반대",
+      "confidence": 0.5,
+      "cycle_position": "하강 초",
+      "peer_rank": "은행 3후보 중 2위",
+      "opinion": "은행 업종의 마진 사이클은 하강 초입이다 — 3분기 순이자마진(NIM) 하락폭이 커져 기업대출 물량을 늘려 이자이익을 방어하는 국면이고, 기준금리가 올랐어도 조달·대출 경쟁 때문에 NIM이 오르지 않는 구조가 확인됐다. 사이클 길이 근거: 예대금리 재조정은 대출 만기 구조상 6~12개월에 걸쳐 반영된다. 업종 안에서 KB는 은행 부문에서 신한에 리딩뱅크를 내준 쪽이라 점유율을 얻고 있다고 말할 수 없다. 규모(그룹 2위 아닌 1위)는 인정하나 방향이 불리해 반대. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "3분기 은행 NIM 하락폭 확대…기업대출 늘려 이자이익 방어", "source": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=709656", "date": "2026-09-15" },
+        { "fact": "[은행 실적 인사이드] KB 따돌린 신한은행…리딩뱅크 굳히기", "source": "https://dealsite.co.kr/articles/166018", "date": "2026-09-10" },
+        { "fact": "5대 은행, 기준금리 0.5%p 올랐는데 NIM은 왜 안 오르나…승부는 '조달·대출'", "source": "http://sateconomy.co.kr/news/view/1065616321962883", "date": "2026-09-01" },
+        { "fact": "KB금융, NIM 내려도 이익은 뛴다…3분기 순익 2.06조 전망 (마진 하락을 물량으로 상쇄하는 구조)", "source": "http://www.press9.kr/news/articleView.html?idxno=82708", "date": "2026-09-14" }
+      ],
+      "what_would_change_my_mind": "3분기 실적에서 KB국민은행 NIM 하락폭이 4대 은행 중 가장 작고 은행 순이익에서 신한을 되찾으면 보류로. NIM이 분기 반등하면 업종 전체를 다시 본다."
+    },
+    {
+      "code": "055550",
+      "name": "신한지주",
+      "close": 110100,
+      "close_source": "https://ir.gsifn.io/kbfng/v5/ir_comp_item.html?mode=kr&koreng=1&sym2=086790&period=63",
+      "stance": "보류",
+      "confidence": 0.5,
+      "cycle_position": "하강 초",
+      "peer_rank": "은행 3후보 중 1위",
+      "opinion": "같은 NIM 하강 초입 위에 있지만 세 은행 중 유일하게 업종 안에서 자리를 얻고 있다 — 신한은행이 KB국민은행을 제치고 리딩뱅크를 굳혔다. 규칙대로 업황이 나빠도 1등은 편입일 수 있으나, 마진 하락폭 확대라는 업종 지표와 점유율 획득이 서로 상쇄하는 국면이라 어느 쪽이 큰지 3분기 숫자를 봐야 한다. 부족한 재료: 신한은행 3분기 NIM 하락폭과 기업대출 증가율의 업종 대비 수치. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "[은행 실적 인사이드] KB 따돌린 신한은행…리딩뱅크 굳히기", "source": "https://dealsite.co.kr/articles/166018", "date": "2026-09-10" },
+        { "fact": "3분기 은행 NIM 하락폭 확대…기업대출 늘려 이자이익 방어", "source": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=709656", "date": "2026-09-15" },
+        { "fact": "은행 NIM 하락에도 대출 성장으로 상쇄 (증권사 모닝 리포트)", "source": "https://www.newspim.com/news/view/20260914000114", "date": "2026-09-14" }
+      ],
+      "what_would_change_my_mind": "3분기 실적에서 신한은행 NIM 하락폭이 업종 평균보다 작고 은행 순이익 1위를 유지하면 편입으로. 리딩뱅크를 다시 KB에 내주면 반대로."
+    },
+    {
+      "code": "086790",
+      "name": "하나금융지주",
+      "close": 133100,
+      "close_source": "https://ir.gsifn.io/kbfng/v5/ir_comp_item.html?mode=kr&koreng=1&sym2=086790&period=63",
+      "stance": "반대",
+      "confidence": 0.55,
+      "cycle_position": "하강 초",
+      "peer_rank": "은행 3후보 중 3위",
+      "opinion": "NIM 하강 초입에서 세 후보 중 규모가 가장 작고 은행 부문 리딩뱅크 경쟁의 당사자도 아니다. 조달·대출 경쟁으로 마진이 눌리는 국면에서는 조달비용이 높은 후순위 은행이 먼저 밀린다는 것이 업종 사이클의 오래된 규칙이다. 상반기 인수금융 리그테이블에서 하나가 올라온 것은 비은행 부문의 국지적 점유율이라 은행 마진 사이클을 뒤집지 못한다. 사이클 길이 근거: 대출 재조정 6~12개월. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "3분기 은행 NIM 하락폭 확대…기업대출 늘려 이자이익 방어", "source": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=709656", "date": "2026-09-15" },
+        { "fact": "[2026 상반기 리그테이블][인수금융] KB-신한 저물고, 하나-우리 상승 (비은행 국지적 점유율 변화)", "source": "https://dealsite.co.kr/articles/165192", "date": "2026-07-01" },
+        { "fact": "5대 은행, 기준금리 0.5%p 올랐는데 NIM은 왜 안 오르나…승부는 '조달·대출'", "source": "http://sateconomy.co.kr/news/view/1065616321962883", "date": "2026-09-01" }
+      ],
+      "what_would_change_my_mind": "3분기 실적에서 하나은행 NIM 하락폭이 KB·신한보다 작거나 기업대출 증가율이 업종 최고로 확인되면 보류로."
+    },
+    {
+      "code": "015760",
+      "name": "한국전력",
+      "close": 30750,
+      "close_source": "https://www.topstarnews.net/news/articleView.html?idxno=16198351",
+      "stance": "보류",
+      "confidence": 0.3,
+      "cycle_position": "불명",
+      "peer_rank": "단독",
+      "opinion": "전력 업종의 사이클 지표는 계통한계가격(SMP)·연료비조정단가·요금 인상 여부인데, 이번 조사 예산 안에서 9월 기준 어느 하나도 확인하지 못했다. 구조적으로는 AI 데이터센터 전력 수요(삼성전기가 '고용량 MLCC로 AI 전력을 잡는다'고 할 정도의 수요)가 판매량 사이클의 상승 요인이지만, 규제 요금 업종은 판매량이 아니라 요금 결정이 사이클을 정한다. 지표 없이 위치를 말할 수 없으므로 보류. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "9/18 한국전력 종가 30,750원(-0.81%), 동일업종(전기가스) -1.24% — 업종 대비 상대적 방어(주가 사실만, 산업 지표 아님)", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16198351", "date": "2026-09-18" },
+        { "fact": "삼성전기, 고용량 MLCC로 'AI 전력' 잡는다 — AI 데이터센터 전력 수요 확대의 간접 증거", "source": "https://m.news.nate.com/view/20260918n29091", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "4분기 전기요금 인상 또는 연료비조정단가 상향이 확정되면 편입 검토. SMP가 상승 추세로 돌아서 구입전력비가 요금 인상보다 빨리 오르면 반대."
+    },
+    {
+      "code": "005490",
+      "name": "POSCO홀딩스",
+      "close": 323000,
+      "close_source": "https://ir.gsifn.io/sample/ir_group.html",
+      "stance": "보류",
+      "confidence": 0.4,
+      "cycle_position": "바닥",
+      "peer_rank": "단독",
+      "opinion": "철강 업종은 바닥권으로 본다 — 중국이 감산 기조를 유지해 공급 측이 줄고 있고(4월 확인), 한국산은 미국 50% 관세로 수출 판로가 막힌 대신 내수 스프레드에 의존하는 구조. 바닥에서 상승으로 넘어가려면 중국 수출량 감소와 열연 스프레드 반등이 숫자로 나와야 하는데 9월 기준 스프레드·중국 수출 데이터를 확인하지 못했다. 사이클 길이 근거: 중국 설비 감축은 연 단위 정책이라 바닥이 길고, 2027년까지 정점은 없다고 본다. 지표가 없어 보류. 가격은 금요일 종가 기준.",
+      "evidence": [
+        { "fact": "철강주, 중국의 철강 감산 기조 등 영향으로 일제히 강세", "source": "https://www.g-enews.com/article/Securities/2026/04/20260428093405989744093b5d4e_1", "date": "2026-04-28" },
+        { "fact": "포스코, 관세 50% 얻어맞고, 자산 팔아치우는데 주가는 왜 오를까 (미국 철강 관세 50%)", "source": "https://www.joongangenews.com/news/articleView.html?idxno=433550", "date": "2026-03-01" },
+        { "fact": "글로벌 철강 시황 전망 (포스코그룹 뉴스룸)", "source": "https://newsroom.posco.com/kr/%EA%B8%80%EB%A1%9C%EB%B2%8C-%EC%B2%A0%EA%B0%95-%EC%8B%9C%ED%99%A9-%EC%A0%84%EB%A7%9D/", "date": "2026-07-01" }
+      ],
+      "what_would_change_my_mind": "9~10월 열연 스프레드가 반등하고 중국 철강 수출이 전년 대비 감소로 돌아서면 편입. 중국 감산이 풀려 수출이 다시 늘면 반대."
+    }
+  ],
+  "pool_note": "이번 후보군은 '상승 중' 업종(메모리·MLCC·CDMO)과 '하강 초' 업종(은행 NIM)이 뚜렷이 갈린다. 메모리 안에서는 점유율이 삼성전자로 옮겨가고 있어 하이닉스는 업종 덕에 편입이지 회사 덕이 아니다. 은행 셋은 같은 마진 하강 위에 있고 신한만 자리를 얻고 있다. 한전·철강은 사이클 지표를 예산 안에서 확인하지 못해 보류로 남겼다. 출처 중 날짜가 URL에 없는 기사는 검색 결과의 제목만 근거로 썼고 날짜는 근사값이다.",
+  "search_budget_used": 40
+}

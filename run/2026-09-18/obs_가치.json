@@ -1,0 +1,223 @@
+{
+  "agent": "가치",
+  "basis_date": "2026-09-18",
+  "_method_note": "시험 실행. pool.json에 close_krx·fundamentals가 비어 있어 종가는 마감 시황·일별주가 기사에서, EPS·BPS는 회사 IR 실적발표·사업보고서 수치로 직접 계산함. 언론이 인용한 PER·PBR은 판단에 쓰지 않았고 참고로만 적음. 9/18 종가를 못 찾은 종목은 기준일 이전의 가장 가까운 종가를 close에 넣고 opinion에 날짜를 명시함. 검색 예산 45회 전부 사용.",
+  "opinions": [
+    {
+      "code": "005930",
+      "name": "삼성전자",
+      "close": 261000,
+      "close_source": "https://www.businesskorea.co.kr/news/articleView.html?idxno=277336",
+      "stance": "편입",
+      "confidence": 0.55,
+      "opinion": "2Q26 EPS 10,849원, 1Q는 QoQ +52%를 역산하면 약 7,140원. 상반기 연환산 EPS 약 36,000원이면 261,000원은 PER 7.3배, 2Q 단독 연환산(43,400원)이면 6.0배. 3월 14.58조 자사주 소각에 배당 11.1조까지 얹었으니 자본 배분은 확실히 주주 편이다. 다만 2Q 영업이익률 56%는 사이클 정점 냄새가 나고, 정점 이익에 붙은 6~7배는 싸 보이는 함정일 수 있다. 그래도 소각·배당이 실제로 집행되는 회사가 한 자릿수 PER이면 편입이다. 강한 종목을 비싸다고 보는 내 편향을 알기에 숫자로만 판단했다. BPS는 반기보고서를 못 확인해 PBR은 비워 둔다.",
+      "evidence": [
+        { "fact": "9/18 종가 261,000원(+8,500원, +3.37%)", "source": "https://www.businesskorea.co.kr/news/articleView.html?idxno=277336", "date": "2026-09-18" },
+        { "fact": "2Q26 매출 171.5조, 영업이익 89.5조, 주당순이익 10,849원(보통주·우선주), 영업이익 QoQ +56%, EPS QoQ +52%", "source": "https://news.samsung.com/kr/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90-2026%EB%85%84-2%EB%B6%84%EA%B8%B0-%EC%8B%A4%EC%A0%81-%EB%B0%9C%ED%91%9C", "date": "2026-07-30" },
+        { "fact": "보통주 73,359,314주·우선주 13,603,461주 소각(직전 종가 기준 약 14.58조), 4/2 소각 예정. 연간 배당 약 11.1조(정규 9.8조+추가 1.3조)", "source": "https://www.4th.kr/news/articleView.html?idxno=2109786", "date": "2026-03-31" }
+      ],
+      "what_would_change_my_mind": "3Q26 EPS가 2Q(10,849원)보다 낮게 나와 이익 정점이 확인되고 그때 PER이 12개월 기준 12배를 넘으면 보류로 내린다. 반대로 반기보고서 BPS로 계산한 PBR이 1.5배 이하로 확인되면 confidence를 0.7로 올린다."
+    },
+    {
+      "code": "000660",
+      "name": "SK하이닉스",
+      "close": 1857000,
+      "close_source": "https://kr.investing.com/news/stock-market-news/article-2099326",
+      "stance": "보류",
+      "confidence": 0.4,
+      "opinion": "9/18 종가는 두 기사가 1,857,000원과 1,867,000원으로 갈리는데, +112,000원·+6.42%를 역산하면 전일 1,745,000원이라 1,857,000원이 맞다. 문제는 이 값에 붙일 EPS·BPS를 회사 IR에서 확보하지 못한 것. 증권사가 잡은 2026년 DPS 6,770원은 현 주가 대비 배당수익률 0.36%로, 자본이 주주에게 오는 속도는 매우 느리다. 시가총액이 1,300조를 넘는 회사를 통째로 사는 셈인데 그 값이 싼지 비싼지 말할 숫자가 없으니 보류다. 부족한 것: 최근 4개 분기 EPS, 반기 BPS.",
+      "evidence": [
+        { "fact": "9/18 종가 1,857,000원(+6.42%)", "source": "https://kr.investing.com/news/stock-market-news/article-2099326", "date": "2026-09-18" },
+        { "fact": "9/18 종가 1,867,000원(+112,000원, +6.42%)로 표기 — 등락폭·등락률 역산상 1,857,000원과 정합", "source": "https://www.businesskorea.co.kr/news/articleView.html?idxno=277336", "date": "2026-09-18" },
+        { "fact": "대신증권 추정 SK하이닉스 DPS 2026년 6,770원, 2027년 11,935원", "source": "https://ket.kr/news/article.html?no=38861", "date": "2026-06-18" }
+      ],
+      "what_would_change_my_mind": "반기보고서 기준 12개월 EPS로 계산한 PER이 8배 이하이면 편입으로 간다. 20배를 넘으면 반대. 그 전까지는 숫자가 없다."
+    },
+    {
+      "code": "402340",
+      "name": "SK스퀘어",
+      "close": 1079000,
+      "close_source": "https://kr.investing.com/news/stock-market-news/article-2099326",
+      "stance": "편입",
+      "confidence": 0.5,
+      "opinion": "9/18 종가 1,079,000원. 6월 대신증권이 NAV 할인율 43.8%(역사 평균 66%)에서 목표가 187만원을 냈고, 9월 초 기사 제목은 '218만원→94만원 반토막'이다. 고점 대비 -50%인데 그 사이 핵심 자산인 SK하이닉스는 오히려 올랐으니, 할인율은 다시 역사 평균 쪽으로 벌어졌다고 보는 게 산수다. 지주사 할인은 구조적이지만 '평균보다 더 벌어진 부분'은 일시적이다. 자본 배분은 3월 760억·7월 430억 소각에 하이닉스 배당 유입분(2026년 약 9,900억)으로 매입·소각을 잇겠다는 것이라 방향은 주주 편이다. 다만 소각 규모가 시총 대비 1% 안팎이라 크지 않고, 하이닉스 자체의 EPS·BPS를 내가 확보하지 못했다는 한계로 confidence는 0.5.",
+      "evidence": [
+        { "fact": "9/18 종가 1,079,000원(+7.04%)", "source": "https://kr.investing.com/news/stock-market-news/article-2099326", "date": "2026-09-18" },
+        { "fact": "대신증권 목표가 187만원, NAV 할인율 43.8%(과거 40~77%, 평균 66%; 2024년 65.1%, 2025년 51.3%). 하이닉스 배당 유입 2026년 9,900억·2027년 1.7조로 자사주 매입·소각 계획", "source": "https://ket.kr/news/article.html?no=38861", "date": "2026-06-18" },
+        { "fact": "760억 규모 자사주 소각 결정", "source": "https://news.nate.com/view/20260325n25924", "date": "2026-03-25" },
+        { "fact": "자사주 430억원 소각 결의", "source": "https://m.news.nate.com/view/20260722n29881", "date": "2026-07-22" },
+        { "fact": "'218만원→94만원' 주가 반토막, 목표가 하향 (기사 제목 기준, 본문 접근 불가)", "source": "https://m.news.nate.com/view/20260906n17183", "date": "2026-09-06" }
+      ],
+      "what_would_change_my_mind": "증권사 산출 NAV 할인율이 35% 아래로 좁혀지면 편입을 거둔다. 하이닉스 배당 유입을 소각이 아니라 신규 투자에 쓰겠다는 공시가 나오면 반대로 돌린다. 반대로 연 5,000억 이상 소각 공시가 나오면 confidence 0.7."
+    },
+    {
+      "code": "009150",
+      "name": "삼성전기",
+      "close": 1388000,
+      "close_source": "https://kr.investing.com/news/stock-market-news/article-2099326",
+      "stance": "보류",
+      "confidence": 0.35,
+      "opinion": "9/18 종가 1,388,000원, 6/19 고점 2,254,000원 대비 -41%. 낙폭은 출발점이지 결론이 아니다. 3Q 영업이익 추정 6,601억(KB)이 맞다면 연환산 2.6조 영업이익에 시총 약 104조(1,388,000원×약 7,470만주)이니 대략 영업이익의 40배다. 싸지 않다. 그런데 이 회사의 12개월 EPS·BPS를 IR에서 확보하지 못했고, 자사주 소각이나 배당 확대 소식도 이번 조사에서 하나도 안 나왔다. 반토막 났다고 싼 게 아니라, 여전히 정점 이익 기대치로 가격이 매겨진 종목이다. 부족한 것: 반기 BPS, 12개월 EPS, 주주환원 정책.",
+      "evidence": [
+        { "fact": "9/18 종가 1,388,000원(+4.36%)", "source": "https://kr.investing.com/news/stock-market-news/article-2099326", "date": "2026-09-18" },
+        { "fact": "6/19 고점 2,254,000원 → 1,388,000원(-41%). KB증권 목표가 300만원, 3Q26 매출 3.83조·영업이익 6,601억 추정, 2027년 영업이익 4.189조 추정", "source": "https://www.fnnews.com/news/202609180756121263", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "반기 BPS 기준 PBR이 3배 아래이거나, 12개월 EPS 기준 PER이 15배 아래로 오면 편입을 검토한다. 자사주 소각 공시가 나오면 보류에서 한 단계 올린다."
+    },
+    {
+      "code": "373220",
+      "name": "LG에너지솔루션",
+      "close": 367000,
+      "close_source": "https://www.topstarnews.net/news/articleView.html?idxno=16195923",
+      "stance": "반대",
+      "confidence": 0.7,
+      "opinion": "9/18 종가를 못 찾아 9/16 종가 367,000원을 쓴다(9/18은 소폭 상승 마감). 이 값으로 시총은 약 86조(약 2.34억주). 유진투자증권이 잡은 2026년 순이익 4,720억이 다 나와도 PER 180배가 넘고, 같은 리포트의 PBR은 5.4배다(증권사 숫자, 내 계산 아님). 2027년 이익이 몇 배로 뛰어야 정당화되는 가격이지 자산과 이익 대비 싼 가격이 아니다. 목표가 55만원과의 괴리 50%는 시장이 그 숫자를 안 믿는다는 뜻이지 매력이 아니다. 배당·소각 소식은 없다. 반대.",
+      "evidence": [
+        { "fact": "9/16 종가 367,000원(+0.41%)", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16195923", "date": "2026-09-16" },
+        { "fact": "9/18 LG에너지솔루션 소폭 상승 마감(종가 미기재)", "source": "https://www.businesskorea.co.kr/news/articleView.html?idxno=277336", "date": "2026-09-18" },
+        { "fact": "유진투자증권 목표가 48만→55만원, 2026년 영업이익 1조 880억·순이익 4,720억 추정, PER 458.6배·PBR 5.4배(증권사 산출)", "source": "https://ket.kr/news/article.html?no=38227", "date": "2026-05-06" }
+      ],
+      "what_would_change_my_mind": "12개월 순이익 기준 PER이 25배 아래로 내려오거나(주가 하락이든 이익 급증이든), 반기 BPS 기준 PBR이 2배 아래로 오면 다시 본다. 유상증자 공시가 나오면 반대 confidence를 0.9로 올린다."
+    },
+    {
+      "code": "005380",
+      "name": "현대차",
+      "close": 365000,
+      "close_source": "https://kr.investing.com/news/stock-market-news/article-2099326",
+      "stance": "편입",
+      "confidence": 0.6,
+      "opinion": "9/18 종가 365,000원. 7월 45만원대에서 -19%. 2Q26 순이익 2.888조를 보통주 약 2.05억주로 나누면 분기 EPS 약 14,000원, 연환산 56,000원이면 PER 6.5배. 분기배당 2,500원(연 10,000원)에 배당수익률 2.7%, 8,000억 자사주 전량 소각. 싼 이유는 2Q 영업이익률 5.8%로 마진이 꺾였고 판매가 -6.9%였다는 것인데, 회사는 연간 마진 가이던스 6.3~7.3%를 유지했다. 마진 둔화가 사업 모델 붕괴가 아니라 한두 분기짜리면 6.5배는 싸다. 자본 배분이 주주 편이라는 점이 결정적이다. BPS는 IR에서 확인 못 해 PBR은 비워 둔다.",
+      "evidence": [
+        { "fact": "9/18 종가 365,000원(+0.55%)", "source": "https://kr.investing.com/news/stock-market-news/article-2099326", "date": "2026-09-18" },
+        { "fact": "2Q26 매출 49.2153조, 영업이익 2.8509조(영업이익률 5.8%), 당기순이익 2.888조, 분기배당 2,500원, 2026 연간 영업이익률 목표 6.3~7.3% 유지", "source": "https://www.hyundaimotorgroup.com/ko/news/hyundai-motor-company-2026-q2-earnings", "date": "2026-07-23" },
+        { "fact": "자사주 8,000억 전량 소각, 주당 최소 1만원 배당 보장 (기사 제목 기준)", "source": "https://m.news.nate.com/view/20260829n04151", "date": "2026-08-29" },
+        { "fact": "4조 자사주 매입·소각 승부수", "source": "https://magazine.hankyung.com/business/article/202601215036b", "date": "2026-01-21" },
+        { "fact": "2026년 7월 주가 45만원대", "source": "https://bullstory.io/blog/%ED%98%84%EB%8C%80%EC%B0%A8-%EC%A3%BC%EA%B0%80-%EC%A0%84%EB%A7%9D-2026%EB%85%84-7%EC%9B%94-45%EB%A7%8C%EC%9B%90%EB%8C%80-%EC%A7%80%EA%B8%88-%EC%82%AC%EB%8F%84-%EB%90%A0%EA%B9%8C", "date": "2026-07" }
+      ],
+      "what_would_change_my_mind": "3Q26 영업이익률이 5% 아래로 더 내려가고 연간 가이던스를 철회하면 마진 하락을 구조적으로 보고 보류로 내린다. 분기배당 2,500원을 줄이면 반대. 반기 BPS 기준 PBR 0.6배 이하가 확인되면 confidence 0.75."
+    },
+    {
+      "code": "000270",
+      "name": "기아",
+      "close": 122300,
+      "close_source": "https://www.topstarnews.net/news/articleView.html?idxno=16194713",
+      "stance": "편입",
+      "confidence": 0.55,
+      "opinion": "9/18 종가를 못 찾아 9/15 종가 122,300원을 쓴다(9/16 애프터마켓 120,900원, 9/18 +0.83%). 3/20 168,500원에서 -27%. DPS 6,800원이면 이 값에 배당수익률 5.6%, 7,000억 자사주 100% 소각. 2026년 영업이익 가이던스 10.2조가 절반만 지켜져도 시총 약 48조(약 3.9억주)는 영업이익의 10배 아래다. 싼 이유는 현대차와 같은 마진 둔화·판매 감소이고, 그것이 일시적이라는 근거도 같다. 배당 5.6%에 소각까지 있는 회사가 이 값이면 편입이다. 다만 기준일 종가와 IR 기준 EPS·BPS를 확보하지 못해 confidence는 현대차보다 낮게 둔다.",
+      "evidence": [
+        { "fact": "9/15 종가 122,300원(-1.53%)", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16194713", "date": "2026-09-15" },
+        { "fact": "9/16 애프터마켓 120,900원(-0.74%)", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16195982", "date": "2026-09-16" },
+        { "fact": "9/18 기아 +0.83%", "source": "https://kr.investing.com/news/stock-market-news/article-2099326", "date": "2026-09-18" },
+        { "fact": "3/20 주가 168,500원, 2025년 매출 114조 1,409억, DPS 6,800원, 7,000억 자사주 상·하반기 분할 매입 후 100% 소각, 2026년 매출 122.3조·영업이익 10.2조 가이던스", "source": "https://v.daum.net/v/qmchRy71rC", "date": "2026-03-21" }
+      ],
+      "what_would_change_my_mind": "DPS가 6,800원 아래로 줄거나 소각 계획이 축소되면 편입을 거둔다. 2026년 영업이익 가이던스를 8조 아래로 내리면 마진 하락을 구조적으로 보고 보류. 반기 BPS 기준 PBR이 0.5배 아래로 확인되면 confidence 0.75."
+    },
+    {
+      "code": "207940",
+      "name": "삼성바이오로직스",
+      "close": 1502000,
+      "close_source": "https://www.topstarnews.net/news/articleView.html?idxno=16144614",
+      "stance": "보류",
+      "confidence": 0.3,
+      "opinion": "9/18 종가를 확보하지 못했다. 가장 가까운 확인값은 7/24 장중 1,502,000원이라 두 달 묵은 숫자다. 대신증권 목표가 220만원이라는 것 말고는 12개월 EPS·BPS 어느 것도 IR에서 확보하지 못했다. 이 종목은 성장 프리미엄으로 가격이 매겨지는 회사라 내 잣대로는 늘 비싸게 보이겠지만, 비싸다고 쓰려면 무엇 대비 몇 배인지 숫자가 있어야 한다. 없으니 보류. 부족한 것: 9/18 종가, 12개월 EPS, 반기 BPS.",
+      "evidence": [
+        { "fact": "7/24 장중 1,502,000원(+8.92%)", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16144614", "date": "2026-07-24" },
+        { "fact": "9/18 삼성바이오로직스 상승 마감(종가 미기재)", "source": "https://www.businesskorea.co.kr/news/articleView.html?idxno=277336", "date": "2026-09-18" },
+        { "fact": "대신증권 목표가 220만원, 인적분할 완료, 4공장 풀가동·5공장 램프업으로 2026년 실적 레벨업 전망", "source": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=408581", "date": "2025-12-20" }
+      ],
+      "what_would_change_my_mind": "12개월 EPS 기준 PER이 25배 아래로 내려오면 편입을 검토한다. 50배를 넘는 것이 확인되면 반대로 쓴다."
+    },
+    {
+      "code": "068270",
+      "name": "셀트리온",
+      "close": 177100,
+      "close_source": "https://www.newspim.com/news/view/20260916000748",
+      "stance": "보류",
+      "confidence": 0.4,
+      "opinion": "9/18 종가를 못 찾아 9/16 종가 177,100원을 쓴다(9/18 상승 마감). 1/14 219,000원 대비 -19%. 상반기 영업이익 7,737억이면 연환산 약 1.5조, 시총 약 39조(약 2.2억주)는 영업이익의 26배 안팎이다. 싸지 않다. 1,000억 소각(올해 누적 2,000억)은 방향은 맞지만 시총의 0.5%다. 장부의 상당 부분이 합병 영업권이라 PBR로 싸다고 말하기도 어렵다. 소각 발표에도 주가가 안 오른 것은 시장도 그 규모를 작게 본다는 뜻이다. 부족한 것: 12개월 EPS, 영업권 뺀 BPS.",
+      "evidence": [
+        { "fact": "9/16 종가 177,100원(-0.23%), 자사주 544,299주(약 1,000억) 9/30 소각, 2026년 누적 소각 2,000억. 전년 매출 4.16조·영업이익 1.17조, 상반기 매출 2.54조·영업이익 7,737억", "source": "https://www.newspim.com/news/view/20260916000748", "date": "2026-09-16" },
+        { "fact": "9/18 셀트리온 상승 마감(종가 미기재)", "source": "https://www.businesskorea.co.kr/news/articleView.html?idxno=277336", "date": "2026-09-18" },
+        { "fact": "1/14 장중 219,000원", "source": "https://www.topstarnews.net/news/articleView.html?idxno=15933738", "date": "2026-01-14" }
+      ],
+      "what_would_change_my_mind": "12개월 EPS 기준 PER이 15배 아래로 오거나, 연간 소각 규모가 시총의 2%(약 8,000억) 이상으로 확대 공시되면 편입을 검토한다."
+    },
+    {
+      "code": "105560",
+      "name": "KB금융",
+      "close": 176400,
+      "close_source": "https://www.joongangenews.com/news/articleView.html?idxno=548310",
+      "stance": "보류",
+      "confidence": 0.45,
+      "opinion": "9/18 종가를 못 찾아 9/15 종가 176,400원을 쓴다(9/18 -2.40%이므로 실제는 이보다 낮다). 증권사 2026년 BPS 추정 148,081원으로 나누면 PBR 1.19배. 2Q 순이익 1.87조, 연환산 7.3조를 약 3.7억주로 나누면 EPS 약 19,700원, PER 약 9배. 주주환원율 54.3%, 1.2조 소각, CET1 13.63%. 자본 배분은 흠잡을 데 없다. 그러나 PBR 1.2배는 이 은행이 0.4~0.5배에 거래되던 시절의 세 배 값이고, 은행의 ROE 10% 안팎에 1.2배면 싸다기보다 제값이다. 싸지 않은 것을 자본 배분이 좋다고 편입하지는 않는다. 부족한 것: 9/18 종가, IR 실적 BPS(증권사 추정치를 썼다).",
+      "evidence": [
+        { "fact": "9/15 종가 176,400원(-2.86%)", "source": "https://www.joongangenews.com/news/articleView.html?idxno=548310", "date": "2026-09-15" },
+        { "fact": "9/18 KB금융 -2.40%", "source": "https://kr.investing.com/news/stock-market-news/article-2099326", "date": "2026-09-18" },
+        { "fact": "2Q26 지배주주 순이익 1.87조, CET1 13.63%(1Q말), 주주환원율 54.3%, 상상인증권 2026년 BPS 148,081원·목표 PBR 1.41배·목표가 21만원", "source": "https://www.ftoday.co.kr/news/articleView.html?idxno=361837", "date": "2026-07-08" },
+        { "fact": "1Q26 순이익 1.892조(+11.5%), DPS 1,143원(+25.3%), 상반기 1.2조 자사주 매입·소각", "source": "https://www.fntimes.com/html/view.php?ud=202605182203179614b4a7c6999c_18", "date": "2026-05-19" }
+      ],
+      "what_would_change_my_mind": "IR 기준 BPS로 계산한 PBR이 0.9배 아래로 내려오면 편입. 주주환원율이 50% 아래로 후퇴하거나 CET1 13% 하회로 소각이 멈추면 반대."
+    },
+    {
+      "code": "055550",
+      "name": "신한지주",
+      "close": 98300,
+      "close_source": "https://www.joongangenews.com/news/articleView.html?idxno=536453",
+      "stance": "보류",
+      "confidence": 0.3,
+      "opinion": "9/18 종가를 확보하지 못했다. 가장 가까운 확인값이 7/29 종가 98,300원으로 두 달 전이라 close로 쓰기에 부끄러운 숫자다(9/18 -2.82%만 확인). BPS·EPS·소각·배당 어느 것도 이번 조사에서 IR 숫자를 못 얻었다. 은행주가 하루 -2.8%면 가치 관점에서는 관심이 가는 낙폭이지만, 낙폭만으로 편입하지 않는다는 것이 내 원칙이다. 부족한 것: 9/18 종가, 반기 BPS, 12개월 EPS, 2026년 소각·배당 계획.",
+      "evidence": [
+        { "fact": "7/29 종가 98,300원(-2.58%)", "source": "https://www.joongangenews.com/news/articleView.html?idxno=536453", "date": "2026-07-29" },
+        { "fact": "9/18 신한지주 -2.82%", "source": "https://kr.investing.com/news/stock-market-news/article-2099326", "date": "2026-09-18" }
+      ],
+      "what_would_change_my_mind": "IR 기준 BPS로 PBR 0.8배 아래가 확인되고 연간 소각 계획이 시총 2% 이상이면 편입."
+    },
+    {
+      "code": "086790",
+      "name": "하나금융지주",
+      "close": 139500,
+      "close_source": "https://www.topstarnews.net/news/articleView.html?idxno=16182180",
+      "stance": "보류",
+      "confidence": 0.35,
+      "opinion": "9/18 종가를 못 찾아 9/3 종가 139,500원을 쓴다(9/18 -3.20%). 1Q26 순이익 1.21조가 분기 최대, DPS 1,145원. 5월에 실적이 최대인데도 주가가 10% 넘게 빠졌다는 기록이 있어 셋 중 가장 싸게 거래되는 은행일 가능성이 크지만, IR 기준 BPS를 못 얻어 PBR을 쓸 수 없다. 대략 연 4.5조 순이익을 약 2.9억주로 나누면 EPS 15,000원대, PER 9배 안팎이라는 어림만 있다. 부족한 것: 9/18 종가, 반기 BPS, 2026년 소각 규모.",
+      "evidence": [
+        { "fact": "9/3 종가 139,500원(+3.41%)", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16182180", "date": "2026-09-03" },
+        { "fact": "9/18 하나금융지주 -3.20%", "source": "https://kr.investing.com/news/stock-market-news/article-2099326", "date": "2026-09-18" },
+        { "fact": "하나금융 1Q26 순이익 1.21조(분기 최대), DPS 1,145원, 5월 중 주가 10% 이상 하락", "source": "https://www.fntimes.com/html/view.php?ud=202605182203179614b4a7c6999c_18", "date": "2026-05-19" }
+      ],
+      "what_would_change_my_mind": "IR 기준 BPS로 PBR 0.7배 아래가 확인되면 편입. 소각 계획이 KB(1.2조)의 절반 이하면 confidence는 0.5에 머문다."
+    },
+    {
+      "code": "015760",
+      "name": "한국전력",
+      "close": 30750,
+      "close_source": "https://www.topstarnews.net/news/articleView.html?idxno=16198351",
+      "stance": "보류",
+      "confidence": 0.45,
+      "opinion": "9/18 종가 30,750원, 52주 고점 69,900원 대비 -56%, 저점 30,400원 바로 위. 시총 19.74조. 2025년 영업이익 13.52조가 창사 이래 최대인데 부채 118조·부채비율 444%를 역산하면 자기자본 약 26.6조, 약 6.42억주로 나누면 BPS 약 41,400원, PBR 약 0.74배(내 계산; 기사 표기 0.39배와 다르며 산출 기준 미확인). 영업이익에서 하루 72억 이자를 빼도 세전 10조를 넘으니 PER은 한 자릿수 초반이다. 숫자만 보면 싸다. 그런데 이 이익은 주주에게 오지 않는다. 누적적자 36.1조가 남아 있고 배당은 '글쎄'이며 이익은 빚 갚는 데 간다. 배당 없는 PER 2배는 소유주에게 아무것도 주지 않는 2배다. 싼 이유가 자본 배분의 구조에 있으니 편입은 못 하고, 그 구조가 바뀔 수 있는 회사라 반대도 아니다.",
+      "evidence": [
+        { "fact": "9/18 종가 30,750원(-250원, -0.81%), 52주 고점 69,900원·저점 30,400원, 시가총액 19.74조", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16198351", "date": "2026-09-18" },
+        { "fact": "2025년 영업이익 13.5248조(+61.7%)·매출 97.4345조, 누적적자 47.8조 중 36.1조 미해소, 부채 118조·부채비율 444%, 차입금 84.9조, 하루 이자 72억. 키움 목표가 7만원·신한 6만원(하향). 배당 확대 신중론", "source": "https://www.infostockdaily.co.kr/news/articleView.html?idxno=214426", "date": "2026-02-27" }
+      ],
+      "what_would_change_my_mind": "2026년 결산 배당 재개 공시(주당 500원 이상)가 나오면 편입으로 간다. 누적적자 해소 전 유상증자 공시가 나오면 반대."
+    },
+    {
+      "code": "005490",
+      "name": "POSCO홀딩스",
+      "close": 339000,
+      "close_source": "https://www.topstarnews.net/news/articleView.html?idxno=16188952",
+      "stance": "편입",
+      "confidence": 0.5,
+      "opinion": "9/18 종가를 못 찾아 9/10 종가 339,000원을 쓴다(9/8 장중 332,000원, 9/9 337,000원으로 33만원대에 머물러 있었다). 5/18 장중 446,000원 대비 -24%. 시총 약 27조(약 8,000만주). 2Q 영업이익 8,190억, 3Q 8,000억 추정이면 연환산 3.2조 영업이익에 시총 27조는 영업이익의 8~9배다. 증권사가 철강 부문 PBR 목표를 0.5→0.4배로 내리면서도 리튬 10조 가치를 붙여 BUY를 유지했다는 것은 철강 장부가치가 시장에서 반의반 값이라는 뜻이다. 싼 이유는 중국산 덤핑으로 인한 철강 마진 압박이고, 이건 일시적이라고 단정하기 어려운 부분이 있다. 그래도 저수익 설비를 접어 2Q에 어닝 서프라이즈를 냈고, 자사주 소각을 수년째 해온 회사가 장부가 절반 근처면 편입이다. IR 기준 BPS를 확보하지 못해 PBR은 내 어림(0.5배 안팎)이고, 그래서 confidence 0.5.",
+      "evidence": [
+        { "fact": "9/10 종가 339,000원(+0.59%)", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16188952", "date": "2026-09-10" },
+        { "fact": "9/9 종가 337,000원(+2.59%)", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16187931", "date": "2026-09-09" },
+        { "fact": "5/18 장중 446,000원(-4.60%)", "source": "https://www.topstarnews.net/news/articleView.html?idxno=16063606", "date": "2026-05-18" },
+        { "fact": "iM증권 목표가 48만→40만원(BUY 유지), 철강 부문 목표 PBR 0.5→0.4배, 2Q26 영업이익 8,190억(컨센 7,200억 상회, QoQ +15.9%), 3Q 약 8,000억 추정, 리튬 부문 가치 약 10조", "source": "https://ket.kr/news/article.html?no=39786", "date": "2026-07-31" }
+      ],
+      "what_would_change_my_mind": "반기보고서 BPS로 계산한 PBR이 0.7배를 넘으면 편입을 거둔다. 리튬 등 신사업 자금 조달 목적의 유상증자 공시가 나오면 반대. 연 1조 이상 소각이 재확인되면 confidence 0.65."
+    }
+  ],
+  "pool_note": "열넷 중 아홉이 9/18 종가를 기사에서 확인하지 못했고, IR 기준 BPS를 확보한 종목은 하나도 없다. 검색 예산 45회로는 종가와 뉴스까지가 한계였다. 그래도 그림은 보인다. 코스피 6,894에서 반도체·지주는 이익 정점에 붙은 한 자릿수 PER이라 싸 보이고, 자동차 둘은 마진 둔화로 20~30% 빠진 자리에서 배당 3~6%에 소각까지 있어 내 눈엔 가장 편한 자리다. 은행 셋은 자본 배분은 좋으나 PBR 1배 근처면 더는 싼 은행이 아니다. 한전은 PER 2배·PBR 0.7배가 배당 없이 빚 갚는 데 쓰이는 전형적인 '싸지만 주주 몫이 아닌' 종목이다.",
+  "search_budget_used": 45
+}

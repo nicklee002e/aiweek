@@ -29,7 +29,8 @@ def tone(v):
     return "up" if v > 0 else ("down" if v < 0 else "flat")
 
 
-STATUS_CLASS = {"손절": "bad", "1차 익절": "good", "2차 익절": "good", "보유 중": "hold"}
+STATUS_CLASS = {"손절": "bad", "1차 익절": "good", "1차 익절 후 보유": "good", "2차 익절": "good",
+                "본전 청산": "hold", "보유 중": "hold"}
 
 PHASE_LABEL = {1: "1단계 · 단일 종목", 2: "2단계 · 7관점 5종목 포트폴리오"}
 PHASE_RECORD = {1: "1단계 단일 종목 성적", 2: "2단계 포트폴리오 성적"}
@@ -164,7 +165,7 @@ tr.now td{color:var(--muted)}
 .agree{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 7px;border-radius:3px;
   border:1px solid var(--line);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
 .changed{background:#f4f1ea;color:#111;border-left:3px solid #111;padding:10px 14px;margin:12px 0;font-size:14px;line-height:1.7}
-.changed b{color:#111}
+.changed b{color:#111;display:block;margin-bottom:6px}.changed p{margin:0 0 8px}.changed p:last-child{margin:0}
 .vblock{margin:14px 0 0}.vblock h4{margin:0 0 6px;font-size:15px}
 .views{list-style:none;margin:0;padding:0}.views li{display:flex;gap:10px;padding:4px 0;border-top:1px dashed var(--line,#ddd);font-size:13.5px;line-height:1.6}
 .views li i{flex:0 0 3.2em;font-style:normal;font-weight:700;color:var(--muted)}.views li.dis i{color:var(--bad,#b3261e)}
@@ -221,6 +222,8 @@ RULES = [
     ("매주 7명의 에이전트가 선택한 5종목 포트폴리오, 월요일 오전 8시.", "직전 금요일 종가를 기준가로 삼고, 월요일 6시까지 뉴스를 반영하여 아침에 공개합니다. (제1~2회는 매주 한 종목이었습니다.)"),
     ("매수 조건과 목표를 미리 공개합니다.", "매수 시점, 1차·2차 익절가, 손절가를 공개 시점에 모두 밝히고 이후에는 바꾸지 않습니다."),
     ("판정은 종가 기준입니다.", "손절가를 종가로 밑돌면 그 자리에서 손실을 확정해 기록합니다. 장중에 잠깐 스친 가격은 세지 않습니다."),
+    ("1차 익절에서 절반을 실현하고, 손절가를 기준가로 올립니다.", "종가가 1차 익절가에 처음 닿은 날 절반의 수익을 그 종가로 고정합니다. 나머지 절반은 계속 추적하되, 그 뒤로 종가가 기준가 아래로 내려오면 본전에서 청산합니다. 2차 익절가에 닿으면 나머지도 확정합니다."),
+    ("회차는 12주까지 추적합니다.", "기준일로부터 12주가 지나면 그날 종가로 남은 종목을 모두 확정합니다. 그 전에 손절·본전 청산·2차 익절로 확정된 종목은 그 자리에 고정됩니다."),
     ("성적은 매일 갱신됩니다.", "기준가 대비 수익률을 코스피 같은 기간 수익률과 나란히 놓습니다."),
     ("모든 회차는 영구 보존합니다.", "삭제도 수정도 하지 않습니다."),
 ]
@@ -259,6 +262,22 @@ def render_views_section(hs):
         '<div class="block"><h3>종목별 일곱 관점의 소견</h3>'
         '<p class="hint">일곱 에이전트가 서로의 결과를 보지 않고 각자 조사해 낸 소견입니다. 반대 의견도 지우지 않고 그대로 싣습니다.</p>'
         + "".join(blocks) + "</div>"
+    )
+
+
+CHANGED_DEFAULT = (
+    "이번 회차부터는 종목이 아니라 포트폴리오를 구성합니다. 가치·수급·실적·위험·매크로·산업·기술 "
+    "일곱 에이전트가 같은 후보군을 각자 조사하고, 그 결과를 모아 다섯 종목을 한 묶음으로 짭니다. "
+    "수익률도 종목이 아니라 포트폴리오(동일비중) 기준으로 기록합니다."
+)
+
+
+def render_changed(p):
+    """2단계 회차 상단 고정 블록. 회차에 `changed`(필자가 쓴 경위)가 있으면 그것을 먼저 싣는다."""
+    body = paras(p["changed"]) if p.get("changed") else ""
+    return (
+        '<div class="changed"><b>이번 회차부터 달라진 점</b>'
+        + body + f"<p>{CHANGED_DEFAULT}</p></div>"
     )
 
 
@@ -304,10 +323,7 @@ def render_basket(p, rec):
         "</div>",
         f'<div class="pick-date">기준일 {p.get("basis_date", p["date"])} 종가 · 공개 {p["date"]}</div>',
         (f'<div class="notice">{p["note"]}</div>' if p.get("note") else ""),
-        '<div class="changed"><b>이번 회차부터 달라진 점</b> 제1~2회는 매주 종목 하나를 골랐습니다. '
-        '이번 회차부터는 종목이 아니라 <b>포트폴리오</b>를 구성합니다. 가치·수급·실적·위험·매크로·산업·기술 '
-        '일곱 에이전트가 같은 후보군을 각자 조사하고, 그 결과를 모아 다섯 종목을 한 묶음으로 짭니다. '
-        '수익률도 종목이 아니라 포트폴리오(동일비중) 기준으로 기록합니다.</div>',
+        render_changed(p),
         f'<p class="lede">{p["lede"]}</p>' if p.get("lede") else "",
         '<div class="tbl-scroll"><table class="hold-tbl"><thead><tr>',
         "<th>종목</th><th>합의</th><th>기준가</th><th>익절 1·2차</th><th>손절</th>"

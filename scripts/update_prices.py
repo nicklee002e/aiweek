@@ -52,16 +52,36 @@ def latest(series):
 
 
 # ---------------------------------------------------------------- 판정
-def judge(pick, price):
-    """종가 기준 상태 판정. 확정 상태면 추적을 멈춘다."""
-    t = pick["targets"]
+# 규칙 (2026-09-21 확정)
+#   종가 ≤ 손절가            → 손절 확정 (전량, 추적 종료)
+#   종가 ≥ 2차 익절가        → 2차 익절 확정 (남은 전량, 추적 종료)
+#   종가 ≥ 1차 익절가 (최초) → 절반 실현. 그날 종가로 절반 수익 고정,
+#                              나머지 절반은 계속 추적하되 손절가를 기준가(본전)로 올린다
+#   1차 익절 이후 종가 ≤ 기준가 → 본전 청산 (나머지 절반, 추적 종료)
+#   회차 시한(ROUND_WEEKS)을 넘기면 그날 종가로 남은 종목 전부 확정
+ROUND_WEEKS = int(os.environ.get("AIWEEK_ROUND_WEEKS", "12"))  # 회차 시한 (2026-09-21 확정: 12주)
+
+
+def judge(h, price, old):
+    """(상태, 확정 여부, 수익률%, 갱신할 상태필드) — 종가 기준."""
+    t, entry = h["targets"], h["entry"]
+    full = (price / entry - 1) * 100
+    if old.get("t1_hit"):
+        half_locked = old["half_locked_pct"]
+        ret = half_locked + 0.5 * full
+        if price >= t["t2"]:
+            return "2차 익절", True, ret, {}
+        if price <= entry:
+            return "본전 청산", True, ret, {}
+        return "1차 익절 후 보유", False, ret, {}
     if price <= t["stop"]:
-        return "손절", True
+        return "손절", True, full, {}
     if price >= t["t2"]:
-        return "2차 익절", True
+        return "2차 익절", True, full, {}
     if price >= t["t1"]:
-        return "1차 익절", False
-    return "보유 중", False
+        return "1차 익절", False, full, {"t1_hit": True, "t1_close": round(price),
+                                         "half_locked_pct": round(0.5 * full, 2)}
+    return "보유 중", False, full, {}
 
 
 def holdings_of(p):
@@ -149,8 +169,13 @@ def main():
                     rets.append(old["return_pct"])
                 continue
             date_str, price = latest(series[h["ticker"]])
-            status, closed = judge(h, price)
-            ret = (price / h["entry"] - 1) * 100
+            status, closed, ret, upd = judge(h, price, old)
+            # 회차 시한 — 넘기면 그날 종가로 확정
+            basis = p.get("basis_date", p["date"])
+            if ROUND_WEEKS and not closed and (
+                datetime.fromisoformat(date_str) - datetime.fromisoformat(basis)
+            ).days >= ROUND_WEEKS * 7:
+                status, closed = f"{ROUND_WEEKS}주 만기 확정", True
             rec = {
                 "name": h["name"],
                 "price": round(price),
@@ -159,6 +184,10 @@ def main():
                 "status": status,
                 "closed": closed,
             }
+            for k in ("t1_hit", "t1_close", "half_locked_pct"):
+                if k in old:
+                    rec[k] = old[k]
+            rec.update(upd)
             if h.get("agreement"):
                 rec["agreement"] = h["agreement"]
             if closed and not old.get("closed"):
