@@ -49,67 +49,6 @@
       "return_pct": -5.36,
       "status": "손절",
       "closed_on": "2026-09-16"
-<<<<<<< HEAD
-=======
-    },
-    "3": {
-      "no": 3,
-      "phase": 2,
-      "price_date": "2026-09-21",
-      "basket_return_pct": -0.8,
-      "bench_entry": 6684.3701171875,
-      "bench_return_pct": 4.04,
-      "alpha_pp": -4.84,
-      "closed": false,
-      "holdings": {
-        "009150": {
-          "name": "삼성전기",
-          "price": 1407000,
-          "price_date": "2026-09-21",
-          "return_pct": 5.24,
-          "status": "보유 중",
-          "closed": false,
-          "agreement": 2
-        },
-        "055550": {
-          "name": "신한지주",
-          "price": 111900,
-          "price_date": "2026-09-21",
-          "return_pct": -2.36,
-          "status": "보유 중",
-          "closed": false,
-          "agreement": 6
-        },
-        "105560": {
-          "name": "KB금융",
-          "price": 175800,
-          "price_date": "2026-09-21",
-          "return_pct": -3.19,
-          "status": "보유 중",
-          "closed": false,
-          "agreement": 6
-        },
-        "012450": {
-          "name": "한화에어로스페이스",
-          "price": 1063000,
-          "price_date": "2026-09-15",
-          "return_pct": -6.51,
-          "status": "손절",
-          "closed": true,
-          "agreement": 6,
-          "closed_on": "2026-09-15"
-        },
-        "010950": {
-          "name": "S-Oil",
-          "price": 152800,
-          "price_date": "2026-09-21",
-          "return_pct": 2.83,
-          "status": "보유 중",
-          "closed": false,
-          "agreement": 4
-        }
-      }
->>>>>>> 9fd18f843bb7117ee2516f3934c1da3801226087
     }
   },
   "benchmark": {
