@@ -53,36 +53,36 @@
     "3": {
       "no": 3,
       "phase": 2,
-      "price_date": "2026-09-18",
-      "basket_return_pct": -1.94,
+      "price_date": "2026-09-21",
+      "basket_return_pct": -0.8,
       "bench_entry": 6684.3701171875,
-      "bench_return_pct": 3.14,
-      "alpha_pp": -5.08,
+      "bench_return_pct": 4.04,
+      "alpha_pp": -4.84,
       "closed": false,
       "holdings": {
         "009150": {
           "name": "삼성전기",
-          "price": 1388000,
-          "price_date": "2026-09-18",
-          "return_pct": 3.81,
+          "price": 1407000,
+          "price_date": "2026-09-21",
+          "return_pct": 5.24,
           "status": "보유 중",
           "closed": false,
           "agreement": 2
         },
         "055550": {
           "name": "신한지주",
-          "price": 110100,
-          "price_date": "2026-09-18",
-          "return_pct": -3.93,
+          "price": 111900,
+          "price_date": "2026-09-21",
+          "return_pct": -2.36,
           "status": "보유 중",
           "closed": false,
           "agreement": 6
         },
         "105560": {
           "name": "KB금융",
-          "price": 174900,
-          "price_date": "2026-09-18",
-          "return_pct": -3.69,
+          "price": 175800,
+          "price_date": "2026-09-21",
+          "return_pct": -3.19,
           "status": "보유 중",
           "closed": false,
           "agreement": 6
@@ -99,9 +99,9 @@
         },
         "010950": {
           "name": "S-Oil",
-          "price": 149500,
-          "price_date": "2026-09-18",
-          "return_pct": 0.61,
+          "price": 152800,
+          "price_date": "2026-09-21",
+          "return_pct": 2.83,
           "status": "보유 중",
           "closed": false,
           "agreement": 4
@@ -111,8 +111,8 @@
   },
   "benchmark": {
     "ticker": "^KS11",
-    "date": "2026-09-18",
-    "close": 6894.22998046875
+    "date": "2026-09-21",
+    "close": 6954.419921875
   },
-  "updated_at": "2026-09-18 21:06 KST"
+  "updated_at": "2026-09-21 09:35 KST"
 }
