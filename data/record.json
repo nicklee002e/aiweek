@@ -53,54 +53,54 @@
     "3": {
       "no": 3,
       "phase": 2,
-      "price_date": "2026-09-21",
-      "basket_return_pct": 2.04,
+      "price_date": "2026-09-22",
+      "basket_return_pct": 2.51,
       "bench_entry": 6894.22998046875,
-      "bench_return_pct": 1.65,
-      "alpha_pp": 0.39,
+      "bench_return_pct": 1.79,
+      "alpha_pp": 0.71,
       "closed": false,
       "holdings": {
         "005930": {
           "name": "삼성전자",
-          "price": 274000,
-          "price_date": "2026-09-21",
-          "return_pct": 4.98,
+          "price": 276500,
+          "price_date": "2026-09-22",
+          "return_pct": 5.94,
           "status": "보유 중",
           "closed": false,
           "agreement": 5
         },
         "009150": {
           "name": "삼성전기",
-          "price": 1429000,
-          "price_date": "2026-09-21",
-          "return_pct": 2.95,
+          "price": 1486000,
+          "price_date": "2026-09-22",
+          "return_pct": 7.06,
           "status": "보유 중",
           "closed": false,
           "agreement": 4
         },
         "055550": {
           "name": "신한지주",
-          "price": 113100,
-          "price_date": "2026-09-21",
-          "return_pct": 2.72,
+          "price": 113200,
+          "price_date": "2026-09-22",
+          "return_pct": 2.82,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "068270": {
           "name": "셀트리온",
-          "price": 181400,
-          "price_date": "2026-09-21",
-          "return_pct": 1.11,
+          "price": 178500,
+          "price_date": "2026-09-22",
+          "return_pct": -0.5,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "000270": {
           "name": "기아",
-          "price": 120000,
-          "price_date": "2026-09-21",
-          "return_pct": -1.56,
+          "price": 118500,
+          "price_date": "2026-09-22",
+          "return_pct": -2.79,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
@@ -110,8 +110,8 @@
   },
   "benchmark": {
     "ticker": "^KS11",
-    "date": "2026-09-21",
-    "close": 7007.72021484375
+    "date": "2026-09-22",
+    "close": 7017.91015625
   },
-  "updated_at": "2026-09-21 22:42 KST"
+  "updated_at": "2026-09-22 21:26 KST"
 }
