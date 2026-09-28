@@ -1,0 +1,191 @@
+{
+  "agent": "가치",
+  "basis_date": "2026-09-23",
+  "_method_note": "pool.json에 close_krx·fundamentals가 없어 종가는 9/23 마감 기사(서울신문·재경일보 마감분석)에서, EPS(TTM)·BPS는 stockanalysis.com 재무제표 집계값(발행주식수·장부가 기준)에서 가져와 PER·PBR을 직접 나눠 계산했다. 언론이 인용한 PER·PBR은 쓰지 않았다. 9/28 장중 가격은 쓰지 않았다. 뉴스 검색은 제목·일자 수준까지만 확인된 것이 있어 evidence에 그대로 표기했다.",
+  "opinions": [
+    {
+      "code": "000660",
+      "name": "SK하이닉스",
+      "close": 1862000,
+      "close_source": "https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251",
+      "stance": "반대",
+      "confidence": 0.7,
+      "opinion": "BPS 368,991원에 종가 1,862,000원, PBR 5.05배. TTM EPS 227,588원으로 PER 8.2배지만 ROE 93%는 이익이 정점에 있다는 뜻이고, 정점 이익에 붙은 낮은 PER은 싼 것이 아니다. 배당수익률 0.16%, 자사주 매입 없음(바이백 수익률 -0.14%) — 이 값을 내고 회사를 통째로 사면 장부가의 5배를 주는 것이다. 52주 +430% 오른 종목을 싫어하는 내 편향을 알지만, 5배라는 숫자는 편향이 아니다.",
+      "evidence": [
+        { "fact": "9/23 종가 1,862,000원(+1.20%). 같은 날 뉴스핌 마감기사는 1,863,000원(+1.25%)으로 1,000원 차이", "source": "https://www.newspim.com/news/view/20260923000946", "date": "2026-09-23" },
+        { "fact": "BPS 368,991원, EPS(TTM) 227,588원, ROE 92.7%, 배당수익률 0.16%, 바이백 수익률 -0.14%, 발행주식 7억2,887만주, 순현금 66.9조원", "source": "https://stockanalysis.com/quote/krx/000660/statistics/", "date": "2026-09-27" },
+        { "fact": "계산: PBR 1,862,000/368,991 = 5.05배, PER 1,862,000/227,588 = 8.18배", "source": "https://stockanalysis.com/quote/krx/000660/statistics/", "date": "2026-09-23" }
+      ],
+      "what_would_change_my_mind": "PBR이 2.0배(BPS 기준 약 74만원) 아래로 내려오거나, 순현금 66.9조원의 상당 부분을 자사주 소각·배당으로 돌리는 공시가 나오면 다시 본다."
+    },
+    {
+      "code": "402340",
+      "name": "SK스퀘어",
+      "close": 1190000,
+      "close_source": "https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251",
+      "stance": "반대",
+      "confidence": 0.5,
+      "opinion": "장부 BPS 273,232원 대비 PBR 4.36배, TTM EPS 117,567원(대부분 SK하이닉스 지분법 이익)으로 PER 10.1배. 시가총액 약 157조원은 보유 SK하이닉스 지분(약 20%) 시가 약 270조원의 6할 남짓이어서 NAV 할인은 40% 안팎으로 크다. 그러나 그 NAV 자체가 PBR 5배 정점 이익 위에 서 있다. 지주 할인은 구조적이고, 기초자산은 비싸다 — 할인율만 보고 싼 것으로 읽지 않는다. 2028년까지 NAV 할인율 30% 이하 목표와 자사주 소각(바이백 수익률 0.70%)은 주주 편이지만, 기초자산 가격을 바꾸지는 못한다.",
+      "evidence": [
+        { "fact": "9/23 종가 1,190,000원(+5.03%)", "source": "https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251", "date": "2026-09-23" },
+        { "fact": "BPS 273,232원, EPS(TTM) 117,567원, 배당수익률 0.16%, 바이백 수익률 0.70%, 발행주식 1억3,169만주, 순현금 1.3조원. 계산: PBR 4.36배, PER 10.1배", "source": "https://stockanalysis.com/quote/krx/402340/statistics/", "date": "2026-09-23" },
+        { "fact": "기업가치 제고 계획: 2028년까지 NAV 할인율 30% 이하 목표", "source": "https://www.investchosun.com/site/data/html_dir/2025/11/24/2025112480133.html", "date": "2025-11-24" },
+        { "fact": "SK하이닉스 지분율 약 20%는 SK스퀘어 IR NAV 페이지 기준(이번 조사에서 페이지 본문 미확인, 사전지식). 지분 시가 = 7억2,887만주×20%×1,862,000원 ≈ 271조원 vs 시가총액 1,190,000원×1억3,169만주 ≈ 157조원", "source": "https://www.sksquare.com/kor/ir/nav.do", "date": "2026-09-23" }
+      ],
+      "what_would_change_my_mind": "SK하이닉스 PBR이 2배 아래로 내려온 상태에서 SK스퀘어의 NAV 할인율이 여전히 40% 이상 남아 있으면 편입한다. 또는 보유 자사주 추가 소각 공시로 주식수가 1억2천만주 아래로 줄어들면 다시 계산한다."
+    },
+    {
+      "code": "005380",
+      "name": "현대차",
+      "close": 353500,
+      "close_source": "https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251",
+      "stance": "편입",
+      "confidence": 0.65,
+      "opinion": "BPS 465,932원에 종가 353,500원, PBR 0.76배. TTM EPS 26,940원으로 PER 13.1배, ROE 7.2% — 싼 이유는 이익이 눌린 데 있다. 이 시점에 회사는 8월 26일 7,891억원 자사주를 소각하고 주당 최소배당 1만원(수익률 2.8%)을 유지했으며 3년 4조원 매입 계획을 지키고 있다. 이익이 바닥인 해에 주주환원을 줄이지 않는 것은 경영진이 이 이익을 일시적이라 본다는 뜻이고, 숫자(0.76배·환원 합계 연 4%대)가 그 판단을 지지한다. 장부에 금융채권이 많아 순부채 103조원인 것은 자동차금융 특성으로 감안한다.",
+      "evidence": [
+        { "fact": "9/23 종가 353,500원(-1.94%)", "source": "https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251", "date": "2026-09-23" },
+        { "fact": "BPS 465,932원, EPS(TTM) 26,940원, ROE 7.2%, 배당수익률 2.83%, 바이백 수익률 0.33%, 순부채 102.6조원. 계산: PBR 0.76배, PER 13.1배", "source": "https://stockanalysis.com/quote/krx/005380/statistics/", "date": "2026-09-27" },
+        { "fact": "7,891억원 규모 자사주 소각, 주당 최소배당금 1만원 유지", "source": "https://m.news.nate.com/view/20260826n33239", "date": "2026-08-26" },
+        { "fact": "2분기 컨콜: 주당 2,500원 분기배당, 3년 4조원 자사주 매입 계획 유지", "source": "https://m.news.nate.com/view/20260723n27482", "date": "2026-07-23" }
+      ],
+      "what_would_change_my_mind": "PBR 1.0배(약 46만원) 위로 올라가면 편입 근거가 사라진다. 반대로 최소배당 1만원 철회나 4조원 매입 계획 축소 공시가 나오면 '일시적 이익 부진' 가정을 접고 반대로 돈다."
+    },
+    {
+      "code": "207940",
+      "name": "삼성바이오로직스",
+      "close": 1366000,
+      "close_source": "https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251",
+      "stance": "반대",
+      "confidence": 0.75,
+      "opinion": "BPS 180,839원에 종가 1,366,000원, PBR 7.55배. TTM EPS 45,556원으로 PER 30.0배, ROE 18.5%, 배당 없음. 이익률 38%의 좋은 회사지만 장부가의 7.5배, 이익의 30년치를 내고 사는 값이다. 52주 -13%로 후보군에서 드물게 내린 종목인데, 내려서 7.5배다 — 낙폭은 출발점일 뿐이고 이 숫자에서는 결론까지 가지 못한다.",
+      "evidence": [
+        { "fact": "9/23 종가 1,366,000원(-1.80%)", "source": "https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251", "date": "2026-09-23" },
+        { "fact": "BPS 180,839원, EPS(TTM) 45,556원, ROE 18.5%, 배당 없음, 52주 -13.4%, 순현금 9,717억원. 계산: PBR 7.55배, PER 30.0배", "source": "https://stockanalysis.com/quote/krx/207940/statistics/", "date": "2026-09-26" }
+      ],
+      "what_would_change_my_mind": "PBR 4배(BPS 기준 약 72만원) 아래, 또는 PER 15배 아래로 내려오면 다시 본다. 배당 개시 공시가 나오면 자본 배분 항목은 재평가한다."
+    },
+    {
+      "code": "105560",
+      "name": "KB금융",
+      "close": 173200,
+      "close_source": "https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251",
+      "stance": "보류",
+      "confidence": 0.5,
+      "opinion": "BPS 160,402원에 종가 173,200원, PBR 1.08배 — 장부가를 넘었다. TTM EPS 16,831원으로 PER 10.3배, ROE 10.2%, 배당수익률 2.5%에 바이백 수익률 3.9%(1월 1.2조·4월 2.3조 소각). 자본 배분은 후보군 중 가장 모범적이다. 그러나 내 질문은 '싼가'이고, ROE 10%짜리 은행을 장부가 1.08배에 사는 것은 싸지도 비싸지도 않은 경계선이다. 같은 업종의 하나금융이 0.79배에 있는 이상 이쪽을 먼저 집을 이유가 없다. 부족한 것은 숫자가 아니라 할인이다.",
+      "evidence": [
+        { "fact": "9/23 종가 173,200원(-1.42%)", "source": "https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251", "date": "2026-09-23" },
+        { "fact": "BPS 160,402원, EPS(TTM) 16,831원, ROE 10.2%, 배당수익률 2.52%, 바이백 수익률 3.85%. 계산: PBR 1.08배, PER 10.3배", "source": "https://stockanalysis.com/quote/krx/105560/statistics/", "date": "2026-09-27" },
+        { "fact": "1.2조원 규모 자사주 861만주 소각", "source": "https://www.newspim.com/news/view/20260123000675", "date": "2026-01-23" },
+        { "fact": "2.3조원 기보유 자사주 전량 소각", "source": "https://view.asiae.co.kr/article/2026042315212621634", "date": "2026-04-23" }
+      ],
+      "what_would_change_my_mind": "PBR 1.0배(약 16만원) 아래로 재진입하면 편입한다. ROE가 12%를 넘는 것이 반기보고서로 확인되면 1.08배도 싸다고 고쳐 쓴다."
+    },
+    {
+      "code": "028260",
+      "name": "삼성물산",
+      "close": 367000,
+      "close_source": "https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251",
+      "stance": "보류",
+      "confidence": 0.45,
+      "opinion": "BPS 388,291원에 종가 367,000원, PBR 0.95배. TTM EPS 15,406원으로 PER 23.8배, ROE 7.5%, 배당수익률 0.8%. 장부 기준으로는 싸지 않다. 이 회사의 진짜 장부는 삼성바이오로직스·삼성전자 지분의 시가(NAV)인데, 그 NAV는 PBR 7.5배와 사상 최고가 종목으로 채워져 있어 지주 할인이 얼마나 남았는지 이번 조사로 확인하지 못했다. 52주 +100% 오른 뒤라 내 편향(오르는 종목 기피)이 작동할 자리이므로, 숫자를 채우기 전에는 판단을 미룬다. 부족한 것: 자사주 소각 진행률과 지분 시가 기준 NAV.",
+      "evidence": [
+        { "fact": "9/23 종가 367,000원(보합)", "source": "https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251", "date": "2026-09-23" },
+        { "fact": "BPS 388,291원, EPS(TTM) 15,406원, ROE 7.5%, 배당수익률 0.79%, 52주 +99.8%, 순현금 1.83조원. 계산: PBR 0.95배, PER 23.8배", "source": "https://stockanalysis.com/quote/krx/028260/statistics/", "date": "2026-07-15" }
+      ],
+      "what_would_change_my_mind": "보유 자사주 소각이 공시로 진행되어 발행주식수가 1억5천만주 아래로 줄고, PBR이 0.8배(약 31만원) 아래로 내려오면 편입한다. 삼성바이오로직스가 PBR 4배 아래로 내려온 뒤에도 삼성물산이 NAV 대비 50% 이상 할인이면 그때 편입한다."
+    },
+    {
+      "code": "096770",
+      "name": "SK이노베이션",
+      "close": 149200,
+      "close_source": "https://news.jkn.co.kr/post/994851",
+      "stance": "반대",
+      "confidence": 0.7,
+      "opinion": "BPS 139,737원에 종가 149,200원, PBR 1.07배. TTM EPS -19,276원으로 적자, ROE -10.5%, 배당 없음, 순부채 26.9조원. 바이백 수익률 -36%는 1년 사이 주식수가 3분의 1 이상 늘었다는 뜻이고(SK온·SK엔무브 합병·8조원 자본확충), 9월 16일 SKIET 흡수합병 추진으로 또 신주가 나온다. 적자 회사를 장부가 위에서 사면서 희석까지 받는 구조 — 유상증자·합병 신주는 내게 가장 무거운 부정 신호다. 9/23 +5.8% 상승은 이 숫자들을 하나도 바꾸지 않는다.",
+      "evidence": [
+        { "fact": "9/23 종가 149,200원(+5.82%, 전일 141,000원). 기사: 뚜렷한 개별 호재나 공시 없음", "source": "https://news.jkn.co.kr/post/994851", "date": "2026-09-23" },
+        { "fact": "BPS 139,737원, EPS(TTM) -19,276원, ROE -10.5%, 바이백 수익률 -36.0%, 순부채 26.9조원, 배당 없음. 계산: PBR 1.07배, PER 산출 불가(적자)", "source": "https://stockanalysis.com/quote/krx/096770/statistics/", "date": "2026-08-05" },
+        { "fact": "SK이노베이션·SKIET 합병 추진, 주주 설득 과제", "source": "https://www.g-enews.com/article/Industry/2026/09/2026091615555881524debea800_1", "date": "2026-09-16" },
+        { "fact": "SK온·SK엔무브 합병 및 8조원 대규모 자본확충", "source": "https://www.newsspace.kr/mobile/article.html?no=8300", "date": "2025-07" }
+      ],
+      "what_would_change_my_mind": "합병·증자 공시가 1년간 더 나오지 않고, TTM EPS가 흑자로 돌아선 상태에서 PBR 0.6배(약 8만4천원) 아래로 내려오면 다시 본다."
+    },
+    {
+      "code": "066570",
+      "name": "LG전자",
+      "close": 209000,
+      "close_source": "https://news.jkn.co.kr/post/994834",
+      "stance": "반대",
+      "confidence": 0.6,
+      "opinion": "BPS 142,232원에 종가 209,000원, PBR 1.47배. TTM EPS 4,481원으로 PER 46.6배, ROE 4.8%, 배당수익률 0.95%. 자기 역사(PBR 1배 안팎)와 비교하면 이익은 줄고 주가는 52주 +135% 올라 장부가의 1.5배가 됐다. 선행 PER 10.7배는 남의 관점(실적 전망)이고, 내 관점의 숫자는 46배다. 9/22 급등·9/23 -3.5%는 이 회사 값어치와 무관하다.",
+      "evidence": [
+        { "fact": "9/23 종가 209,000원(-3.46%, 전일 216,500원)", "source": "https://news.jkn.co.kr/post/994834", "date": "2026-09-23" },
+        { "fact": "BPS 142,232원, EPS(TTM) 4,481원, ROE 4.8%, 배당수익률 0.95%, 바이백 수익률 0.02%, 52주 +135%. 계산: PBR 1.47배, PER 46.6배", "source": "https://stockanalysis.com/quote/krx/066570/statistics/", "date": "2026-08-07" }
+      ],
+      "what_would_change_my_mind": "PBR 1.0배(약 14만2천원) 아래로 내려오거나, TTM EPS가 15,000원을 넘어 PER이 15배 아래로 떨어지면 다시 본다."
+    },
+    {
+      "code": "086790",
+      "name": "하나금융지주",
+      "close": 133100,
+      "close_source": "https://news.jkn.co.kr/post/994833",
+      "stance": "편입",
+      "confidence": 0.7,
+      "opinion": "BPS 168,710원에 종가 133,100원, PBR 0.79배. TTM EPS 14,582원으로 PER 9.1배, ROE 9.0%, 배당수익률 3.0%에 바이백 수익률 5.5% — 앉아서 받는 환원이 연 8%를 넘는다. 싼 이유는 ROE 9%가 자본비용을 겨우 넘는 은행이라는 데 있고 그건 구조적이지만, 장부가 아래에서 주식수를 매년 5% 줄이면 주당 장부가는 절로 오른다. 4월에 소각 위주에서 현금배당 비중 확대로 방향을 바꾼 것도 주주 편이다. 후보군 금융주 셋 가운데 가장 큰 할인.",
+      "evidence": [
+        { "fact": "9/23 종가 133,100원(-2.13%, 전일 136,000원). 공시상 직접 악재 없음", "source": "https://news.jkn.co.kr/post/994833", "date": "2026-09-23" },
+        { "fact": "BPS 168,710원, EPS(TTM) 14,582원, ROE 9.0%, 배당수익률 3.0%, 바이백 수익률 5.46%, 발행주식 2억6,960만주. 계산: PBR 0.79배, PER 9.1배", "source": "https://stockanalysis.com/quote/krx/086790/statistics/", "date": "2026-09-05" },
+        { "fact": "주주환원을 자사주 소각 집중에서 현금배당 비중 확대로 전환", "source": "https://www.newspim.com/news/view/20260424001095", "date": "2026-04-24" }
+      ],
+      "what_would_change_my_mind": "PBR 1.0배(약 16만9천원)에 닿으면 편입 근거가 사라진다. 자사주 매입·소각 규모가 연 1조원 아래로 줄거나 유상증자가 나오면 반대로 돈다."
+    },
+    {
+      "code": "032830",
+      "name": "삼성생명",
+      "close": 294500,
+      "close_source": "https://news.jkn.co.kr/post/994824",
+      "stance": "편입",
+      "confidence": 0.55,
+      "opinion": "BPS 452,324원에 종가 294,500원, PBR 0.65배. TTM EPS 15,988원으로 PER 18.4배, ROE 5.3%, 배당수익률 1.9%. 싼 이유는 ROE 5%대 — 장부가에 돈을 오래 묶어두는 보험사의 구조적 낮은 수익성이다. 그런데 장부의 큰 몫이 삼성전자 지분이라는 시장성 자산이고, 8월 회사가 삼성전자 특별배당도 배당 재원으로 삼아 주주환원율 50%를 목표한다고 밝혔다. 자본 배분이 주주 쪽으로 움직이기 시작한 0.65배 — 편입하되, 52주 +124% 뒤라는 점에서 확신은 낮춘다.",
+      "evidence": [
+        { "fact": "9/23 종가 294,500원(+1.20%, 전일 291,000원)", "source": "https://news.jkn.co.kr/post/994824", "date": "2026-09-23" },
+        { "fact": "BPS 452,324원, EPS(TTM) 15,988원, ROE 5.25%, 배당수익률 1.92%, 52주 +123.5%. 계산: PBR 0.65배, PER 18.4배", "source": "https://stockanalysis.com/quote/krx/032830/statistics/", "date": "2026-08-30" },
+        { "fact": "삼성생명 \"삼성전자 특별배당도 배당 재원…주주환원율 50% 목표\"", "source": "https://m.news.nate.com/view/20260813n28930", "date": "2026-08-13" },
+        { "fact": "삼성전자 110조원 주주환원으로 삼성생명 배당여력 확대, 증권사 목표가 42만원(종가 대비 괴리 약 43% — 괴리 자체는 매력으로 읽지 않음)", "source": "https://www.newspim.com/news/view/20260827000085", "date": "2026-08-27" }
+      ],
+      "what_would_change_my_mind": "PBR 0.85배(약 38만원) 위로 올라가면 편입 근거가 약해진다. 2026년 결산배당이 주주환원율 50% 목표에 못 미치는 것(주당 배당 6,000원 아래)으로 공시되면 자본 배분 항목을 철회한다."
+    },
+    {
+      "code": "005490",
+      "name": "POSCO홀딩스",
+      "close": 311500,
+      "close_source": "https://news.jkn.co.kr/post/994853",
+      "stance": "보류",
+      "confidence": 0.5,
+      "opinion": "BPS 759,917원에 종가 311,500원, PBR 0.41배 — 후보군에서 한국전력 다음으로 싸다. 그러나 TTM EPS 17,818원으로 PER 17.5배, ROE 2.2%. 장부가 76만원이 연 2%밖에 벌지 못하면 그 장부가를 얼마나 믿을지가 문제고, 그 장부에는 철강 설비와 리튬·니켈 투자자산이 들어 있다. 순부채 17.5조원. 배당수익률 2.6%, 바이백 0.8%는 나쁘지 않다. 싼 것은 확실한데 '왜 싼가'가 일시적(철강 사이클 바닥)인지 구조적(배터리 소재 자산의 손상 가능성)인지 이번 조사로 가르지 못했다 — 적지 못하면 보류다.",
+      "evidence": [
+        { "fact": "9/23 종가 311,500원(-1.89%, 전일 317,500원)", "source": "https://news.jkn.co.kr/post/994853", "date": "2026-09-23" },
+        { "fact": "BPS 759,917원, EPS(TTM) 17,818원, ROE 2.2%, 배당수익률 2.57%, 바이백 수익률 0.81%, 순부채 17.5조원, 52주 +11%. 계산: PBR 0.41배, PER 17.5배", "source": "https://stockanalysis.com/quote/krx/005490/statistics/", "date": "2026-09-27" },
+        { "fact": "현금·현물 배당 결정 공시", "source": "https://kind.krx.co.kr/common/disclsviewer.do?method=searchInitInfo&acptNo=20260203001053&docno=", "date": "2026-02-03" }
+      ],
+      "what_would_change_my_mind": "반기·3분기 보고서에서 배터리 소재 부문 손상차손이 없고 ROE가 5% 위로 올라오면 편입한다. 반대로 리튬·니켈 자산 손상차손 공시가 나오면 장부가 76만원을 믿지 않고 반대로 돈다."
+    },
+    {
+      "code": "015760",
+      "name": "한국전력",
+      "close": 30300,
+      "close_source": "https://news.jkn.co.kr/post/994863",
+      "stance": "보류",
+      "confidence": 0.45,
+      "opinion": "BPS 78,865원에 종가 30,300원, PBR 0.38배. TTM EPS 12,212원으로 PER 2.5배, 배당 1,542원이면 수익률 5.1%. 후보군에서 가장 싼 숫자다. 그런데 PER 2.5배는 시장이 이 이익을 정점으로 본다는 선언이고, ROE 16.6%는 순부채 130조원 위에 세워진 숫자다. 증권사 목표가 7만원과 종가의 괴리 130%는 시장이 목표가를 믿지 않는다는 뜻으로 읽는다. 52주 최저가 근접 — 떨어지는 칼을 잡아온 내 이력이 여기서 가장 위험하다. 싼 이유가 일시적인지 판단할 재료(2026년 결산배당 정책, 이익의 지속성)를 이번 예산 안에서 확인하지 못했다.",
+      "evidence": [
+        { "fact": "9/23 종가 30,300원(-1.78%, 전일 30,850원). 전력요금 현실화 불확실성 언급", "source": "https://news.jkn.co.kr/post/994863", "date": "2026-09-23" },
+        { "fact": "BPS 78,865원, EPS(TTM) 12,212원, ROE 16.6%, 연 배당 1,542원, 순부채 130.7조원, D/E 2.63, 52주 -12%. 계산: PBR 0.38배, PER 2.48배, 배당수익률 5.1%", "source": "https://stockanalysis.com/quote/krx/015760/statistics/", "date": "2026-08-31" },
+        { "fact": "9월 4주차 한국전력 주가 52주 최저가 근접 마감", "source": "https://www.joongangenews.com/news/articleView.html?idxno=550596", "date": "2026-09-23" },
+        { "fact": "키움증권 실적 리뷰: 목표주가 70,000원 상향", "source": "https://bbn.kiwoom.com/rfCR11957", "date": "2026-02-27" }
+      ],
+      "what_would_change_my_mind": "2026년 결산배당이 주당 1,500원 이상으로 공시되고(수익률 5% 유지) 3분기 누적 순이익이 전년 수준을 지키면 편입한다. 순부채가 140조원을 넘거나 배당 축소 공시가 나오면 반대로 돈다."
+    }
+  ],
+  "pool_note": "후보군이 정확히 둘로 갈린다. 반도체·바이오·가전(SK하이닉스 5.0배, 삼성바이오 7.6배, SK스퀘어 4.4배, LG전자 1.5배)과 금융·철강·전력(한전 0.38배, POSCO 0.41배, 삼성생명 0.65배, 현대차 0.76배, 하나 0.79배). 내 편입은 모두 아래쪽에 있고, 아래쪽은 ROE 2~10%라서 싼 이유가 분명하다. 이번 회차의 내 위험은 '싸서 샀는데 더 싸지는' 쪽이며, 그래서 자본 배분(소각·배당)이 주주 편으로 실제 움직이는 셋(현대차·하나·삼성생명)만 편입했다. 종가·재무 숫자는 KRX·DART 원천이 아닌 언론 마감기사와 stockanalysis 집계값이라는 점을 종합 단계가 알고 있어야 한다."
+}

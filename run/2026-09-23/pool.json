@@ -1,0 +1,30 @@
+{
+  "basis_date": "2026-09-23",
+  "rule_version": "2026-09-15",
+  "_note": "9/24~25 추석 휴장으로 기준일은 직전 거래일 9/23(수). 기준일 마감 시황 기사 언급 종목(상승·하락) + 직전 거래일 급등 언급 종목 + 저PBR 업종 시총 상위. 제3회 보유 5종목(삼성전자·삼성전기·신한지주·셀트리온·기아) 제외. close_krx 미연동 — 1층은 언론·IR 종가를 출처와 함께 씀. 기준일 이후(9/28 장중) 가격 사용 금지.",
+  "pool": [
+    { "code": "000660", "name": "SK하이닉스", "ticker": "000660.KS", "sector": "전기전자", "why_in_pool": "마감 시황 언급(상승 +1.2%)" },
+    { "code": "402340", "name": "SK스퀘어", "ticker": "402340.KS", "sector": "금융(지주)", "why_in_pool": "마감 시황 언급(상승 +4~5%)" },
+    { "code": "005380", "name": "현대차", "ticker": "005380.KS", "sector": "운수장비", "why_in_pool": "마감 시황 언급(하락 -1.5~1.9%)" },
+    { "code": "207940", "name": "삼성바이오로직스", "ticker": "207940.KS", "sector": "의약품", "why_in_pool": "마감 시황 언급(하락 -1.6~1.8%)" },
+    { "code": "105560", "name": "KB금융", "ticker": "105560.KS", "sector": "금융", "why_in_pool": "마감 시황 언급(하락 -1.2~1.4%)" },
+    { "code": "028260", "name": "삼성물산", "ticker": "028260.KS", "sector": "유통(지주)", "why_in_pool": "마감 시황 언급(보합)" },
+    { "code": "096770", "name": "SK이노베이션", "ticker": "096770.KS", "sector": "화학·정유", "why_in_pool": "9/23 급등 언급(+6.0%)" },
+    { "code": "066570", "name": "LG전자", "ticker": "066570.KS", "sector": "전기전자", "why_in_pool": "9/22 급등 언급(+6.4%)" },
+    { "code": "086790", "name": "하나금융지주", "ticker": "086790.KS", "sector": "금융", "why_in_pool": "저PBR 업종 시총 상위" },
+    { "code": "032830", "name": "삼성생명", "ticker": "032830.KS", "sector": "보험", "why_in_pool": "저PBR 업종 시총 상위" },
+    { "code": "005490", "name": "POSCO홀딩스", "ticker": "005490.KS", "sector": "철강", "why_in_pool": "저PBR 업종 시총 상위" },
+    { "code": "015760", "name": "한국전력", "ticker": "015760.KS", "sector": "전기가스", "why_in_pool": "저PBR 업종 시총 상위" }
+  ],
+  "excluded": [
+    { "code": "005930", "name": "삼성전자", "reason": "제3회 보유 중" },
+    { "code": "009150", "name": "삼성전기", "reason": "제3회 보유 중" },
+    { "code": "055550", "name": "신한지주", "reason": "제3회 보유 중" },
+    { "code": "068270", "name": "셀트리온", "reason": "제3회 보유 중" },
+    { "code": "000270", "name": "기아", "reason": "제3회 보유 중" }
+  ],
+  "market_context_sources": [
+    "https://www.newspim.com/news/view/20260923000946",
+    "https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251"
+  ]
+}
