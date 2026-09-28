@@ -54,53 +54,53 @@
       "no": 3,
       "phase": 2,
       "price_date": "2026-09-28",
-      "basket_return_pct": 2.36,
+      "basket_return_pct": 1.68,
       "bench_entry": 6894.22998046875,
-      "bench_return_pct": 1.35,
-      "alpha_pp": 1.01,
+      "bench_return_pct": NaN,
+      "alpha_pp": NaN,
       "closed": false,
       "holdings": {
         "005930": {
           "name": "삼성전자",
-          "price": 276000,
+          "price": 270000,
           "price_date": "2026-09-28",
-          "return_pct": 5.75,
+          "return_pct": 3.45,
           "status": "보유 중",
           "closed": false,
           "agreement": 5
         },
         "009150": {
           "name": "삼성전기",
-          "price": 1528000,
+          "price": 1499000,
           "price_date": "2026-09-28",
-          "return_pct": 10.09,
+          "return_pct": 8.0,
           "status": "보유 중",
           "closed": false,
           "agreement": 4
         },
         "055550": {
           "name": "신한지주",
-          "price": 110000,
+          "price": 111300,
           "price_date": "2026-09-28",
-          "return_pct": -0.09,
+          "return_pct": 1.09,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "068270": {
           "name": "셀트리온",
-          "price": 179400,
+          "price": 178300,
           "price_date": "2026-09-28",
-          "return_pct": 0.0,
+          "return_pct": -0.61,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "000270": {
           "name": "기아",
-          "price": 117100,
+          "price": 117600,
           "price_date": "2026-09-28",
-          "return_pct": -3.94,
+          "return_pct": -3.53,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
@@ -111,7 +111,7 @@
   "benchmark": {
     "ticker": "^KS11",
     "date": "2026-09-28",
-    "close": 6987.56005859375
+    "close": NaN
   },
-  "updated_at": "2026-09-28 10:15 KST"
+  "updated_at": "2026-09-29 00:02 KST"
 }
