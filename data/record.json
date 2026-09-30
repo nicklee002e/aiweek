@@ -53,54 +53,54 @@
     "3": {
       "no": 3,
       "phase": 2,
-      "price_date": "2026-09-29",
-      "basket_return_pct": 1.95,
+      "price_date": "2026-09-30",
+      "basket_return_pct": -0.03,
       "bench_entry": 6894.22998046875,
-      "bench_return_pct": -0.34,
-      "alpha_pp": 2.29,
+      "bench_return_pct": -0.82,
+      "alpha_pp": 0.78,
       "closed": false,
       "holdings": {
         "005930": {
           "name": "삼성전자",
-          "price": 272500,
-          "price_date": "2026-09-29",
-          "return_pct": 4.41,
+          "price": 268500,
+          "price_date": "2026-09-30",
+          "return_pct": 2.87,
           "status": "보유 중",
           "closed": false,
           "agreement": 5
         },
         "009150": {
           "name": "삼성전기",
-          "price": 1528000,
-          "price_date": "2026-09-29",
-          "return_pct": 10.09,
+          "price": 1513000,
+          "price_date": "2026-09-30",
+          "return_pct": 9.01,
           "status": "보유 중",
           "closed": false,
           "agreement": 4
         },
         "055550": {
           "name": "신한지주",
-          "price": 110500,
-          "price_date": "2026-09-29",
-          "return_pct": 0.36,
+          "price": 106100,
+          "price_date": "2026-09-30",
+          "return_pct": -3.63,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "068270": {
           "name": "셀트리온",
-          "price": 178900,
-          "price_date": "2026-09-29",
-          "return_pct": -0.28,
+          "price": 177700,
+          "price_date": "2026-09-30",
+          "return_pct": -0.95,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "000270": {
           "name": "기아",
-          "price": 116000,
-          "price_date": "2026-09-29",
-          "return_pct": -4.84,
+          "price": 112800,
+          "price_date": "2026-09-30",
+          "return_pct": -7.47,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
@@ -110,45 +110,45 @@
     "4": {
       "no": 4,
       "phase": 2,
-      "price_date": "2026-09-29",
-      "basket_return_pct": -1.85,
+      "price_date": "2026-09-30",
+      "basket_return_pct": -3.45,
       "bench_entry": 7080.919921875,
-      "bench_return_pct": -2.97,
-      "alpha_pp": 1.12,
+      "bench_return_pct": -3.43,
+      "alpha_pp": -0.02,
       "closed": false,
       "holdings": {
         "000660": {
           "name": "SK하이닉스",
-          "price": 1765000,
-          "price_date": "2026-09-29",
-          "return_pct": -5.21,
+          "price": 1776000,
+          "price_date": "2026-09-30",
+          "return_pct": -4.62,
           "status": "보유 중",
           "closed": false,
           "agreement": 4
         },
         "005380": {
           "name": "현대차",
-          "price": 350000,
-          "price_date": "2026-09-29",
-          "return_pct": -0.99,
+          "price": 345000,
+          "price_date": "2026-09-30",
+          "return_pct": -2.4,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "105560": {
           "name": "KB금융",
-          "price": 173500,
-          "price_date": "2026-09-29",
-          "return_pct": 0.17,
+          "price": 168800,
+          "price_date": "2026-09-30",
+          "return_pct": -2.54,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "032830": {
           "name": "삼성생명",
-          "price": 290500,
-          "price_date": "2026-09-29",
-          "return_pct": -1.36,
+          "price": 282000,
+          "price_date": "2026-09-30",
+          "return_pct": -4.24,
           "status": "보유 중",
           "closed": false,
           "agreement": 4
@@ -158,8 +158,8 @@
   },
   "benchmark": {
     "ticker": "^KS11",
-    "date": "2026-09-29",
-    "close": 6870.81005859375
+    "date": "2026-09-30",
+    "close": 6838.0400390625
   },
-  "updated_at": "2026-09-29 22:50 KST"
+  "updated_at": "2026-09-30 22:23 KST"
 }
