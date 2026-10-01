@@ -53,54 +53,57 @@
     "3": {
       "no": 3,
       "phase": 2,
-      "price_date": "2026-09-30",
-      "basket_return_pct": -0.03,
+      "price_date": "2026-10-01",
+      "basket_return_pct": 1.56,
       "bench_entry": 6894.22998046875,
-      "bench_return_pct": -0.82,
-      "alpha_pp": 0.78,
+      "bench_return_pct": 1.12,
+      "alpha_pp": 0.44,
       "closed": false,
       "holdings": {
         "005930": {
           "name": "삼성전자",
-          "price": 268500,
-          "price_date": "2026-09-30",
-          "return_pct": 2.87,
+          "price": 276000,
+          "price_date": "2026-10-01",
+          "return_pct": 5.75,
           "status": "보유 중",
           "closed": false,
           "agreement": 5
         },
         "009150": {
           "name": "삼성전기",
-          "price": 1513000,
-          "price_date": "2026-09-30",
-          "return_pct": 9.01,
-          "status": "보유 중",
+          "price": 1561000,
+          "price_date": "2026-10-01",
+          "return_pct": 12.46,
+          "status": "1차 익절",
           "closed": false,
+          "t1_hit": true,
+          "t1_close": 1561000,
+          "half_locked_pct": 6.23,
           "agreement": 4
         },
         "055550": {
           "name": "신한지주",
-          "price": 106100,
-          "price_date": "2026-09-30",
-          "return_pct": -3.63,
+          "price": 103800,
+          "price_date": "2026-10-01",
+          "return_pct": -5.72,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "068270": {
           "name": "셀트리온",
-          "price": 177700,
-          "price_date": "2026-09-30",
-          "return_pct": -0.95,
+          "price": 183600,
+          "price_date": "2026-10-01",
+          "return_pct": 2.34,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "000270": {
           "name": "기아",
-          "price": 112800,
-          "price_date": "2026-09-30",
-          "return_pct": -7.47,
+          "price": 113300,
+          "price_date": "2026-10-01",
+          "return_pct": -7.05,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
@@ -110,45 +113,46 @@
     "4": {
       "no": 4,
       "phase": 2,
-      "price_date": "2026-09-30",
-      "basket_return_pct": -3.45,
+      "price_date": "2026-10-01",
+      "basket_return_pct": -2.64,
       "bench_entry": 7080.919921875,
-      "bench_return_pct": -3.43,
-      "alpha_pp": -0.02,
+      "bench_return_pct": -1.55,
+      "alpha_pp": -1.09,
       "closed": false,
       "holdings": {
         "000660": {
           "name": "SK하이닉스",
-          "price": 1776000,
-          "price_date": "2026-09-30",
-          "return_pct": -4.62,
+          "price": 1833000,
+          "price_date": "2026-10-01",
+          "return_pct": -1.56,
           "status": "보유 중",
           "closed": false,
           "agreement": 4
         },
         "005380": {
           "name": "현대차",
-          "price": 345000,
-          "price_date": "2026-09-30",
-          "return_pct": -2.4,
+          "price": 349000,
+          "price_date": "2026-10-01",
+          "return_pct": -1.27,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "105560": {
           "name": "KB금융",
-          "price": 168800,
-          "price_date": "2026-09-30",
-          "return_pct": -2.54,
-          "status": "보유 중",
-          "closed": false,
-          "agreement": 3
+          "price": 166000,
+          "price_date": "2026-10-01",
+          "return_pct": -4.16,
+          "status": "손절",
+          "closed": true,
+          "agreement": 3,
+          "closed_on": "2026-10-01"
         },
         "032830": {
           "name": "삼성생명",
-          "price": 282000,
-          "price_date": "2026-09-30",
-          "return_pct": -4.24,
+          "price": 284000,
+          "price_date": "2026-10-01",
+          "return_pct": -3.57,
           "status": "보유 중",
           "closed": false,
           "agreement": 4
@@ -158,8 +162,8 @@
   },
   "benchmark": {
     "ticker": "^KS11",
-    "date": "2026-09-30",
-    "close": 6838.0400390625
+    "date": "2026-10-01",
+    "close": 6971.35009765625
   },
-  "updated_at": "2026-09-30 22:23 KST"
+  "updated_at": "2026-10-01 23:17 KST"
 }
