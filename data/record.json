@@ -53,27 +53,27 @@
     "3": {
       "no": 3,
       "phase": 2,
-      "price_date": "2026-10-06",
-      "basket_return_pct": 1.78,
+      "price_date": "2026-10-07",
+      "basket_return_pct": 0.58,
       "bench_entry": 6894.22998046875,
-      "bench_return_pct": 0.68,
-      "alpha_pp": 1.1,
+      "bench_return_pct": -1.31,
+      "alpha_pp": 1.89,
       "closed": false,
       "holdings": {
         "005930": {
           "name": "삼성전자",
-          "price": 272000,
-          "price_date": "2026-10-06",
-          "return_pct": 4.21,
+          "price": 268500,
+          "price_date": "2026-10-07",
+          "return_pct": 2.87,
           "status": "보유 중",
           "closed": false,
           "agreement": 5
         },
         "009150": {
           "name": "삼성전기",
-          "price": 1675000,
-          "price_date": "2026-10-06",
-          "return_pct": 16.57,
+          "price": 1604000,
+          "price_date": "2026-10-07",
+          "return_pct": 14.01,
           "status": "1차 익절 후 보유",
           "closed": false,
           "t1_hit": true,
@@ -83,57 +83,58 @@
         },
         "055550": {
           "name": "신한지주",
-          "price": 103600,
-          "price_date": "2026-10-06",
-          "return_pct": -5.9,
+          "price": 103300,
+          "price_date": "2026-10-07",
+          "return_pct": -6.18,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "068270": {
           "name": "셀트리온",
-          "price": 182400,
-          "price_date": "2026-10-06",
-          "return_pct": 1.67,
+          "price": 183500,
+          "price_date": "2026-10-07",
+          "return_pct": 2.29,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
         },
         "000270": {
           "name": "기아",
-          "price": 112600,
-          "price_date": "2026-10-06",
-          "return_pct": -7.63,
-          "status": "보유 중",
-          "closed": false,
-          "agreement": 3
+          "price": 109600,
+          "price_date": "2026-10-07",
+          "return_pct": -10.09,
+          "status": "손절",
+          "closed": true,
+          "agreement": 3,
+          "closed_on": "2026-10-07"
         }
       }
     },
     "4": {
       "no": 4,
       "phase": 2,
-      "price_date": "2026-10-06",
-      "basket_return_pct": -3.43,
+      "price_date": "2026-10-07",
+      "basket_return_pct": -5.29,
       "bench_entry": 7080.919921875,
-      "bench_return_pct": -1.97,
-      "alpha_pp": -1.46,
+      "bench_return_pct": -3.91,
+      "alpha_pp": -1.38,
       "closed": false,
       "holdings": {
         "000660": {
           "name": "SK하이닉스",
-          "price": 1773000,
-          "price_date": "2026-10-06",
-          "return_pct": -4.78,
+          "price": 1723000,
+          "price_date": "2026-10-07",
+          "return_pct": -7.47,
           "status": "보유 중",
           "closed": false,
           "agreement": 4
         },
         "005380": {
           "name": "현대차",
-          "price": 348000,
-          "price_date": "2026-10-06",
-          "return_pct": -1.56,
+          "price": 336000,
+          "price_date": "2026-10-07",
+          "return_pct": -4.95,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
@@ -150,9 +151,9 @@
         },
         "032830": {
           "name": "삼성생명",
-          "price": 285000,
-          "price_date": "2026-10-06",
-          "return_pct": -3.23,
+          "price": 281000,
+          "price_date": "2026-10-07",
+          "return_pct": -4.58,
           "status": "보유 중",
           "closed": false,
           "agreement": 4
@@ -162,8 +163,8 @@
   },
   "benchmark": {
     "ticker": "^KS11",
-    "date": "2026-10-06",
-    "close": 6941.39013671875
+    "date": "2026-10-07",
+    "close": 6803.89990234375
   },
-  "updated_at": "2026-10-06 22:59 KST"
+  "updated_at": "2026-10-07 23:17 KST"
 }
