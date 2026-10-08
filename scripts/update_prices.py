@@ -59,6 +59,7 @@ def latest(series):
 #                              나머지 절반은 계속 추적하되 손절가를 기준가(본전)로 올린다
 #   1차 익절 이후 종가 ≤ 기준가 → 본전 청산 (나머지 절반, 추적 종료)
 #   회차 시한(ROUND_WEEKS)을 넘기면 그날 종가로 남은 종목 전부 확정
+#   체크포인트 교체로 빠진 종목(holding.exited)은 제외일 종가로 고정, 교체로 들어온 종목은 자기 기준가(entry)로 추적
 ROUND_WEEKS = int(os.environ.get("AIWEEK_ROUND_WEEKS", "12"))  # 회차 시한 (2026-09-21 확정: 12주)
 
 
@@ -125,7 +126,7 @@ def main():
         print("확정되지 않은 회차 없음 — 지수만 갱신")
 
     tickers = sorted(
-        {h["ticker"] for p in open_picks for h in holdings_of(p)} | {BENCHMARK}
+        {h["ticker"] for p in open_picks for h in holdings_of(p) if not h.get("exited")} | {BENCHMARK}
     )
     print(f"조회: {', '.join(tickers)}")
     series = fetch_series(tickers)
@@ -162,6 +163,17 @@ def main():
             if old.get("closed"):
                 hold_rec[code] = old
                 rets.append(old["return_pct"])
+                continue
+            # 체크포인트 교체로 빠진 종목 — 제외일 종가로 고정 (헌법 7절). 시세 조회 없음
+            if h.get("exited"):
+                x = h["exited"]
+                ret = (x["price"] / h["entry"] - 1) * 100
+                hold_rec[code] = {"name": h["name"], "price": x["price"], "price_date": x["date"],
+                                  "return_pct": round(ret, 2), "status": "교체 제외", "closed": True,
+                                  "closed_on": x["date"]}
+                if h.get("agreement"):
+                    hold_rec[code]["agreement"] = h["agreement"]
+                rets.append(round(ret, 2))
                 continue
             if h["ticker"] not in series:
                 if old:

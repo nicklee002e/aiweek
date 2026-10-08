@@ -30,7 +30,7 @@ def tone(v):
 
 
 STATUS_CLASS = {"손절": "bad", "1차 익절": "good", "1차 익절 후 보유": "good", "2차 익절": "good",
-                "본전 청산": "hold", "보유 중": "hold"}
+                "본전 청산": "hold", "보유 중": "hold", "교체 제외": "hold"}
 
 PHASE_LABEL = {1: "1단계 · 단일 종목", 2: "2단계 · 7관점 5종목 포트폴리오"}
 PHASE_RECORD = {1: "1단계 단일 종목 성적", 2: "2단계 포트폴리오 성적"}
@@ -164,6 +164,17 @@ tr.now td{color:var(--muted)}
 
 .agree{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 7px;border-radius:3px;
   border:1px solid var(--line);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.proc{font-size:12px;color:var(--muted)}.proc i{font-style:normal;font-weight:700;color:var(--ink);white-space:nowrap}
+.tag{display:inline-block;margin-left:6px;padding:1px 6px;border:1px solid var(--line);border-radius:4px;font-size:11px;color:var(--muted);vertical-align:middle}
+tr.exited td{opacity:.55}
+.hold-tbl .t12{line-height:1.35;font-size:13.5px}
+.hold-tbl th,.hold-tbl td{padding:9px 7px;font-size:13.5px}.hold-tbl .badge{padding:2px 5px;font-size:11px}
+.conflict{margin:14px 0 0;padding:10px 12px;border:1px solid var(--line);border-radius:6px}
+.conflict h4{margin:0 0 6px;font-size:15px}.ctype,.cproc{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:4px;font-size:11.5px;font-weight:400;border:1px solid var(--line);color:var(--muted)}
+.cproc{color:var(--ink);font-weight:700}
+.tension{margin:0 0 6px;font-size:13.5px}.conflict .why{margin:0 0 8px;font-size:13px;color:var(--muted)}
+.round{margin:6px 0}.rn{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:2px}
+.outcome{margin:8px 0 0;font-size:13.5px}.outcome .rs{display:block;margin-top:3px;color:var(--muted)}.audit{display:block;margin-top:4px;font-size:12px;color:var(--bad,#b3261e)}
 .changed{background:#f4f1ea;color:#111;border-left:3px solid #111;padding:10px 14px;margin:12px 0;font-size:14px;line-height:1.7}
 .changed b{color:#111;display:block;margin-bottom:6px}.changed p{margin:0 0 8px}.changed p:last-child{margin:0}
 .vblock{margin:14px 0 0}.vblock h4{margin:0 0 6px;font-size:15px}
@@ -182,7 +193,7 @@ tr.now td{color:var(--muted)}
 .rejected{list-style:none;padding:0;margin:0}
 .rejected li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px}
 .rejected b{font-weight:700;margin-right:6px}
-.rejected .rs{color:var(--muted)}
+.rejected .rs{color:var(--muted);display:block;margin-top:3px;font-size:13px}
 .phase-h{font-size:16px;margin:26px 0 10px;color:var(--accent);letter-spacing:.01em}
 .phase-h:first-child{margin-top:0}
 .phase-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;
@@ -220,7 +231,7 @@ INTRO = """
 
 RULES = [
     ("매주 7명의 에이전트가 선택한 최대 5종목 포트폴리오, 월요일 오전 8시.", "직전 거래일(보통 금요일) 종가를 기준가로 삼고, 월요일 6시까지 뉴스를 반영하여 아침에 공개합니다. 근거가 부족하면 다섯보다 적게 담습니다. (제1~2회는 매주 한 종목이었습니다.)"),
-    ("매수 조건과 목표를 미리 공개합니다.", "매수 시점, 1차·2차 익절가, 손절가를 공개 시점에 모두 밝히고 이후에는 바꾸지 않습니다."),
+    ("매수 조건과 목표를 미리 공개합니다.", "매수 시점, 1차·2차 익절가, 손절가를 공개 시점에 모두 밝히고 이후에는 바꾸지 않습니다. 다만 편입 시 함께 공개한 확인 조건(체크포인트)이 깨지면 그 종목을 그날 종가로 확정하고 교체할 수 있으며, 교체 과정은 전부 기록합니다."),
     ("판정은 종가 기준입니다.", "손절가를 종가로 밑돌면 그 자리에서 손실을 확정해 기록합니다. 장중에 잠깐 스친 가격은 세지 않습니다."),
     ("1차 익절에서 절반을 실현하고, 손절가를 기준가로 올립니다.", "종가가 1차 익절가에 처음 닿은 날 절반의 수익을 그 종가로 고정합니다. 나머지 절반은 계속 추적하되, 그 뒤로 종가가 기준가 아래로 내려오면 본전에서 청산합니다. 2차 익절가에 닿으면 나머지도 확정합니다."),
     ("회차는 12주까지 추적합니다.", "기준일로부터 12주가 지나면 그날 종가로 남은 종목을 모두 확정합니다. 그 전에 손절·본전 청산·2차 익절로 확정된 종목은 그 자리에 고정됩니다."),
@@ -281,6 +292,113 @@ def render_changed(p):
     )
 
 
+PROC_SHORT = {"verify": "검증", "defer": "위임", "bargain": "협상", "barter": "교환",
+              "vote": "투표", "replan": "재계획", "escalate": "상신"}
+
+
+def proc_html(h):
+    """종목이 어떤 절차를 거쳐 들어왔나 — 절차 → 결과."""
+    pr = h.get("procedure")
+    if not pr:
+        return '<span class="proc">—</span>'
+    pr_k = " → ".join(PROC_SHORT.get(x.strip(), x.strip()) for x in str(pr).split("→"))
+    out = h.get("outcome") or ""
+    return f'<span class="proc"><i>{pr_k}</i>{(" · " + out) if out else ""}</span>'
+
+
+def render_checkpoints(hs):
+    """편입 조건으로 붙은 체크포인트 — 공개 시점에 조건과 함께 싣는다 (헌법 7절)."""
+    items = []
+    for h in hs:
+        for c in (h.get("terms") or {}).get("checkpoints", []):
+            st = c.get("result")
+            badge = (f' <span class="badge {"good" if st == "충족" else "bad" if st == "미충족" else "hold"}">{st}</span>'
+                     if st else "")
+            items.append(f'<li><b>{h["name"]}</b> · {c.get("when","")} — {c.get("condition","")}'
+                         f'<span class="rs">조건을 낸 관점: {c.get("owner","")}</span>{badge}</li>')
+    if not items:
+        return ""
+    return ('<div class="block"><h3>체크포인트 — 공개 시점에 함께 공개한 확인 조건</h3>'
+            '<p class="hint">조건이 깨지면 그 종목은 그날 종가로 확정하고 교체할 수 있습니다. 과정은 아래 교체 이력에 남습니다.</p>'
+            f'<ul class="rejected">{"".join(items)}</ul></div>')
+
+
+def render_unresolved(p):
+    """상신 후 필자가 답하지 않은 종목 — 담지 않고 표시한다 (헌법 10절)."""
+    u = p.get("unresolved") or []
+    if not u:
+        return ""
+    items = "".join(
+        f'<li><b>{x["name"]}</b> <span class="badge hold">미해소</span>'
+        f'<span class="rs">{x.get("summary","")}</span>'
+        + ("".join(f'<span class="rs">선택지 {i+1}: {o}</span>' for i, o in enumerate(x.get("options", []))))
+        + "</li>" for x in u)
+    return ('<div class="block"><h3>미해소 종목 — 담지 않았습니다</h3>'
+            '<p class="hint">세 라운드 뒤에도 결론이 나지 않아 필자에게 올렸고, 공개 시각까지 답이 없어 담지 않고 쟁점만 싣습니다.</p>'
+            f'<ul class="rejected">{items}</ul></div>')
+
+
+def render_resolution(p):
+    """합의 과정 — 슈퍼에이전트가 고른 절차와 라운드 기록 (헌법 11절)."""
+    res = p.get("resolution") or {}
+    conflicts = res.get("conflicts") or []
+    if not conflicts and not res.get("replans"):
+        return ""
+    TYPE = {"F": "사실 충돌", "I": "해석 충돌", "D": "영역 충돌", "X": "축 충돌", "P": "선호 교착", "R": "계획 실패"}
+    blocks = []
+    for c in conflicts:
+        if c.get("type") == "F" and not c.get("rounds"):
+            continue  # 사실 충돌은 표 아래 한 줄로 합산
+        pr = " → ".join(PROC_SHORT.get(x.strip(), x.strip()) for x in str(c.get("procedure", "")).split("→"))
+        rounds = ""
+        for rd in c.get("rounds", []):
+            lines = "".join(
+                f'<li><i>{a}</i><span><b>{r.get("move","")}</b> — {r.get("text","")}</span></li>'
+                for a, r in (rd.get("responses") or {}).items())
+            rounds += f'<div class="round"><span class="rn">라운드 {rd.get("n","")}</span><ul class="views">{lines}</ul></div>'
+        terms = c.get("terms")
+        if isinstance(terms, dict):
+            terms = " · ".join(f"{k}: {v}" for k, v in terms.items() if isinstance(v, str))
+        audit = "".join(f'<span class="audit">감사 표시: {a}</span>' for a in (c.get("audit_flags") or []))
+        blocks.append(
+            f'<div class="conflict"><h4>{c.get("subject","")} '
+            f'<span class="ctype">{TYPE.get(c.get("type",""), c.get("type",""))}</span>'
+            f'<span class="cproc">{pr}</span></h4>'
+            + (f'<p class="tension">{c["tension"]}</p>' if c.get("tension") else "")
+            + (f'<p class="why">절차 선택 근거 — {c["why"]}</p>' if c.get("why") else "")
+            + rounds
+            + f'<p class="outcome"><b>결과</b> {c.get("outcome","")}'
+            + (f' <span class="rs">{terms}</span>' if terms else "")
+            + (f'<span class="rs">양보한 관점: {", ".join(c["conceded_by"])}</span>' if c.get("conceded_by") else "")
+            + "</p>" + audit + "</div>")
+    facts = [c for c in conflicts if c.get("type") == "F"]
+    fact_line = (f'<p class="hint">사실 충돌 {len(facts)}건은 출처 우선순위(거래소 › 회사 IR › 언론)로 라운드 없이 확정했습니다.</p>'
+                 if facts else "")
+    replans = ""
+    for r in res.get("replans") or []:
+        props = "".join(f'<li>{x}</li>' for x in (r.get("proposals_summary") or []))
+        replans += (f'<div class="conflict"><h4>재계획 <span class="ctype">계획 실패</span>'
+                    f'<span class="cproc">재계획</span></h4><p class="tension">{r.get("trigger","")}</p>'
+                    + (f'<ul class="rejected">{props}</ul>' if props else "")
+                    + f'<p class="outcome"><b>결과</b> {r.get("outcome","")}</p></div>')
+    return ('<div class="block"><h3>합의 과정 — 슈퍼에이전트가 고른 절차와 라운드</h3>'
+            '<p class="hint">찬성 수로 정하지 않았습니다. 갈린 종목마다 충돌의 종류를 분류하고, 헌법의 닫힌 메뉴(검증·위임·협상·교환·투표·재계획·상신)에서 절차를 골라 라운드를 열었습니다. 각 관점의 처음 소견은 위에 그대로 있고, 라운드에서 바뀐 입장은 여기에 새로 적혔습니다.</p>'
+            + fact_line + "".join(blocks) + replans + "</div>")
+
+
+def render_replacements(p):
+    """체크포인트 교체 이력 (헌법 7절)."""
+    rp = p.get("replacements") or []
+    if not rp:
+        return ""
+    items = "".join(
+        f'<li><b>{x["date"]}</b> {x["out_name"]} → {x.get("in_name","(빈 자리)")}'
+        f'<span class="rs">{x.get("reason","")}</span>'
+        f'<span class="rs">절차: {PROC_SHORT.get(x.get("procedure",""), x.get("procedure",""))} · 제외 종가 {won(x["exit_price"])}</span></li>'
+        for x in rp)
+    return f'<div class="block"><h3>교체 이력</h3><ul class="rejected">{items}</ul></div>'
+
+
 def render_basket(p, rec):
     """2단계 — 5종목 동일비중 바스켓."""
     hs = holdings_of(p)
@@ -299,11 +417,19 @@ def render_basket(p, rec):
         ag_html = (
             f'<span class="agree a{ag}">{ag}/{N_VIEWS}</span>' if ag else '<span class="agree">—</span>'
         )
+        if h.get("exited"):
+            x = h["exited"]
+            cur = (f'<td>{won(x["price"])}</td>'
+                   f'<td class="{tone(x.get("return_pct", 0))}">{pct(x.get("return_pct", 0))}</td>'
+                   f'<td><span class="badge hold">교체 {x["date"]}</span></td>')
+        name = (f'<b>{h["name"]}</b>'
+                + ('<span class="tag">반대편 자리</span>' if (h.get("terms") or {}).get("contrarian") else "")
+                + (f'<span class="why">{proc_html(h)}</span>' if h.get("procedure") else ""))
         rows.append(
-            f'<tr><td><b>{h["name"]}</b></td>'
+            f'<tr class="{"exited" if h.get("exited") else ""}"><td>{name}</td>'
             f'<td>{ag_html}</td>'
             f'<td>{won(h["entry"])}</td>'
-            f'<td>{won(t["t1"])} / {won(t["t2"])}</td><td>{won(t["stop"])}</td>{cur}</tr>'
+            f'<td class="t12">{won(t["t1"])}<br>{won(t["t2"])}</td><td>{won(t["stop"])}</td>{cur}</tr>'
         )
     br = round_return(rec)
     summary = ""
@@ -330,7 +456,11 @@ def render_basket(p, rec):
         "<th>현재가</th><th>수익률</th><th>상태</th>",
         "</tr></thead><tbody>", "".join(rows), "</tbody></table></div>",
         summary,
+        render_checkpoints(hs),
+        render_unresolved(p),
         render_views_section(hs),
+        render_resolution(p),
+        render_replacements(p),
     ]
     for key, label in (("buy", "이번 주의 이야기"), ("risk", "위험 요소")):
         if p.get(key):

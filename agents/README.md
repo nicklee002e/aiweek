@@ -22,7 +22,8 @@
 1층  관찰      01~07 (병렬·격리)   → obs_가치.json 등 7개
                 가치·수급·실적·위험·매크로·산업·기술
 2층  종합      08_종합.md          → synthesis.json
-3층  구성      09_구성.md          → basket.json  → picks.json 회차 항목
+슈퍼  절차선택·라운드  10_슈퍼에이전트.md + 헌법.md + 11_협상라운드.md → resolution.json
+3층  구성      09_구성.md          → basket.json  → picks.json 회차 항목  (resolved_positions 기준, 합의도 불사용)
 ```
 
 ### 1층의 격리 규칙 (가장 중요)
