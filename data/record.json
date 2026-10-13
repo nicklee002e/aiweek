@@ -53,33 +53,35 @@
     "3": {
       "no": 3,
       "phase": 2,
-      "price_date": "2026-10-12",
-      "basket_return_pct": -1.86,
+      "price_date": "2026-10-13",
+      "basket_return_pct": -5.07,
       "bench_entry": 6894.22998046875,
-      "bench_return_pct": -6.44,
-      "alpha_pp": 4.57,
+      "bench_return_pct": -12.46,
+      "alpha_pp": 7.39,
       "closed": false,
       "holdings": {
         "005930": {
           "name": "삼성전자",
-          "price": 255000,
-          "price_date": "2026-10-12",
-          "return_pct": -2.3,
-          "status": "보유 중",
-          "closed": false,
-          "agreement": 5
+          "price": 232000,
+          "price_date": "2026-10-13",
+          "return_pct": -11.11,
+          "status": "손절",
+          "closed": true,
+          "agreement": 5,
+          "closed_on": "2026-10-13"
         },
         "009150": {
           "name": "삼성전기",
-          "price": 1526000,
-          "price_date": "2026-10-12",
-          "return_pct": 11.2,
-          "status": "1차 익절 후 보유",
-          "closed": false,
+          "price": 1363000,
+          "price_date": "2026-10-13",
+          "return_pct": 5.33,
+          "status": "본전 청산",
+          "closed": true,
           "t1_hit": true,
           "t1_close": 1561000,
           "half_locked_pct": 6.23,
-          "agreement": 4
+          "agreement": 4,
+          "closed_on": "2026-10-13"
         },
         "055550": {
           "name": "신한지주",
@@ -93,9 +95,9 @@
         },
         "068270": {
           "name": "셀트리온",
-          "price": 182100,
-          "price_date": "2026-10-12",
-          "return_pct": 1.51,
+          "price": 179700,
+          "price_date": "2026-10-13",
+          "return_pct": 0.17,
           "status": "보유 중",
           "closed": false,
           "agreement": 3
@@ -167,8 +169,8 @@
   },
   "benchmark": {
     "ticker": "^KS11",
-    "date": "2026-10-12",
-    "close": 6450.5
+    "date": "2026-10-13",
+    "close": 6035.35009765625
   },
-  "updated_at": "2026-10-12 10:52 KST"
+  "updated_at": "2026-10-13 23:51 KST"
 }
