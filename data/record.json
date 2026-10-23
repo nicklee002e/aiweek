@@ -53,11 +53,11 @@
     "3": {
       "no": 3,
       "phase": 2,
-      "price_date": "2026-10-22",
+      "price_date": "2026-10-23",
       "basket_return_pct": -3.22,
       "bench_entry": 6894.22998046875,
-      "bench_return_pct": -19.73,
-      "alpha_pp": 16.51,
+      "bench_return_pct": -19.49,
+      "alpha_pp": 16.28,
       "closed": false,
       "holdings": {
         "005930": {
@@ -95,9 +95,9 @@
         },
         "068270": {
           "name": "셀트리온",
-          "price": 194300,
-          "price_date": "2026-10-22",
-          "return_pct": 9.39,
+          "price": 194400,
+          "price_date": "2026-10-23",
+          "return_pct": 9.42,
           "status": "1차 익절 후 보유",
           "closed": false,
           "t1_hit": true,
@@ -172,8 +172,8 @@
   },
   "benchmark": {
     "ticker": "^KS11",
-    "date": "2026-10-22",
-    "close": 5533.77001953125
+    "date": "2026-10-23",
+    "close": 5550.2998046875
   },
-  "updated_at": "2026-10-22 21:49 KST"
+  "updated_at": "2026-10-23 21:28 KST"
 }
